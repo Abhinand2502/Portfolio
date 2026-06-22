@@ -329,11 +329,49 @@ body.light-mode .menu-toggle span{
     transition:.25s ease;
 }
 
-body.light-mode .mobile-menu{
-    background:rgba(255,255,255,.94);
-    border-color:rgba(17,24,39,.08);
+body.light-mode{
+    --header-bg: rgba(0,0,0,.45);
+    --header-border: rgba(255,255,255,.15);
+    --header-text: #ffffff;
+
+    --hero-text:#ffffff;
+    --hero-soft:rgba(255,255,255,.82);
 }
 
+body.light-mode .logo,
+body.light-mode .nav-links a{
+    color:#ffffff;
+}
+
+body.light-mode .nav-links a:hover{
+    color:#56b5ff;
+}
+
+body.light-mode .theme-toggle{
+    color:#ffffff;
+    background:rgba(255,255,255,.10);
+    border-color:rgba(255,255,255,.18);
+}
+
+body.light-mode .contact-btn{
+    color:#ffffff;
+    background:rgba(255,255,255,.10);
+    border-color:rgba(255,255,255,.18);
+}
+
+body.light-mode .contact-btn i{
+    background:#ffffff;
+    color:#071224;
+}
+
+body.light-mode .menu-toggle{
+    background:rgba(255,255,255,.10);
+    border-color:rgba(255,255,255,.18);
+}
+
+body.light-mode .menu-toggle span{
+    background:#ffffff;
+}
 .nav-open .mobile-menu{
     display:block;
     opacity:1;
