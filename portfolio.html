@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abhinand Babu | Portfolio</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+    --bg: #071224;
+    --text: #ffffff;
+    --text-soft: #d6d6d6;
+    --card: rgba(255,255,255,.06);
+    --card-border: rgba(255,255,255,.12);
+    --accent: #4d9cff;
+    --accent-2: #56b5ff;
+    --btn-text: #fff;
+    --input: rgba(255,255,255,.08);
+    --section-bg: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+    --shadow: 0 18px 50px rgba(0,0,0,.25);
+
+    /* Hero stays dark in both modes */
+    --hero-overlay-left: rgba(4,13,28,.95);
+    --hero-overlay-mid: rgba(4,13,28,.88);
+    --hero-overlay-right: rgba(4,13,28,.08);
+    --hero-text: #ffffff;
+    --hero-soft: rgba(255,255,255,.82);
+}
+
+body.light-mode{
+    --bg: #f5f7fb;
+    --text: #111827;
+    --text-soft: #4b5563;
+    --card: rgba(255,255,255,.78);
+    --card-border: rgba(17,24,39,.08);
+    --accent: #2563eb;
+    --accent-2: #3b82f6;
+    --btn-text: #fff;
+    --input: rgba(17,24,39,.05);
+    --section-bg: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.62));
+    --shadow: 0 18px 50px rgba(15,23,42,.08);
+
+    /* Keep hero background dark; only text stays readable */
+    --hero-overlay-left: rgba(4,13,28,.95);
+    --hero-overlay-mid: rgba(4,13,28,.88);
+    --hero-overlay-right: rgba(4,13,28,.08);
+    --hero-text: #ffffff;
+    --hero-soft: rgba(255,255,255,.82);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+    transition:background .35s ease, color .35s ease;
+}
+
+img, iframe{
+    max-width:100%;
+    display:block;
+}
+
+button, a, input, textarea{
+    -webkit-tap-highlight-color: transparent;
+}
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:0 clamp(16px, 4vw, 60px);
+    position:relative;
+    z-index:5;
+}
+
+/* HERO */
+.hero{
+    width:100%;
+    min-height:100svh;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-bg{
+    position:absolute;
+    inset:0;
+    background:url("assets/bgg.jpeg") center center/cover no-repeat;
+    transform:scale(1.01);
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        90deg,
+        var(--hero-overlay-left) 0%,
+        var(--hero-overlay-mid) 35%,
+        var(--hero-overlay-right) 100%
+    );
+}
+
+.navbar{
+    min-height:90px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:14px 0;
+    position:relative;
+}
+
+.logo{
+    font-size:clamp(1.2rem, 2vw, 1.7rem);
+    font-weight:700;
+    color:var(--hero-text);
+    letter-spacing:.2px;
+    white-space:nowrap;
+    flex-shrink:0;
+}
+
+.nav-links{
+    display:flex;
+    gap:clamp(18px, 3vw, 42px);
+    align-items:center;
+    transition:.25s ease;
+}
+
+.nav-links a{
+    color:var(--hero-text);
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    opacity:.92;
+    transition:.25s ease;
+    position:relative;
+    white-space:nowrap;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:var(--accent);
+    border-radius:2px;
+    transition:.25s ease;
+}
+
+.nav-links a:hover{
+    color:var(--accent);
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.right-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-shrink:0;
+}
+
+.theme-toggle{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.18);
+    cursor:pointer;
+    font-size:18px;
+    background:rgba(255,255,255,.10);
+    color:#fff;
+    backdrop-filter:blur(12px);
+    display:grid;
+    place-items:center;
+    transition:.25s ease;
+}
+
+.theme-toggle:hover{
+    transform:translateY(-1px);
+    box-shadow:0 15px 40px rgba(0,0,0,.22);
+}
+
+.contact-btn{
+    border:1px solid rgba(255,255,255,.18);
+    padding:12px 20px;
+    border-radius:999px;
+    text-decoration:none;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.10);
+    transition:.25s ease;
+    white-space:nowrap;
+}
+
+.contact-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 15px 40px rgba(0,0,0,.22);
+}
+
+.contact-btn i{
+    width:28px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#fff;
+    color:#071224;
+    transition:.25s ease;
+}
+
+.menu-toggle{
+    display:none;
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.10);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.18);
+    cursor:pointer;
+    font-size:18px;
+    align-items:center;
+    justify-content:center;
+    backdrop-filter:blur(12px);
+}
+
+/* HERO CONTENT */
+.hero-content{
+    min-height:calc(100svh - 90px);
+    display:flex;
+    align-items:center;
+    padding-bottom:30px;
+}
+
+.left{
+    max-width:min(560px, 100%);
+}
+
+.intro{
+    color:var(--accent);
+    font-size:clamp(1rem, 2vw, 1.15rem);
+    margin-bottom:15px;
+    font-weight:600;
+}
+
+.title{
+    font-size:clamp(3rem, 8vw, 5.4rem);
+    line-height:.95;
+    font-weight:800;
+    margin-bottom:clamp(20px, 3vw, 28px);
+    letter-spacing:-1px;
+    color:var(--hero-text);
+    text-wrap:balance;
+}
+
+.description{
+    font-size:clamp(1rem, 1.8vw, 1.15rem);
+    line-height:1.8;
+    color:var(--hero-soft);
+    max-width:520px;
+    margin-bottom:40px;
+}
+
+.buttons{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+}
+
+.primary-btn{
+    text-decoration:none;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:var(--btn-text);
+    padding:16px 28px;
+    border-radius:14px;
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    box-shadow:0 15px 40px rgba(61,139,255,.28);
+    transition:.25s ease;
+}
+
+.primary-btn:hover{
+    transform:translateY(-2px);
+}
+
+.secondary-btn{
+    text-decoration:none;
+    color:#fff;
+    border:1px solid rgba(255,255,255,.20);
+    padding:16px 28px;
+    border-radius:14px;
+    font-weight:600;
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.08);
+    transition:.25s ease;
+}
+
+.secondary-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 15px 40px rgba(0,0,0,.22);
+}
+
+.social{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.social a{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.18);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    text-decoration:none;
+    font-size:18px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+    transition:.25s ease;
+}
+
+.social a:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px rgba(0,0,0,.22);
+}
+
+/* SECTIONS */
+section.page{
+    padding:clamp(72px, 8vw, 110px) 0;
+    background:var(--section-bg);
+    position:relative;
+    border-top:1px solid var(--card-border);
+}
+
+.section-title{
+    font-size:clamp(1.9rem, 4vw, 2.6rem);
+    margin-bottom:18px;
+    color:var(--text);
+    letter-spacing:-.5px;
+}
+
+.section-subtitle{
+    color:var(--text-soft);
+    max-width:760px;
+    line-height:1.8;
+    margin-bottom:40px;
+    font-size:clamp(0.98rem, 1.7vw, 1.05rem);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    gap:22px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:22px;
+    padding:clamp(20px, 3vw, 28px);
+    box-shadow:var(--shadow);
+    backdrop-filter:blur(14px);
+    transition:.25s ease;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.card h3{
+    font-size:1.2rem;
+    margin-bottom:12px;
+    color:var(--text);
+}
+
+.card p{
+    color:var(--text-soft);
+    line-height:1.7;
+}
+
+.tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:16px;
+}
+
+.tag{
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid var(--card-border);
+    color:var(--text);
+    font-size:.9rem;
+    background:rgba(255,255,255,.03);
+}
+
+/* ABOUT */
+.about-wrap{
+    display:grid;
+    grid-template-columns:1.25fr .75fr;
+    gap:24px;
+    align-items:start;
+}
+
+.profile-box{
+    padding:clamp(20px, 3vw, 28px);
+    border-radius:22px;
+    background:var(--card);
+    border:1px solid var(--card-border);
+    box-shadow:var(--shadow);
+}
+
+.profile-box h3{
+    font-size:1.2rem;
+    margin-bottom:10px;
+    color:var(--text);
+}
+
+.profile-box p{
+    line-height:1.8;
+    color:var(--text-soft);
+    margin-bottom:10px;
+}
+
+/* SKILLS */
+.skill-list{
+    display:grid;
+    gap:16px;
+}
+
+.skill{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:18px;
+    padding:18px 20px;
+    box-shadow:var(--shadow);
+}
+
+.skill-top{
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    margin-bottom:10px;
+    color:var(--text);
+    font-weight:600;
+}
+
+.progress{
+    height:10px;
+    background:rgba(255,255,255,.10);
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.progress > span{
+    display:block;
+    height:100%;
+    border-radius:999px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+}
+
+/* CONTACT */
+.contact-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+}
+
+.contact-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:22px;
+    padding:28px;
+    box-shadow:var(--shadow);
+}
+
+.contact-card h3{
+    margin-bottom:12px;
+    color:var(--text);
+}
+
+.contact-card p{
+    color:var(--text-soft);
+    line-height:1.8;
+    margin-bottom:14px;
+}
+
+.fake-input{
+    width:100%;
+    margin-top:12px;
+    padding:14px 16px;
+    border-radius:14px;
+    border:1px solid var(--card-border);
+    background:var(--input);
+    color:var(--text);
+    outline:none;
+}
+
+.fake-input::placeholder{
+    color:var(--text-soft);
+}
+
+.fake-textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+/* RESUME MODAL */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(12px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    padding:18px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-content{
+    width:min(1100px, 100%);
+    height:min(85svh, 850px);
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(18px);
+    border-radius:24px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+.close{
+    position:absolute;
+    right:16px;
+    top:16px;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.15);
+    color:white;
+    cursor:pointer;
+    z-index:2;
+}
+
+.resume-frame{
+    width:100%;
+    height:calc(100% - 85px);
+    border:none;
+    background:rgba(255,255,255,.02);
+}
+
+.download-area{
+    height:85px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0 16px;
+}
+
+.download-btn{
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    padding:15px 34px;
+    border-radius:12px;
+    font-weight:600;
+    box-shadow:0 15px 40px rgba(61,139,255,.28);
+    white-space:nowrap;
+}
+
+/* MOBILE MENU */
+.mobile-menu{
+    display:none;
+    position:absolute;
+    left:0;
+    right:0;
+    top:100%;
+    margin-top:10px;
+    background:rgba(7,18,36,.92);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    backdrop-filter:blur(16px);
+    padding:14px;
+    box-shadow:0 25px 60px rgba(0,0,0,.28);
+}
+
+body.light-mode .mobile-menu{
+    background:rgba(255,255,255,.92);
+    border-color:rgba(17,24,39,.08);
+}
+
+.mobile-menu a{
+    display:block;
+    text-decoration:none;
+    color:#fff;
+    padding:14px 14px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+body.light-mode .mobile-menu a{
+    color:#111827;
+}
+
+.mobile-menu a:hover{
+    background:rgba(255,255,255,.08);
+}
+
+body.light-mode .mobile-menu a:hover{
+    background:rgba(17,24,39,.04);
+}
+
+.nav-open .mobile-menu{
+    display:block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px){
+    .grid{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+    }
+
+    .about-wrap,
+    .contact-box{
+        grid-template-columns:1fr;
+    }
+}
+
+@media (max-width: 900px){
+    .nav-links{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:inline-flex;
+    }
+
+    .navbar{
+        flex-wrap:wrap;
+        align-items:flex-start;
+    }
+
+    .right-actions{
+        margin-left:auto;
+    }
+
+    .hero-content{
+        min-height:calc(100svh - 90px);
+    }
+}
+
+@media (max-width: 768px){
+    .container{
+        padding:0 18px;
+    }
+
+    .navbar{
+        min-height:82px;
+        padding:14px 0;
+    }
+
+    .logo{
+        font-size:1.15rem;
+    }
+
+    .right-actions{
+        gap:10px;
+    }
+
+    .theme-toggle,
+    .menu-toggle{
+        width:44px;
+        height:44px;
+    }
+
+    .contact-btn{
+        padding:11px 16px;
+        font-size:.95rem;
+    }
+
+    .hero-content{
+        text-align:center;
+        justify-content:center;
+        padding-bottom:18px;
+    }
+
+    .left{
+        max-width:100%;
+        margin-inline:auto;
+    }
+
+    .description{
+        margin-inline:auto;
+    }
+
+    .buttons,
+    .social{
+        justify-content:center;
+    }
+
+    .buttons{
+        flex-direction:column;
+        align-items:stretch;
+        max-width:320px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        justify-content:center;
+        width:100%;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .modal-content{
+        height:min(88svh, 820px);
+    }
+
+    .resume-frame{
+        height:calc(100% - 75px);
+    }
+
+    .download-area{
+        height:75px;
+    }
+
+    .download-btn{
+        padding:14px 22px;
+    }
+}
+
+@media (max-width: 480px){
+    .title{
+        font-size:clamp(2.55rem, 15vw, 3.2rem);
+    }
+
+    .intro{
+        font-size:1rem;
+    }
+
+    .description{
+        font-size:.98rem;
+        line-height:1.7;
+    }
+
+    .buttons{
+        gap:12px;
+    }
+
+    .social a{
+        width:46px;
+        height:46px;
+        font-size:16px;
+    }
+
+    .card,
+    .profile-box,
+    .contact-card,
+    .skill{
+        border-radius:18px;
+    }
+
+    .section-subtitle{
+        margin-bottom:28px;
+    }
+}
+</style>
+</head>
+<body>
+
+<section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="container">
+        <nav class="navbar" id="navbar">
+            <div class="logo">Abhinand Babu</div>
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="right-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="#contact" class="contact-btn">
+                    Let's Talk
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <div class="left">
+                <div class="intro">Hello, I'm</div>
+
+                <h1 class="title">
+                    Creative<br>
+                    Developer
+                </h1>
+
+                <p class="description">
+                    I build modern, responsive and user-friendly websites, dashboards and applications that bring ideas to life.
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="primary-btn">
+                        View My Work
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                    <a href="#" id="openResume" class="secondary-btn">
+                        View Resume
+                    </a>
+                </div>
+
+                <div class="social">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Mail"><i class="fas fa-envelope"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page" id="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+            This is a demo section for the header link. It stays in the same file and works on desktop, tablet, and mobile without layout collisions.
+        </p>
+
+        <div class="about-wrap">
+            <div class="profile-box">
+                <h3>Profile</h3>
+                <p>
+                    I create clean interfaces, interactive dashboards, and responsive websites with a focus on structure, alignment, and smooth user experience.
+                    This portfolio layout is made to match the style you showed, while keeping the rest of the page functional.
+                </p>
+            </div>
+
+            <div class="profile-box">
+                <h3>Quick Info</h3>
+                <p><strong>Role:</strong> Frontend / UI Developer</p>
+                <p><strong>Focus:</strong> Web Design, Dashboard UI</p>
+                <p><strong>Location:</strong> Kochi, India</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page" id="projects">
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">
+            Demo project cards for the header link. Replace these with your real work anytime.
+        </p>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Portfolio Website</h3>
+                <p>A personal portfolio with hero section, modal resume view, and theme switcher.</p>
+                <div class="tag-row">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Dashboard UI</h3>
+                <p>A clean analytics dashboard layout with cards, charts, and responsive sections.</p>
+                <div class="tag-row">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">UI Design</span>
+                    <span class="tag">Data Viz</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Landing Page</h3>
+                <p>A modern business landing page with smooth spacing, buttons, and section flow.</p>
+                <div class="tag-row">
+                    <span class="tag">Responsive</span>
+                    <span class="tag">Landing Page</span>
+                    <span class="tag">Branding</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page" id="skills">
+    <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">
+            Demo skill section for the header link. Theme changes apply here too.
+        </p>
+
+        <div class="skill-list">
+            <div class="skill">
+                <div class="skill-top">
+                    <span>HTML & CSS</span>
+                    <span>95%</span>
+                </div>
+                <div class="progress"><span style="width:95%"></span></div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-top">
+                    <span>JavaScript</span>
+                    <span>85%</span>
+                </div>
+                <div class="progress"><span style="width:85%"></span></div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-top">
+                    <span>UI / UX</span>
+                    <span>80%</span>
+                </div>
+                <div class="progress"><span style="width:80%"></span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page" id="contact">
+    <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">
+            Demo contact section for the header link.
+        </p>
+
+        <div class="contact-box">
+            <div class="contact-card">
+                <h3>Get in touch</h3>
+                <p>Email: abhinand@example.com</p>
+                <p>LinkedIn: /in/abhinand</p>
+                <p>GitHub: /abhinandbabu</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>Message</h3>
+                <input class="fake-input" type="text" placeholder="Your name">
+                <input class="fake-input" type="email" placeholder="Your email">
+                <textarea class="fake-input fake-textarea" placeholder="Your message"></textarea>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal" id="resumeModal">
+    <div class="modal-content">
+        <button class="close" id="closeResume" aria-label="Close resume">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <iframe
+            class="resume-frame"
+            src="assets/resume.pdf#view=FitH">
+        </iframe>
+
+        <div class="download-area">
+            <a href="assets/resume.pdf" download class="download-btn">
+                Download Resume
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+const themeBtn = document.getElementById('themeToggle');
+const themeIcon = themeBtn.querySelector('i');
+
+themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    themeIcon.className = document.body.classList.contains('light-mode')
+        ? 'fas fa-sun'
+        : 'fas fa-moon';
+});
+
+const navbar = document.getElementById('navbar');
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuToggle?.addEventListener('click', () => {
+    navbar.classList.toggle('nav-open');
+    const open = navbar.classList.contains('nav-open');
+    menuToggle.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+});
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('nav-open');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+});
+
+const modal = document.getElementById('resumeModal');
+const openResume = document.getElementById('openResume');
+const closeResume = document.getElementById('closeResume');
+
+openResume.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+closeResume.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        navbar.classList.remove('nav-open');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+});
+</script>
+
+</body>
+</html>
