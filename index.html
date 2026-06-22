@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Abhinand Babu | Portfolio</title>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -21,12 +21,15 @@
     --section-bg: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
     --shadow: 0 18px 50px rgba(0,0,0,.25);
 
-    /* Hero stays dark in both modes */
     --hero-overlay-left: rgba(4,13,28,.95);
     --hero-overlay-mid: rgba(4,13,28,.88);
     --hero-overlay-right: rgba(4,13,28,.08);
     --hero-text: #ffffff;
     --hero-soft: rgba(255,255,255,.82);
+
+    --header-bg: rgba(7,18,36,.46);
+    --header-border: rgba(255,255,255,.10);
+    --header-blur: blur(18px);
 }
 
 body.light-mode{
@@ -42,12 +45,14 @@ body.light-mode{
     --section-bg: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.62));
     --shadow: 0 18px 50px rgba(15,23,42,.08);
 
-    /* Keep hero background dark; only text stays readable */
     --hero-overlay-left: rgba(4,13,28,.95);
     --hero-overlay-mid: rgba(4,13,28,.88);
     --hero-overlay-right: rgba(4,13,28,.08);
     --hero-text: #ffffff;
     --hero-soft: rgba(255,255,255,.82);
+
+    --header-bg: rgba(255,255,255,.54);
+    --header-border: rgba(17,24,39,.08);
 }
 
 *{
@@ -86,49 +91,38 @@ button, a, input, textarea{
     z-index:5;
 }
 
-/* HERO */
-.hero{
-    width:100%;
-    min-height:100svh;
-    position:relative;
-    overflow:hidden;
-}
-
-.hero-bg{
-    position:absolute;
-    inset:0;
-    background:url("assets/bgg.jpeg") center center/cover no-repeat;
-    transform:scale(1.01);
-}
-
-.hero-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        90deg,
-        var(--hero-overlay-left) 0%,
-        var(--hero-overlay-mid) 35%,
-        var(--hero-overlay-right) 100%
-    );
-}
-
+/* HEADER */
 .navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
     min-height:90px;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:16px;
-    padding:14px 0;
-    position:relative;
+    padding:14px clamp(16px, 4vw, 60px);
+    background:var(--header-bg);
+    border-bottom:1px solid var(--header-border);
+    backdrop-filter:var(--header-blur);
+    -webkit-backdrop-filter:var(--header-blur);
+    transition:background .35s ease, border-color .35s ease, transform .3s ease;
+}
+
+.navbar.scrolled{
+    box-shadow:0 12px 40px rgba(0,0,0,.10);
 }
 
 .logo{
-    font-size:clamp(1.2rem, 2vw, 1.7rem);
+    font-size:clamp(1.25rem, 2vw, 1.7rem);
     font-weight:700;
     color:var(--hero-text);
     letter-spacing:.2px;
     white-space:nowrap;
     flex-shrink:0;
+    line-height:1;
 }
 
 .nav-links{
@@ -142,8 +136,8 @@ button, a, input, textarea{
     color:var(--hero-text);
     text-decoration:none;
     font-size:15px;
-    font-weight:500;
-    opacity:.92;
+    font-weight:600;
+    opacity:.94;
     transition:.25s ease;
     position:relative;
     white-space:nowrap;
@@ -176,16 +170,63 @@ button, a, input, textarea{
     flex-shrink:0;
 }
 
-.theme-toggle{
-    width:48px;
-    height:48px;
-    border-radius:50%;
+/* modern hamburger */
+.menu-toggle{
+    display:none;
+    width:54px;
+    height:54px;
+    border-radius:16px;
+    background:rgba(255,255,255,.10);
     border:1px solid rgba(255,255,255,.18);
     cursor:pointer;
-    font-size:18px;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:5px;
+    transition:.25s ease;
+    padding:0;
+}
+
+.menu-toggle:hover{
+    transform:translateY(-1px);
+    box-shadow:0 14px 34px rgba(0,0,0,.18);
+}
+
+.menu-toggle span{
+    width:24px;
+    height:2.4px;
+    background:#fff;
+    border-radius:999px;
+    transition:.3s ease;
+    transform-origin:center;
+}
+
+.nav-open .menu-toggle span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+}
+
+.nav-open .menu-toggle span:nth-child(2){
+    opacity:0;
+    transform:scaleX(.2);
+}
+
+.nav-open .menu-toggle span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+}
+
+.theme-toggle{
+    width:54px;
+    height:54px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.18);
+    cursor:pointer;
+    font-size:19px;
     background:rgba(255,255,255,.10);
     color:#fff;
     backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
     display:grid;
     place-items:center;
     transition:.25s ease;
@@ -193,12 +234,12 @@ button, a, input, textarea{
 
 .theme-toggle:hover{
     transform:translateY(-1px);
-    box-shadow:0 15px 40px rgba(0,0,0,.22);
+    box-shadow:0 14px 34px rgba(0,0,0,.18);
 }
 
 .contact-btn{
     border:1px solid rgba(255,255,255,.18);
-    padding:12px 20px;
+    padding:12px 22px;
     border-radius:999px;
     text-decoration:none;
     color:#fff;
@@ -206,9 +247,11 @@ button, a, input, textarea{
     align-items:center;
     gap:10px;
     backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
     background:rgba(255,255,255,.10);
     transition:.25s ease;
     white-space:nowrap;
+    font-weight:600;
 }
 
 .contact-btn:hover{
@@ -217,8 +260,8 @@ button, a, input, textarea{
 }
 
 .contact-btn i{
-    width:28px;
-    height:28px;
+    width:30px;
+    height:30px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -228,27 +271,101 @@ button, a, input, textarea{
     transition:.25s ease;
 }
 
-.menu-toggle{
+/* MOBILE MENU PANEL */
+.mobile-menu{
     display:none;
-    width:48px;
-    height:48px;
-    border:none;
-    border-radius:50%;
-    background:rgba(255,255,255,.10);
-    color:#fff;
-    border:1px solid rgba(255,255,255,.18);
-    cursor:pointer;
-    font-size:18px;
-    align-items:center;
-    justify-content:center;
-    backdrop-filter:blur(12px);
+    position:fixed;
+    left:16px;
+    top:calc(env(safe-area-inset-top, 0px) + 78px);
+    width:min(320px, calc(100vw - 32px));
+    background:rgba(7,18,36,.94);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:20px;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    padding:14px;
+    box-shadow:0 26px 70px rgba(0,0,0,.32);
+    z-index:999;
+    transform:translateY(-8px);
+    opacity:0;
+    pointer-events:none;
+    transition:.25s ease;
 }
 
-/* HERO CONTENT */
-.hero-content{
-    min-height:calc(100svh - 90px);
+body.light-mode .mobile-menu{
+    background:rgba(255,255,255,.94);
+    border-color:rgba(17,24,39,.08);
+}
+
+.nav-open .mobile-menu{
+    display:block;
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+}
+
+.mobile-menu a{
     display:flex;
     align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:#fff;
+    padding:14px 14px;
+    border-radius:14px;
+    font-weight:700;
+    font-size:1rem;
+    transition:.2s ease;
+}
+
+.mobile-menu a i{
+    width:22px;
+    text-align:center;
+    opacity:.9;
+}
+
+body.light-mode .mobile-menu a{
+    color:#111827;
+}
+
+.mobile-menu a:hover{
+    background:rgba(255,255,255,.08);
+}
+
+body.light-mode .mobile-menu a:hover{
+    background:rgba(17,24,39,.04);
+}
+
+/* HERO */
+.hero{
+    width:100%;
+    min-height:100svh;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-bg{
+    position:absolute;
+    inset:0;
+    background:url("assets/bg.jpg") center center/cover no-repeat;
+    transform:scale(1.01);
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        90deg,
+        var(--hero-overlay-left) 0%,
+        var(--hero-overlay-mid) 35%,
+        var(--hero-overlay-right) 100%
+    );
+}
+
+.hero-content{
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    padding-top:90px; /* fixed header offset */
     padding-bottom:30px;
 }
 
@@ -260,7 +377,7 @@ button, a, input, textarea{
     color:var(--accent);
     font-size:clamp(1rem, 2vw, 1.15rem);
     margin-bottom:15px;
-    font-weight:600;
+    font-weight:700;
 }
 
 .title{
@@ -292,14 +409,15 @@ button, a, input, textarea{
     text-decoration:none;
     background:linear-gradient(135deg,var(--accent),var(--accent-2));
     color:var(--btn-text);
-    padding:16px 28px;
+    padding:16px 30px;
     border-radius:14px;
-    font-weight:600;
+    font-weight:700;
     display:inline-flex;
     align-items:center;
     gap:12px;
     box-shadow:0 15px 40px rgba(61,139,255,.28);
     transition:.25s ease;
+    font-size:1rem;
 }
 
 .primary-btn:hover{
@@ -310,12 +428,13 @@ button, a, input, textarea{
     text-decoration:none;
     color:#fff;
     border:1px solid rgba(255,255,255,.20);
-    padding:16px 28px;
+    padding:16px 30px;
     border-radius:14px;
-    font-weight:600;
+    font-weight:700;
     backdrop-filter:blur(12px);
     background:rgba(255,255,255,.08);
     transition:.25s ease;
+    font-size:1rem;
 }
 
 .secondary-btn:hover{
@@ -330,8 +449,8 @@ button, a, input, textarea{
 }
 
 .social a{
-    width:52px;
-    height:52px;
+    width:62px;
+    height:62px;
     border-radius:50%;
     border:1px solid rgba(255,255,255,.18);
     display:flex;
@@ -339,9 +458,10 @@ button, a, input, textarea{
     justify-content:center;
     color:#fff;
     text-decoration:none;
-    font-size:18px;
+    font-size:24px;
     background:rgba(255,255,255,.08);
     backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
     transition:.25s ease;
 }
 
@@ -386,6 +506,7 @@ section.page{
     padding:clamp(20px, 3vw, 28px);
     box-shadow:var(--shadow);
     backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
     transition:.25s ease;
 }
 
@@ -468,7 +589,7 @@ section.page{
     gap:18px;
     margin-bottom:10px;
     color:var(--text);
-    font-weight:600;
+    font-weight:700;
 }
 
 .progress{
@@ -520,6 +641,7 @@ section.page{
     background:var(--input);
     color:var(--text);
     outline:none;
+    font-size:1rem;
 }
 
 .fake-input::placeholder{
@@ -537,6 +659,7 @@ section.page{
     inset:0;
     background:rgba(0,0,0,.55);
     backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
     display:none;
     align-items:center;
     justify-content:center;
@@ -554,6 +677,7 @@ section.page{
     background:rgba(255,255,255,.08);
     border:1px solid rgba(255,255,255,.15);
     backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
     border-radius:24px;
     overflow:hidden;
     position:relative;
@@ -564,14 +688,15 @@ section.page{
     position:absolute;
     right:16px;
     top:16px;
-    width:42px;
-    height:42px;
+    width:44px;
+    height:44px;
     border:none;
     border-radius:50%;
     background:rgba(255,255,255,.15);
     color:white;
     cursor:pointer;
     z-index:2;
+    font-size:1rem;
 }
 
 .resume-frame{
@@ -595,58 +720,12 @@ section.page{
     background:linear-gradient(135deg,var(--accent),var(--accent-2));
     padding:15px 34px;
     border-radius:12px;
-    font-weight:600;
+    font-weight:700;
     box-shadow:0 15px 40px rgba(61,139,255,.28);
     white-space:nowrap;
 }
 
-/* MOBILE MENU */
-.mobile-menu{
-    display:none;
-    position:absolute;
-    left:0;
-    right:0;
-    top:100%;
-    margin-top:10px;
-    background:rgba(7,18,36,.92);
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:18px;
-    backdrop-filter:blur(16px);
-    padding:14px;
-    box-shadow:0 25px 60px rgba(0,0,0,.28);
-}
-
-body.light-mode .mobile-menu{
-    background:rgba(255,255,255,.92);
-    border-color:rgba(17,24,39,.08);
-}
-
-.mobile-menu a{
-    display:block;
-    text-decoration:none;
-    color:#fff;
-    padding:14px 14px;
-    border-radius:12px;
-    font-weight:600;
-}
-
-body.light-mode .mobile-menu a{
-    color:#111827;
-}
-
-.mobile-menu a:hover{
-    background:rgba(255,255,255,.08);
-}
-
-body.light-mode .mobile-menu a:hover{
-    background:rgba(17,24,39,.04);
-}
-
-.nav-open .mobile-menu{
-    display:block;
-}
-
-/* RESPONSIVE */
+/* DESKTOP / TABLET / MOBILE RESPONSIVE */
 @media (max-width: 1100px){
     .grid{
         grid-template-columns:repeat(2, minmax(0,1fr));
@@ -655,6 +734,16 @@ body.light-mode .mobile-menu a:hover{
     .about-wrap,
     .contact-box{
         grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        gap:28px;
+    }
+
+    .social a{
+        width:58px;
+        height:58px;
+        font-size:22px;
     }
 }
 
@@ -666,54 +755,43 @@ body.light-mode .mobile-menu a:hover{
     .menu-toggle{
         display:inline-flex;
     }
-
-    .navbar{
-        flex-wrap:wrap;
-        align-items:flex-start;
-    }
-
-    .right-actions{
-        margin-left:auto;
-    }
-
-    .hero-content{
-        min-height:calc(100svh - 90px);
-    }
 }
 
 @media (max-width: 768px){
-    .container{
-        padding:0 18px;
+    .navbar{
+        min-height:78px;
+        padding:12px 16px;
     }
 
-    .navbar{
-        min-height:82px;
-        padding:14px 0;
+    .container{
+        padding:0 16px;
     }
 
     .logo{
-        font-size:1.15rem;
+        display:none; /* hide Abhinand Babu on mobile */
     }
 
     .right-actions{
         gap:10px;
+        margin-left:auto;
     }
 
-    .theme-toggle,
-    .menu-toggle{
-        width:44px;
-        height:44px;
+    .menu-toggle,
+    .theme-toggle{
+        width:48px;
+        height:48px;
+        border-radius:14px;
     }
 
     .contact-btn{
-        padding:11px 16px;
-        font-size:.95rem;
+        display:none; /* keep header clean on mobile, menu has Contact */
     }
 
     .hero-content{
+        padding-top:78px;
         text-align:center;
         justify-content:center;
-        padding-bottom:18px;
+        min-height:100svh;
     }
 
     .left{
@@ -733,7 +811,7 @@ body.light-mode .mobile-menu a:hover{
     .buttons{
         flex-direction:column;
         align-items:stretch;
-        max-width:320px;
+        max-width:340px;
         margin-left:auto;
         margin-right:auto;
     }
@@ -742,6 +820,13 @@ body.light-mode .mobile-menu a:hover{
     .secondary-btn{
         justify-content:center;
         width:100%;
+        padding:16px 20px;
+    }
+
+    .social a{
+        width:56px;
+        height:56px;
+        font-size:22px;
     }
 
     .grid{
@@ -753,11 +838,11 @@ body.light-mode .mobile-menu a:hover{
     }
 
     .resume-frame{
-        height:calc(100% - 75px);
+        height:calc(100% - 76px);
     }
 
     .download-area{
-        height:75px;
+        height:76px;
     }
 
     .download-btn{
@@ -766,8 +851,19 @@ body.light-mode .mobile-menu a:hover{
 }
 
 @media (max-width: 480px){
+    .navbar{
+        padding:10px 12px;
+        min-height:72px;
+    }
+
+    .menu-toggle,
+    .theme-toggle{
+        width:46px;
+        height:46px;
+    }
+
     .title{
-        font-size:clamp(2.55rem, 15vw, 3.2rem);
+        font-size:clamp(2.55rem, 14vw, 3.3rem);
     }
 
     .intro{
@@ -781,12 +877,17 @@ body.light-mode .mobile-menu a:hover{
 
     .buttons{
         gap:12px;
+        max-width:100%;
+    }
+
+    .social{
+        gap:12px;
     }
 
     .social a{
-        width:46px;
-        height:46px;
-        font-size:16px;
+        width:54px;
+        height:54px;
+        font-size:21px;
     }
 
     .card,
@@ -799,6 +900,14 @@ body.light-mode .mobile-menu a:hover{
     .section-subtitle{
         margin-bottom:28px;
     }
+
+    .modal{
+        padding:12px;
+    }
+
+    .modal-content{
+        border-radius:20px;
+    }
 }
 </style>
 </head>
@@ -808,42 +917,44 @@ body.light-mode .mobile-menu a:hover{
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
 
-    <div class="container">
-        <nav class="navbar" id="navbar">
-            <div class="logo">Abhinand Babu</div>
+    <header class="navbar" id="navbar">
+        <div class="logo">Abhinand Babu</div>
 
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
 
-            <div class="right-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
+        <div class="right-actions">
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-                <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-                    <i class="fas fa-bars"></i>
-                </button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
 
-                <a href="#contact" class="contact-btn">
-                    Let's Talk
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <a href="#contact" class="contact-btn">
+                Let's Talk
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
 
-            <div class="mobile-menu" id="mobileMenu">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </div>
+        <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+            <a href="#home"><i class="fas fa-house"></i> Home</a>
+            <a href="#about"><i class="fas fa-user"></i> About</a>
+            <a href="#projects"><i class="fas fa-folder-open"></i> Projects</a>
+            <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
         </nav>
+    </header>
 
+    <div class="container">
         <div class="hero-content">
             <div class="left">
                 <div class="intro">Hello, I'm</div>
@@ -1006,8 +1117,8 @@ body.light-mode .mobile-menu a:hover{
     </div>
 </section>
 
-<div class="modal" id="resumeModal">
-    <div class="modal-content">
+<div class="modal" id="resumeModal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Resume preview">
         <button class="close" id="closeResume" aria-label="Close resume">
             <i class="fas fa-times"></i>
         </button>
@@ -1031,26 +1142,35 @@ const themeIcon = themeBtn.querySelector('i');
 
 themeBtn.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
-    themeIcon.className = document.body.classList.contains('light-mode')
-        ? 'fas fa-sun'
-        : 'fas fa-moon';
+    const light = document.body.classList.contains('light-mode');
+    themeIcon.className = light ? 'fas fa-sun' : 'fas fa-moon';
 });
 
 const navbar = document.getElementById('navbar');
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 
-menuToggle?.addEventListener('click', () => {
-    navbar.classList.toggle('nav-open');
-    const open = navbar.classList.contains('nav-open');
-    menuToggle.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+function setMenuState(open){
+    navbar.classList.toggle('nav-open', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+}
+
+menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = !navbar.classList.contains('nav-open');
+    setMenuState(open);
 });
 
 mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        navbar.classList.remove('nav-open');
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    });
+    link.addEventListener('click', () => setMenuState(false));
+});
+
+document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target)) setMenuState(false);
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setMenuState(false);
 });
 
 const modal = document.getElementById('resumeModal');
@@ -1079,9 +1199,12 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         modal.classList.remove('active');
         document.body.style.overflow = '';
-        navbar.classList.remove('nav-open');
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        setMenuState(false);
     }
+});
+
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 6);
 });
 </script>
 
