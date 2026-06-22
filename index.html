@@ -53,6 +53,7 @@ body.light-mode{
 
     --header-bg: rgba(255,255,255,.54);
     --header-border: rgba(17,24,39,.08);
+    --header-text: #111827;
 }
 
 *{
@@ -118,7 +119,7 @@ button, a, input, textarea{
 .logo{
     font-size:clamp(1.25rem, 2vw, 1.7rem);
     font-weight:700;
-    color:var(--hero-text);
+    color:var(--header-text, var(--hero-text));
     letter-spacing:.2px;
     white-space:nowrap;
     flex-shrink:0;
@@ -133,7 +134,7 @@ button, a, input, textarea{
 }
 
 .nav-links a{
-    color:var(--hero-text);
+    color:var(--header-text, var(--hero-text));
     text-decoration:none;
     font-size:15px;
     font-weight:600;
@@ -161,6 +162,15 @@ button, a, input, textarea{
 
 .nav-links a:hover::after{
     width:100%;
+}
+
+body.light-mode .logo,
+body.light-mode .nav-links a{
+    color:#111827;
+}
+
+body.light-mode .nav-links a:hover{
+    color:#2563eb;
 }
 
 .right-actions{
@@ -224,7 +234,7 @@ button, a, input, textarea{
     cursor:pointer;
     font-size:19px;
     background:rgba(255,255,255,.10);
-    color:#fff;
+    color:var(--header-text, #fff);
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
     display:grid;
@@ -235,6 +245,12 @@ button, a, input, textarea{
 .theme-toggle:hover{
     transform:translateY(-1px);
     box-shadow:0 14px 34px rgba(0,0,0,.18);
+}
+
+body.light-mode .theme-toggle{
+    color:#111827;
+    background:rgba(17,24,39,.06);
+    border-color:rgba(17,24,39,.14);
 }
 
 .contact-btn{
@@ -252,6 +268,26 @@ button, a, input, textarea{
     transition:.25s ease;
     white-space:nowrap;
     font-weight:600;
+}
+
+body.light-mode .contact-btn{
+    color:#111827;
+    background:rgba(17,24,39,.06);
+    border-color:rgba(17,24,39,.14);
+}
+
+body.light-mode .contact-btn i{
+    background:#111827;
+    color:#fff;
+}
+
+body.light-mode .menu-toggle{
+    background:rgba(17,24,39,.06);
+    border-color:rgba(17,24,39,.14);
+}
+
+body.light-mode .menu-toggle span{
+    background:#111827;
 }
 
 .contact-btn:hover{
@@ -365,7 +401,7 @@ body.light-mode .mobile-menu a:hover{
     min-height:100svh;
     display:flex;
     align-items:center;
-    padding-top:90px; /* fixed header offset */
+    padding-top:90px;
     padding-bottom:30px;
 }
 
@@ -661,10 +697,10 @@ section.page{
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
     display:none;
-    align-items:center;
-    justify-content:center;
+    align-items:flex-start;
+    justify-content:flex-end;
     z-index:9999;
-    padding:18px;
+    padding:90px 24px 24px 24px;
 }
 
 .modal.active{
@@ -672,8 +708,8 @@ section.page{
 }
 
 .modal-content{
-    width:min(1100px, 100%);
-    height:min(85svh, 850px);
+    width:min(620px, 100%);
+    height:min(80svh, 760px);
     background:rgba(255,255,255,.08);
     border:1px solid rgba(255,255,255,.15);
     backdrop-filter:blur(18px);
@@ -768,12 +804,13 @@ section.page{
     }
 
     .logo{
-        display:none; /* hide Abhinand Babu on mobile */
+        display:none;
     }
 
     .right-actions{
         gap:10px;
-        margin-left:auto;
+        margin-left:0;
+        justify-content:flex-start;
     }
 
     .menu-toggle,
@@ -784,36 +821,36 @@ section.page{
     }
 
     .contact-btn{
-        display:none; /* keep header clean on mobile, menu has Contact */
+        display:none;
     }
 
     .hero-content{
         padding-top:78px;
-        text-align:center;
-        justify-content:center;
+        text-align:left;
+        justify-content:flex-start;
         min-height:100svh;
     }
 
     .left{
         max-width:100%;
-        margin-inline:auto;
+        margin-inline:0;
     }
 
     .description{
-        margin-inline:auto;
+        margin-inline:0;
     }
 
     .buttons,
     .social{
-        justify-content:center;
+        justify-content:flex-start;
     }
 
     .buttons{
         flex-direction:column;
         align-items:stretch;
         max-width:340px;
-        margin-left:auto;
-        margin-right:auto;
+        margin-left:0;
+        margin-right:0;
     }
 
     .primary-btn,
@@ -833,7 +870,14 @@ section.page{
         grid-template-columns:1fr;
     }
 
+    .modal{
+        align-items:center;
+        justify-content:center;
+        padding:12px;
+    }
+
     .modal-content{
+        width:min(100%, 760px);
         height:min(88svh, 820px);
     }
 
@@ -854,6 +898,7 @@ section.page{
     .navbar{
         padding:10px 12px;
         min-height:72px;
+        justify-content:flex-start;
     }
 
     .menu-toggle,
