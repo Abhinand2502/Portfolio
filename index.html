@@ -801,10 +801,43 @@ section.page{
 }
 
 /* DESKTOP / TABLET / MOBILE RESPONSIVE */
-@media (max-width: 1100px){
-    .grid{
-        grid-template-columns:repeat(2, minmax(0,1fr));
+@media (max-width:768px){
+
+    .navbar{
+        padding-left:16px;
+        padding-right:0;
     }
+
+    .right-actions{
+        width:100%;
+        justify-content:space-between;
+        gap:0;
+    }
+
+    /* dark/light button left */
+    .theme-toggle{
+        margin-left:0;
+        background:transparent;
+        border:none;
+    }
+
+    /* hamburger right edge */
+    .menu-toggle{
+        margin-right:0;
+        width:52px;
+        height:52px;
+        border-radius:0;
+        background:transparent;
+        border:none;
+        box-shadow:none;
+    }
+
+    .menu-toggle:hover{
+        background:transparent;
+        box-shadow:none;
+    }
+
+}
 
     .about-wrap,
     .contact-box{
@@ -820,6 +853,16 @@ section.page{
         height:58px;
         font-size:22px;
     }
+@media (max-width:768px){
+
+    .mobile-menu{
+        right:0;
+        left:auto;
+        top:78px;
+        width:280px;
+        border-radius:18px 0 0 18px;
+    }
+
 }
 
 @media (max-width: 900px){
