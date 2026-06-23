@@ -563,32 +563,649 @@ section.page{
 }
 
 /* ABOUT */
-.about-wrap{
-    display:grid;
-    grid-template-columns:1.25fr .75fr;
-    gap:24px;
-    align-items:start;
+/* ================= ABOUT COMPACT VERSION ================= */
+/* ===========================
+   ABOUT SECTION
+=========================== */
+
+
+.about-section{
+    width:100%;
+    padding:90px 20px 40px; /* space for fixed navbar */
 }
 
-.profile-box{
-    padding:clamp(20px, 3vw, 28px);
-    border-radius:22px;
+
+.about-container{
+
+    max-width:1450px;
+    margin:auto;
+
     background:var(--card);
+
     border:1px solid var(--card-border);
+    border-radius:28px;
+
+    padding:25px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:22px;
+
     box-shadow:var(--shadow);
+
 }
 
-.profile-box h3{
-    font-size:1.2rem;
-    margin-bottom:10px;
-    color:var(--text);
+
+
+/* ===========================
+   TOP INTRO
+=========================== */
+
+
+.about-header{
+
+    display:grid;
+
+    grid-template-columns:1fr auto;
+
+    align-items:center;
+
+    gap:30px;
+
+    padding-bottom:18px;
+
+    border-bottom:1px solid var(--card-border);
+
 }
 
-.profile-box p{
-    line-height:1.8;
+
+.about-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+.about-title span{
+
+    width:40px;
+    height:40px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(0,150,255,.15);
+
+}
+
+
+.about-title h2{
+
+    margin:0;
+
+    font-size:32px;
+
+    font-weight:800;
+
+}
+
+
+
+.about-title b{
+
+    color:#009cff;
+
+}
+
+
+
+.about-text p{
+
+    max-width:850px;
+
+    margin-top:15px;
+
+    line-height:1.7;
+
+    font-size:16px;
+
     color:var(--text-soft);
-    margin-bottom:10px;
+
 }
+
+
+
+/* PROFILE */
+
+
+.profile-area{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+
+
+.profile-area img{
+
+    width:115px;
+    height:115px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:5px solid #009cff;
+
+}
+
+
+
+.profile-area h1{
+
+    font-size:28px;
+
+    margin:0 0 5px;
+
+}
+
+
+
+.profile-area span{
+
+    color:#009cff;
+
+    font-size:15px;
+
+}
+
+
+
+/* ===========================
+ EDUCATION ROADMAP
+=========================== */
+
+
+.education{
+
+    padding-top:5px;
+
+}
+
+
+
+.edu-title{
+
+    font-size:25px;
+
+    font-weight:800;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.edu-title b{
+
+    color:#009cff;
+
+}
+
+
+
+.timeline{
+
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.line{
+
+    position:absolute;
+
+    height:3px;
+
+    background:#009cff;
+
+    top:32px;
+
+    left:12%;
+
+    right:12%;
+
+}
+
+
+
+.edu-item{
+
+    text-align:center;
+
+    position:relative;
+
+}
+
+
+
+.circle{
+
+    width:65px;
+
+    height:65px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:rgba(0,150,255,.15);
+
+    border:2px solid #009cff;
+
+    font-size:25px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+
+.edu-card{
+
+    margin-top:18px;
+
+    padding:18px 15px;
+
+    border-radius:18px;
+
+    background:rgba(0,150,255,.08);
+
+    min-height:145px;
+
+}
+
+
+
+.edu-card span{
+
+    background:#007cff;
+
+    color:white;
+
+    padding:5px 15px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+
+
+.edu-card h3{
+
+    margin:15px 0 8px;
+
+    font-size:17px;
+
+}
+
+
+
+.edu-card p{
+
+    color:var(--text-soft);
+
+    font-size:14px;
+
+}
+
+
+
+.edu-card strong{
+
+    display:inline-block;
+
+    margin-top:8px;
+
+    padding:6px 18px;
+
+    background:#009cff;
+
+    color:white;
+
+    border-radius:20px;
+
+}
+
+
+
+
+
+/* ===========================
+BOTTOM AREA
+=========================== */
+
+
+.bottom{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+
+
+.info-box{
+
+    padding:18px;
+
+    border-radius:22px;
+
+    border:1px solid var(--card-border);
+
+}
+
+
+
+.info-box h2{
+
+    margin:0 0 15px;
+
+    font-size:22px;
+
+}
+
+
+
+.item{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:14px;
+
+    margin-bottom:10px;
+
+    border-radius:15px;
+
+    background:rgba(0,150,255,.07);
+
+}
+
+
+
+.item h3{
+
+    margin:0;
+
+    font-size:16px;
+
+}
+
+
+
+.item p{
+
+    margin:5px 0 0;
+
+    color:var(--text-soft);
+
+    font-size:14px;
+
+}
+
+
+
+.item button{
+
+    flex-shrink:0;
+
+    padding:9px 18px;
+
+    border-radius:12px;
+
+    border:1px solid #009cff;
+
+    background:transparent;
+
+    color:var(--text);
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+/* ===========================
+LIGHTBOX
+=========================== */
+
+
+.lightbox{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.55);
+
+backdrop-filter:blur(10px);
+
+z-index:99999;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+
+
+.light-content{
+
+width:450px;
+
+max-width:90%;
+
+padding:30px;
+
+background:var(--card);
+
+border-radius:22px;
+
+border:1px solid var(--card-border);
+
+text-align:center;
+
+}
+
+
+
+.light-content button{
+
+position:absolute;
+
+}
+
+
+
+#certificateImg{
+
+max-width:100%;
+
+border-radius:10px;
+
+}
+
+
+
+
+
+/* ===========================
+TABLET
+=========================== */
+
+
+@media(max-width:1000px){
+
+
+.about-header{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+
+.profile-area{
+
+justify-content:center;
+
+}
+
+
+.timeline{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.line{
+
+display:none;
+
+}
+
+
+
+.bottom{
+
+grid-template-columns:1fr;
+
+}
+
+
+}
+
+
+
+
+
+/* ===========================
+MOBILE
+=========================== */
+
+
+@media(max-width:600px){
+
+
+.about-section{
+
+padding:80px 12px 30px;
+
+}
+
+
+.about-container{
+
+padding:18px;
+
+}
+
+
+
+.profile-area{
+
+flex-direction:column;
+
+}
+
+
+
+.profile-area img{
+
+width:95px;
+height:95px;
+
+}
+
+
+
+.about-title h2{
+
+font-size:24px;
+
+}
+
+
+
+.item{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+
+
+.item button{
+
+width:100%;
+
+}
+
+
+
+}
+
+/* End-About */
+
 
 /* SKILLS */
 .skill-list{
@@ -626,6 +1243,8 @@ section.page{
     border-radius:999px;
     background:linear-gradient(135deg,var(--accent),var(--accent-2));
 }
+/* End-Skills */
+
 
 /* CONTACT */
 .contact-box{
@@ -673,6 +1292,8 @@ section.page{
     min-height:120px;
     resize:vertical;
 }
+/* End-CONTACT */
+
 
 /* RESUME MODAL */
 .modal{
@@ -955,6 +1576,130 @@ section.page{
         border-radius:20px;
     }
 }
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 10;
+
+  animation: floatScroll 2s ease-in-out infinite;
+}
+
+/* Mouse Shape */
+.mouse {
+  width: 28px;
+  height: 45px;
+  border: 2px solid rgba(255,255,255,0.9);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+
+  box-shadow: 0 0 15px rgba(255,255,255,0.25);
+}
+
+/* Wheel */
+.wheel {
+  width: 5px;
+  height: 10px;
+  background: #fff;
+  border-radius: 10px;
+
+  animation: scrollWheel 1.8s infinite;
+}
+
+/* Text */
+.scroll-indicator span {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+
+  opacity: 0.9;
+}
+
+
+/* Mouse animation */
+@keyframes scrollWheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(12px);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* Whole indicator floating */
+@keyframes floatScroll {
+  0%,100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
+}
+
+
+/* Tablet */
+@media (max-width: 992px) {
+  .scroll-indicator {
+    bottom: 30px;
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .scroll-indicator {
+    bottom: 25px;
+  }
+
+  .mouse {
+    width: 24px;
+    height: 40px;
+  }
+
+  .scroll-indicator span {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+}
+
+
+/* Small phones */
+@media (max-width: 480px) {
+
+  .scroll-indicator {
+    bottom: 20px;
+  }
+
+  .mouse {
+    width: 22px;
+    height: 36px;
+  }
+}
 </style>
 </head>
 <body>
@@ -1026,41 +1771,283 @@ section.page{
                 </div>
 
                 <div class="social">
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="Mail"><i class="fas fa-envelope"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/Abhinand2502" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/abhinand-babu-153b66324/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abhinandbabu2502@gmail.com"
+   target="_blank"
+   aria-label="Send Email">
+    <i class="fas fa-envelope"></i>
+</a>
+                    <a href="https://www.instagram.com/_abhinand_babu/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
+                <a href="#about" class="scroll-indicator">
+  <div class="mouse">
+    <div class="wheel"></div>
+  </div>
+  <span>SCROLL</span>
+</a>
+
+
+
             </div>
         </div>
     </div>
+    
+</section>
+<section class="about-section" id="about">
+
+<div class="about-container">
+
+<!-- HEADER -->
+<div class="about-header">
+
+<div class="about-text">
+
+<div class="about-title">
+<span>👤</span>
+<h2>ABOUT <b>ME</b></h2>
+</div>
+
+<p>
+B.Tech Computer Science graduate skilled in Python, SQL, Excel and Power BI
+with hands-on experience in data analysis, dashboard development and
+business intelligence.
+</p>
+
+</div>
+
+
+<div class="profile-area">
+
+<img src="assets/your-profile.jpg">
+
+<div>
+<h1>Abhinand Babu</h1>
+<span>Data Enthusiast & Aspiring Analyst</span>
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- EDUCATION -->
+
+<div class="education">
+
+<div class="edu-title">
+🎓 EDUCATION <b>JOURNEY</b>
+</div>
+
+
+<div class="timeline">
+
+
+<div class="line"></div>
+
+
+<div class="edu-item">
+
+<div class="circle">📖</div>
+
+<div class="edu-card">
+
+<span>2018 - 2019</span>
+
+<h3>Secondary Education</h3>
+
+<p>
+Bappuji Public School, Vazhithala
+</p>
+
+<strong>80%</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="edu-item">
+
+<div class="circle">🏫</div>
+
+<div class="edu-card">
+
+<span>2019 - 2021</span>
+
+<h3>Higher Secondary</h3>
+
+<p>
+St. Sebastian's HSS, Vazhithala
+</p>
+
+<strong>94%</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="edu-item">
+
+<div class="circle">🎓</div>
+
+<div class="edu-card">
+
+<span>2021 - 2025</span>
+
+<h3>B.Tech CSE</h3>
+
+<p>
+UCE, Thodupuzha
+</p>
+
+<strong>6.99 GPA</strong>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<!-- BOTTOM -->
+
+
+<div class="bottom">
+
+
+<div class="info-box">
+
+<h2>💼 EXPERIENCE</h2>
+
+
+<div class="item">
+
+<div>
+<h3>Data Analytics Trainee</h3>
+<p>Quest Innovative Solutions Pvt Ltd</p>
+</div>
+
+
+<button onclick="openBox('exp')">
+View Details →
+</button>
+
+
+</div>
+
+
+
+<div class="item">
+
+<div>
+<h3>Python Django Intern</h3>
+<p>Progressive Software Solutions</p>
+</div>
+
+
+<button onclick="openBox('intern')">
+View Details →
+</button>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="info-box">
+
+<h2>🏆 CERTIFICATIONS</h2>
+
+
+<div class="item">
+
+<div>
+
+<h3>Python + Django Full Stack</h3>
+<p>Certificate</p>
+
+</div>
+
+
+<button onclick="openBox('python')">
+View Certificate →
+</button>
+
+
+</div>
+
+
+
+<div class="item">
+
+<div>
+
+<h3>Data Analytics Training</h3>
+<p>Python SQL Power BI</p>
+
+</div>
+
+
+<button onclick="openBox('data')">
+View Certificate →
+</button>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
 </section>
 
-<section class="page" id="about">
-    <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">
-            This is a demo section for the header link. It stays in the same file and works on desktop, tablet, and mobile without layout collisions.
-        </p>
 
-        <div class="about-wrap">
-            <div class="profile-box">
-                <h3>Profile</h3>
-                <p>
-                    I create clean interfaces, interactive dashboards, and responsive websites with a focus on structure, alignment, and smooth user experience.
-                    This portfolio layout is made to match the style you showed, while keeping the rest of the page functional.
-                </p>
-            </div>
 
-            <div class="profile-box">
-                <h3>Quick Info</h3>
-                <p><strong>Role:</strong> Frontend / UI Developer</p>
-                <p><strong>Focus:</strong> Web Design, Dashboard UI</p>
-                <p><strong>Location:</strong> Kochi, India</p>
-            </div>
-        </div>
-    </div>
-</section>
+
+<!-- LIGHTBOX -->
+
+
+<div class="lightbox" id="lightbox">
+
+<div class="light-content">
+
+<button onclick="closeBox()">✕</button>
+
+<h2 id="boxTitle"></h2>
+
+<p id="boxText"></p>
+
+<img id="certificateImg" src="">
+
+
+<a id="certificateLink" target="_blank">
+Open Certificate
+</a>
+
+
+</div>
+
+</div>
 
 <section class="page" id="projects">
     <div class="container">
@@ -1254,5 +2241,115 @@ window.addEventListener('scroll', () => {
 });
 </script>
 
+
+
+
+
+
+
+<script>const box=document.getElementById("lightbox");
+
+
+function openBox(type){
+
+let title="";
+let text="";
+let img="";
+
+
+if(type==="exp"){
+
+title="Data Analytics Trainee";
+
+text=
+"Worked on data cleaning, analysis, dashboards and visualization using Power BI, Excel and SQL.";
+
+}
+
+
+if(type==="intern"){
+
+title="Python Django Intern";
+
+text=
+"Developed web applications using Django, Python, HTML, CSS and database integration.";
+
+}
+
+
+
+if(type==="python"){
+
+title="Python + Django Full Stack";
+
+text="Full Stack Development Certification";
+
+img="assets/python-certificate.jpg";
+
+}
+
+
+
+if(type==="data"){
+
+title="Data Analytics Training";
+
+text="Python, SQL and Power BI certification";
+
+img="assets/data-certificate.jpg";
+
+}
+
+
+
+document.getElementById("boxTitle").innerHTML=title;
+
+document.getElementById("boxText").innerHTML=text;
+
+
+let image=document.getElementById("certificateImg");
+
+
+if(img){
+
+image.src=img;
+image.style.display="block";
+
+}
+
+else{
+
+image.style.display="none";
+
+}
+
+
+
+box.style.display="flex";
+
+}
+
+
+
+function closeBox(){
+
+box.style.display="none";
+
+}
+
+
+
+window.onclick=function(e){
+
+if(e.target===box){
+
+closeBox();
+
+}
+
+}
+
+</script>
+<script src="script.js"></script>
 </body>
 </html>
