@@ -563,476 +563,565 @@ section.page{
 }
 
 /* ABOUT */
-/* ================= ABOUT COMPACT VERSION ================= */
 /* =========================
-   ABOUT SECTION
+   ABOUT SECTION — MODERN
 ========================= */
+
+:root{
+  --bg: #0b1020;
+  --bg-2: #10172b;
+  --card: rgba(255,255,255,.05);
+  --card-2: rgba(255,255,255,.07);
+  --border: rgba(255,255,255,.09);
+  --text: #eef2ff;
+  --text-soft: rgba(238,242,255,.72);
+  --accent: #6ea8ff;
+  --accent-2: #8bbdff;
+  --shadow: 0 24px 80px rgba(0,0,0,.35);
+}
 
 .about-section{
-    padding:120px 20px 60px;
-    background:var(--bg);
+  width: 100%;
+  padding: 110px 18px 60px;
+  background:
+    radial-gradient(circle at top left, rgba(110,168,255,.12), transparent 32%),
+    radial-gradient(circle at top right, rgba(139,189,255,.10), transparent 28%),
+    linear-gradient(180deg, var(--bg), var(--bg-2));
+  color: var(--text);
 }
 
-.about-container{
-    max-width:1400px;
-    margin:auto;
-
-    background:rgba(255,255,255,0.03);
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:30px;
-
-    padding:40px;
-
-    box-shadow:
-    0 20px 40px rgba(0,0,0,.15);
-
-    overflow:hidden;
+.about-wrap{
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  gap: 26px;
 }
 
-/* =========================
-HEADER
-========================= */
-
-.about-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:40px;
-
-    padding-bottom:35px;
-    margin-bottom:35px;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
+/* HERO */
+.about-hero{
+  display: grid;
+  grid-template-columns: 1.35fr .9fr;
+  gap: 24px;
+  align-items: stretch;
 }
 
-.about-title{
-    display:flex;
-    align-items:center;
-    gap:15px;
+.hero-copy,
+.profile-card,
+.section-block{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
 }
 
-.about-title span{
-    width:55px;
-    height:55px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:16px;
-
-    background:linear-gradient(
-    135deg,
-    #009cff,
-    #0066ff
-    );
-
-    color:white;
-    font-size:24px;
+.hero-copy{
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
 }
 
-.about-title h2{
-    font-size:38px;
-    margin:0;
-    font-weight:800;
+.hero-copy::after{
+  content: "";
+  position: absolute;
+  inset: auto -10% -20% auto;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(110,168,255,.16), transparent 68%);
+  pointer-events: none;
 }
 
-.about-title b{
-    color:#009cff;
+.eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(110,168,255,.10);
+  border: 1px solid rgba(110,168,255,.20);
+  margin-bottom: 18px;
 }
 
-.about-text p{
-    margin-top:18px;
-    max-width:800px;
-
-    line-height:1.9;
-    color:var(--text-soft);
-
-    font-size:16px;
+.eyebrow span{
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(110,168,255,.16);
 }
 
-/* =========================
-PROFILE
-========================= */
-
-.profile-area{
-    display:flex;
-    align-items:center;
-    gap:20px;
+.eyebrow p{
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: .3px;
+  color: var(--text);
 }
 
-.profile-area img{
-    width:120px;
-    height:120px;
-
-    border-radius:50%;
-    object-fit:cover;
-
-    border:4px solid #009cff;
-
-    box-shadow:
-    0 0 30px rgba(0,156,255,.35);
+.hero-copy h2{
+  margin: 0;
+  font-size: clamp(30px, 4vw, 50px);
+  line-height: 1.08;
+  font-weight: 800;
+  max-width: 12ch;
 }
 
-.profile-area h1{
-    margin:0;
-    font-size:30px;
+.hero-copy h2 span{
+  color: var(--accent-2);
 }
 
-.profile-area span{
-    color:#009cff;
-    font-weight:600;
+.hero-text{
+  margin: 18px 0 0;
+  max-width: 68ch;
+  color: var(--text-soft);
+  line-height: 1.8;
+  font-size: 16px;
 }
 
-/* =========================
-TIMELINE
-========================= */
-
-.education{
-    margin-top:20px;
+.hero-stats{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 26px;
 }
 
-.edu-title{
-    font-size:30px;
-    font-weight:800;
-    margin-bottom:40px;
+.stat-card{
+  padding: 18px 16px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  text-align: center;
 }
 
-.edu-title b{
-    color:#009cff;
+.stat-card strong{
+  display: block;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--accent-2);
+  margin-bottom: 8px;
 }
 
+.stat-card span{
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+/* PROFILE */
+.hero-profile{
+  min-width: 0;
+}
+
+.profile-card{
+  height: 100%;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-img-wrap{
+  width: 168px;
+  height: 168px;
+  padding: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(110,168,255,.35), rgba(139,189,255,.08));
+  box-shadow: 0 14px 40px rgba(0,0,0,.25);
+}
+
+.profile-img-wrap img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.profile-meta h1{
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.profile-meta p{
+  margin: 8px 0 0;
+  color: var(--accent-2);
+  font-size: 15px;
+}
+
+.profile-badges{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.profile-badges span{
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  color: var(--text-soft);
+  font-size: 13px;
+}
+
+/* SECTIONS */
+.section-block{
+  padding: 26px;
+}
+
+.section-heading{
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.section-kicker{
+  margin: 0 0 6px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--accent-2);
+}
+
+.section-heading h3{
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+/* TIMELINE */
 .timeline{
-    position:relative;
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding-top: 12px;
 }
 
-.line{
-    position:absolute;
-    top:38px;
-    left:10%;
-    right:10%;
-    height:3px;
-
-    background:linear-gradient(
-    90deg,
-    #009cff,
-    #0066ff
-    );
+.timeline-line{
+  position: absolute;
+  top: 46px;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(110,168,255,.55), transparent);
 }
 
-.edu-item{
-    text-align:center;
-    position:relative;
+.timeline-card{
+  position: relative;
+  padding-top: 12px;
 }
 
-.circle{
-    width:78px;
-    height:78px;
-
-    margin:auto;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    border-radius:50%;
-
-    font-size:30px;
-
-    background:linear-gradient(
-    135deg,
-    #009cff,
-    #0066ff
-    );
-
-    color:white;
-
-    position:relative;
-    z-index:2;
-
-    box-shadow:
-    0 10px 25px rgba(0,156,255,.35);
+.timeline-dot{
+  width: 72px;
+  height: 72px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(110,168,255,.16), rgba(255,255,255,.05));
+  border: 1px solid rgba(110,168,255,.20);
+  box-shadow: 0 16px 28px rgba(0,0,0,.20);
+  font-size: 30px;
+  position: relative;
+  z-index: 2;
 }
 
-.edu-card{
-    margin-top:22px;
-
-    background:rgba(255,255,255,.03);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:22px;
-
-    padding:25px;
-
-    transition:.35s ease;
+.timeline-content{
+  margin-top: 18px;
+  padding: 22px;
+  min-height: 210px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
 }
 
-.edu-card:hover{
-    transform:translateY(-8px);
-    box-shadow:
-    0 20px 30px rgba(0,0,0,.15);
+.timeline-content:hover{
+  transform: translateY(-6px);
+  border-color: rgba(110,168,255,.22);
+  box-shadow: 0 18px 40px rgba(0,0,0,.20);
 }
 
-.edu-card span{
-    display:inline-block;
-
-    padding:8px 16px;
-
-    border-radius:30px;
-
-    background:#009cff;
-
-    color:white;
-
-    font-size:13px;
+.chip{
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(110,168,255,.10);
+  border: 1px solid rgba(110,168,255,.18);
+  color: var(--accent-2);
+  font-size: 12px;
 }
 
-.edu-card h3{
-    margin:18px 0 10px;
+.timeline-content h4{
+  margin: 16px 0 8px;
+  font-size: 18px;
 }
 
-.edu-card p{
-    color:var(--text-soft);
-    line-height:1.7;
+.timeline-content p{
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.7;
 }
 
-.edu-card strong{
-    display:inline-block;
-
-    margin-top:15px;
-
-    background:linear-gradient(
-    135deg,
-    #009cff,
-    #0066ff
-    );
-
-    color:white;
-
-    padding:8px 18px;
-
-    border-radius:25px;
+.grade{
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 14px;
+  border-radius: 14px;
+  background: rgba(110,168,255,.14);
+  border: 1px solid rgba(110,168,255,.22);
+  color: var(--text);
+  font-weight: 700;
 }
 
-/* =========================
-BOTTOM GRID
-========================= */
-
-.bottom{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-
-    margin-top:45px;
+/* INFO GRID */
+.info-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
 }
 
-.info-box{
-    padding:28px;
-
-    background:rgba(255,255,255,.03);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:24px;
+.item-list{
+  display: grid;
+  gap: 14px;
 }
 
-.info-box h2{
-    margin-bottom:25px;
+.item-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  transition: transform .25s ease, border-color .25s ease;
 }
 
-.item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    gap:15px;
-
-    padding:18px;
-
-    margin-bottom:15px;
-
-    border-radius:18px;
-
-    background:rgba(255,255,255,.03);
-
-    transition:.3s;
+.item-card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(110,168,255,.20);
 }
 
-.item:hover{
-    transform:translateY(-4px);
-    border:1px solid rgba(0,156,255,.25);
+.item-copy h4{
+  margin: 0;
+  font-size: 17px;
 }
 
-.item h3{
-    margin:0;
+.item-copy p{
+  margin: 8px 0 0;
+  color: var(--text-soft);
+  font-size: 14px;
 }
 
-.item p{
-    margin-top:6px;
-    color:var(--text-soft);
+.action-btn{
+  flex-shrink: 0;
+  padding: 11px 16px;
+  border: 1px solid rgba(110,168,255,.25);
+  background: linear-gradient(180deg, rgba(110,168,255,.14), rgba(110,168,255,.08));
+  color: var(--text);
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
 }
 
-.item button{
-    padding:12px 22px;
-
-    border:none;
-
-    border-radius:14px;
-
-    background:linear-gradient(
-    135deg,
-    #009cff,
-    #0066ff
-    );
-
-    color:white;
-
-    cursor:pointer;
-
-    font-weight:600;
-
-    transition:.3s;
+.action-btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(110,168,255,.40);
+  background: linear-gradient(180deg, rgba(110,168,255,.22), rgba(110,168,255,.10));
 }
 
-.item button:hover{
-    transform:scale(1.05);
-}
-
-/* =========================
-MODAL
-========================= */
-
+/* MODAL */
 .lightbox{
-    display:none;
-
-    position:fixed;
-    inset:0;
-
-    background:rgba(0,0,0,.75);
-
-    backdrop-filter:blur(12px);
-
-    z-index:9999;
-
-    justify-content:center;
-    align-items:center;
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4,8,18,.72);
+  backdrop-filter: blur(14px);
+  padding: 18px;
 }
 
 .light-content{
-    position:relative;
-
-    width:550px;
-    max-width:95%;
-
-    background:#111827;
-
-    border-radius:25px;
-
-    padding:35px;
-
-    text-align:center;
-
-    animation:popup .35s ease;
+  position: relative;
+  width: min(680px, 100%);
+  max-height: min(88vh, 920px);
+  overflow: auto;
+  background: linear-gradient(180deg, rgba(18,25,44,.98), rgba(13,18,33,.98));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 28px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.45);
+  padding: 28px;
+  animation: modalIn .24s ease-out;
 }
 
-@keyframes popup{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:none;
-    }
+@keyframes modalIn{
+  from{ opacity: 0; transform: translateY(20px) scale(.98); }
+  to{ opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .close-btn{
-    position:absolute;
+  position: sticky;
+  top: 0;
+  margin-left: auto;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  cursor: pointer;
+  float: right;
+}
 
-    top:15px;
-    right:15px;
+.modal-top{
+  clear: both;
+  padding-top: 8px;
+}
 
-    width:40px;
-    height:40px;
+.modal-kicker{
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 12px;
+  color: var(--accent-2);
+}
 
-    border:none;
+#boxTitle{
+  margin: 0;
+  font-size: 28px;
+}
 
-    border-radius:50%;
-
-    background:#222;
-
-    color:white;
-
-    cursor:pointer;
+#boxText{
+  margin: 12px 0 18px;
+  color: var(--text-soft);
+  line-height: 1.8;
 }
 
 #certificateImg{
-    width:100%;
-    margin-top:20px;
-    border-radius:15px;
+  width: 100%;
+  display: none;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  margin-top: 10px;
 }
 
-/* =========================
-RESPONSIVE
-========================= */
-
-@media(max-width:1000px){
-
-.about-header{
-    flex-direction:column;
-    text-align:center;
+.modal-link{
+  display: inline-flex;
+  margin-top: 18px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(110,168,255,.12);
+  border: 1px solid rgba(110,168,255,.22);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.profile-area{
-    flex-direction:column;
+/* REVEAL */
+.reveal{
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s ease;
 }
 
-.timeline{
-    grid-template-columns:1fr;
+.reveal.show{
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.line{
-    display:none;
+/* RESPONSIVE */
+@media (max-width: 980px){
+  .about-hero{
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy h2{
+    max-width: none;
+  }
+
+  .info-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .timeline{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .timeline-line{
+    display: none;
+  }
+
+  .timeline-content{
+    min-height: auto;
+  }
 }
 
-.bottom{
-    grid-template-columns:1fr;
-}
+@media (max-width: 640px){
+  .about-section{
+    padding: 88px 12px 42px;
+  }
 
-}
+  .hero-copy,
+  .profile-card,
+  .section-block,
+  .light-content{
+    border-radius: 22px;
+  }
 
-@media(max-width:600px){
+  .hero-copy,
+  .section-block{
+    padding: 20px;
+  }
 
-.about-container{
-    padding:22px;
-}
+  .profile-card{
+    padding: 20px;
+  }
 
-.about-title h2{
-    font-size:28px;
-}
+  .profile-img-wrap{
+    width: 136px;
+    height: 136px;
+  }
 
-.profile-area img{
-    width:100px;
-    height:100px;
-}
+  .hero-stats{
+    grid-template-columns: 1fr;
+  }
 
-.item{
-    flex-direction:column;
-    align-items:flex-start;
-}
+  .section-heading h3{
+    font-size: 22px;
+  }
 
-.item button{
-    width:100%;
-}
+  .item-card{
+    flex-direction: column;
+    align-items: stretch;
+  }
 
+  .action-btn{
+    width: 100%;
+  }
+
+  .close-btn{
+    width: 38px;
+    height: 38px;
+  }
+
+  #boxTitle{
+    font-size: 22px;
+  }
 }
 /* End-About */
 
@@ -1624,260 +1713,188 @@ RESPONSIVE
     </div>
     
 </section>
+
+
+
+
+
+
+
 <section class="about-section" id="about">
-
-<div class="about-container">
-
-<!-- HEADER -->
-<div class="about-header">
-
-<div class="about-text">
-
-<div class="about-title">
-<span>👤</span>
-<h2>ABOUT <b>ME</b></h2>
-</div>
-
-<p>
-B.Tech Computer Science graduate skilled in Python, SQL, Excel and Power BI
-with hands-on experience in data analysis, dashboard development and
-business intelligence.
-</p>
-
-</div>
-
-
-<div class="profile-area">
-
-<img src="assets/your-profile.jpg">
-
-<div>
-<h1>Abhinand Babu</h1>
-<span>Data Enthusiast & Aspiring Analyst</span>
-</div>
-
-</div>
-
-
-</div>
-
-
-
-<!-- EDUCATION -->
-
-<div class="education">
-
-<div class="edu-title">
-🎓 EDUCATION <b>JOURNEY</b>
-</div>
-
-
-<div class="timeline">
-
-
-<div class="line"></div>
-
-
-<div class="edu-item">
-
-<div class="circle">📖</div>
-
-<div class="edu-card">
-
-<span>2018 - 2019</span>
-
-<h3>Secondary Education</h3>
-
-<p>
-Bappuji Public School, Vazhithala
-</p>
-
-<strong>80%</strong>
-
-</div>
-
-</div>
-
-
-
-<div class="edu-item">
-
-<div class="circle">🏫</div>
-
-<div class="edu-card">
-
-<span>2019 - 2021</span>
-
-<h3>Higher Secondary</h3>
-
-<p>
-St. Sebastian's HSS, Vazhithala
-</p>
-
-<strong>94%</strong>
-
-</div>
-
-</div>
-
-
-
-<div class="edu-item">
-
-<div class="circle">🎓</div>
-
-<div class="edu-card">
-
-<span>2021 - 2025</span>
-
-<h3>B.Tech CSE</h3>
-
-<p>
-UCE, Thodupuzha
-</p>
-
-<strong>6.99 GPA</strong>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-
-<!-- BOTTOM -->
-
-
-<div class="bottom">
-
-
-<div class="info-box">
-
-<h2>💼 EXPERIENCE</h2>
-
-
-<div class="item">
-
-<div>
-<h3>Data Analytics Trainee</h3>
-<p>Quest Innovative Solutions Pvt Ltd</p>
-</div>
-
-
-<button onclick="openBox('exp')">
-View Details →
-</button>
-
-
-</div>
-
-
-
-<div class="item">
-
-<div>
-<h3>Python Django Intern</h3>
-<p>Progressive Software Solutions</p>
-</div>
-
-
-<button onclick="openBox('intern')">
-View Details →
-</button>
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="info-box">
-
-<h2>🏆 CERTIFICATIONS</h2>
-
-
-<div class="item">
-
-<div>
-
-<h3>Python + Django Full Stack</h3>
-<p>Certificate</p>
-
-</div>
-
-
-<button onclick="openBox('python')">
-View Certificate →
-</button>
-
-
-</div>
-
-
-
-<div class="item">
-
-<div>
-
-<h3>Data Analytics Training</h3>
-<p>Python SQL Power BI</p>
-
-</div>
-
-
-<button onclick="openBox('data')">
-View Certificate →
-</button>
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
+  <div class="about-wrap">
+
+    <div class="about-hero reveal">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span>👤</span>
+          <p>About me</p>
+        </div>
+
+        <h2>
+          Building clean, data-driven experiences with
+          <span>Python, SQL, Power BI</span> and modern web tools.
+        </h2>
+
+        <p class="hero-text">
+          B.Tech Computer Science graduate with hands-on experience in data analysis,
+          dashboard development, and web application development. I focus on practical,
+          polished work with attention to performance, clarity, and design.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <strong>2+</strong>
+            <span>Internships</span>
+          </div>
+          <div class="stat-card">
+            <strong>4+</strong>
+            <span>Core Tools</span>
+          </div>
+          <div class="stat-card">
+            <strong>100%</strong>
+            <span>Focused on quality</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-profile">
+        <div class="profile-card">
+          <div class="profile-img-wrap">
+            <img src="assets/your-profile.jpg" alt="Abhinand Babu" />
+          </div>
+
+          <div class="profile-meta">
+            <h1>Abhinand Babu</h1>
+            <p>Data Enthusiast & Aspiring Analyst</p>
+          </div>
+
+          <div class="profile-badges">
+            <span>Data Analysis</span>
+            <span>Power BI</span>
+            <span>Django</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="section-block reveal">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Education journey</p>
+          <h3>My academic path</h3>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <article class="timeline-card">
+          <div class="timeline-dot">📖</div>
+          <div class="timeline-content">
+            <span class="chip">2018 - 2019</span>
+            <h4>Secondary Education</h4>
+            <p>Bappuji Public School, Vazhithala</p>
+            <div class="grade">80%</div>
+          </div>
+        </article>
+
+        <article class="timeline-card">
+          <div class="timeline-dot">🏫</div>
+          <div class="timeline-content">
+            <span class="chip">2019 - 2021</span>
+            <h4>Higher Secondary</h4>
+            <p>St. Sebastian's HSS, Vazhithala</p>
+            <div class="grade">94%</div>
+          </div>
+        </article>
+
+        <article class="timeline-card">
+          <div class="timeline-dot">🎓</div>
+          <div class="timeline-content">
+            <span class="chip">2021 - 2025</span>
+            <h4>B.Tech CSE</h4>
+            <p>UCE, Thodupuzha</p>
+            <div class="grade">6.99 GPA</div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="info-grid">
+      <div class="section-block reveal">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Experience</p>
+            <h3>Professional work</h3>
+          </div>
+        </div>
+
+        <div class="item-list">
+          <div class="item-card">
+            <div class="item-copy">
+              <h4>Data Analytics Trainee</h4>
+              <p>Quest Innovative Solutions Pvt Ltd</p>
+            </div>
+            <button class="action-btn" onclick="openBox('exp')">View details</button>
+          </div>
+
+          <div class="item-card">
+            <div class="item-copy">
+              <h4>Python Django Intern</h4>
+              <p>Progressive Software Solutions</p>
+            </div>
+            <button class="action-btn" onclick="openBox('intern')">View details</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block reveal">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Certifications</p>
+            <h3>Learning milestones</h3>
+          </div>
+        </div>
+
+        <div class="item-list">
+          <div class="item-card">
+            <div class="item-copy">
+              <h4>Python + Django Full Stack</h4>
+              <p>Certificate</p>
+            </div>
+            <button class="action-btn" onclick="openBox('python')">View certificate</button>
+          </div>
+
+          <div class="item-card">
+            <div class="item-copy">
+              <h4>Data Analytics Training</h4>
+              <p>Python, SQL, Power BI</p>
+            </div>
+            <button class="action-btn" onclick="openBox('data')">View certificate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="light-content" role="dialog" aria-modal="true" aria-labelledby="boxTitle">
+      <button class="close-btn" onclick="closeBox()" aria-label="Close modal">✕</button>
+      <div class="modal-top">
+        <p class="modal-kicker">Details</p>
+        <h2 id="boxTitle"></h2>
+        <p id="boxText"></p>
+      </div>
+
+      <img id="certificateImg" alt="Certificate preview" />
+
+      <a id="certificateLink" class="modal-link" target="_blank" rel="noopener noreferrer">
+        Open certificate
+      </a>
+    </div>
+  </div>
 </section>
-
-
-
-
-<!-- LIGHTBOX -->
-
-
-<div class="lightbox" id="lightbox">
-
-<div class="light-content">
-
-<button class="close-btn" onclick="closeBox()">✕</button>
-
-<h2 id="boxTitle"></h2>
-
-<p id="boxText"></p>
-
-<img id="certificateImg" src="">
-
-
-<a id="certificateLink" target="_blank">
-Open Certificate
-</a>
-
-
-</div>
-
-</div>
 
 <section class="page" id="projects">
     <div class="container">
@@ -2075,71 +2092,96 @@ window.addEventListener('scroll', () => {
 
 
 
-
 <script>const box = document.getElementById("lightbox");
+const titleEl = document.getElementById("boxTitle");
+const textEl = document.getElementById("boxText");
+const imageEl = document.getElementById("certificateImg");
+const linkEl = document.getElementById("certificateLink");
 
-function openBox(type){
+function openBox(type) {
+  let title = "";
+  let text = "";
+  let img = "";
+  let link = "";
 
-let title="";
-let text="";
-let img="";
+  switch (type) {
+    case "exp":
+      title = "Data Analytics Trainee";
+      text = "Worked on data cleaning, analysis, dashboard building, and visualization using Power BI, Excel, and SQL for business reporting.";
+      break;
 
-switch(type){
+    case "intern":
+      title = "Python Django Intern";
+      text = "Developed web applications using Django, Python, HTML, CSS, and database integration while improving backend and frontend workflow.";
+      break;
 
-case "exp":
-title="Data Analytics Trainee";
-text="Worked on data cleaning, SQL analysis, Excel reporting and interactive Power BI dashboards for business insights.";
-break;
+    case "python":
+      title = "Python + Django Full Stack";
+      text = "Full Stack Development certification with practical training in Python, Django, and web application development.";
+      img = "assets/python-certificate.jpg";
+      link = "assets/python-certificate.jpg";
+      break;
 
-case "intern":
-title="Python Django Intern";
-text="Developed responsive web applications using Django, Python, HTML, CSS, JavaScript and database integration.";
-break;
+    case "data":
+      title = "Data Analytics Training";
+      text = "Certification in Python, SQL, Excel, and Power BI with focus on real-world data workflows and dashboard creation.";
+      img = "assets/data-certificate.jpg";
+      link = "assets/data-certificate.jpg";
+      break;
+  }
 
-case "python":
-title="Python + Django Full Stack";
-text="Successfully completed Full Stack Development training and certification.";
-img="assets/python-certificate.jpg";
-break;
+  titleEl.textContent = title;
+  textEl.textContent = text;
 
-case "data":
-title="Data Analytics Training";
-text="Professional training in Python, SQL, Excel and Power BI.";
-img="assets/data-certificate.jpg";
-break;
+  if (img) {
+    imageEl.src = img;
+    imageEl.style.display = "block";
+  } else {
+    imageEl.removeAttribute("src");
+    imageEl.style.display = "none";
+  }
+
+  if (link) {
+    linkEl.href = link;
+    linkEl.style.display = "inline-flex";
+  } else {
+    linkEl.removeAttribute("href");
+    linkEl.style.display = "none";
+  }
+
+  box.style.display = "flex";
+  box.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
 }
 
-document.getElementById("boxTitle").textContent = title;
-document.getElementById("boxText").textContent = text;
-
-const image=document.getElementById("certificateImg");
-
-if(img){
-image.src=img;
-image.style.display="block";
-}else{
-image.style.display="none";
+function closeBox() {
+  box.style.display = "none";
+  box.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
 }
 
-box.style.display="flex";
-document.body.style.overflow="hidden";
-}
-
-function closeBox(){
-box.style.display="none";
-document.body.style.overflow="auto";
-}
-
-window.addEventListener("click",(e)=>{
-if(e.target===box){
-closeBox();
-}
+window.addEventListener("click", (e) => {
+  if (e.target === box) closeBox();
 });
 
-document.addEventListener("keydown",(e)=>{
-if(e.key==="Escape"){
-closeBox();
-}
-});</script>
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeBox();
+});
+
+/* scroll reveal */
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+reveals.forEach((el) => observer.observe(el));</script>
 </body>
 </html>
