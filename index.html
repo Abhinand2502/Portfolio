@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Abhinand_Babu — Portfolio </title>
   <!-- Browser tab logo -->
-  <link rel="icon" type="image/png" href="assets/logo (2).png">
+  <link rel="icon" type="image/png" href="assets/bg.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
   <style>
     /* ------------------------------
@@ -871,7 +872,7 @@ function openEmail() {
 <div id="resumeModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <img src="assets/resume.png" alt="Resume" class="resume-image">
+    <img src="assets/Screenshot 2026-06-26 215140.png" alt="Resume" class="resume-image">
     <a href="assets/Abhinand_Babu_Resume.pdf" download class="download-btn">Download PDF</a>
   </div>
 </div>
@@ -902,7 +903,7 @@ function openEmail() {
       </div>
     </div>
   </section>
-<h1 id="projectsTitle" class="anim">MY PROJECTS</h1>
+
 <hr class="section-divider">
 
 <style>
@@ -933,507 +934,665 @@ function openEmail() {
         }
     }
 </style>
-<!-- ABOUT SECTION (with inline SVG skill icons) -->
 <section id="about">
-  <style>
-/* Title */
-#projectsTitle1 {
-  font-size: clamp(28px, 3.8vw, 40px);
-  font-weight: 900;
-  text-align: center;
-  letter-spacing: -0.02em;
-  color: var(--projects-text);
-  position: relative;
-  transform: translateY(2cm); /* moves title down without moving other elements */
-}
 
-/* Blue-white gradient underline */
-#projectsTitle1::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-  transform: translateX(-50%);
-  width: 140px;
-  height: 3px;
-  border-radius: 3px;
-  background: linear-gradient(90deg, #ffffff, #2a7cf1, #ffffff);
-  box-shadow: 0 0 8px rgba(42,124,241,0.6);
-}
-
-/* Dark mode color */
-[data-theme="dark"] #projectsTitle1 { color: #e8e8e8; }
-
-/* ---------------------- ABOUT SECTION (updated) ---------------------- */
-:root{
-  --glass-bg-light: rgba(0,0,0,0.035);
-  --glass-border-light: rgba(0,0,0,0.14);
-  --glass-bg-dark: rgba(255,255,255,0.035);
-  --glass-border-dark: rgba(255,255,255,0.10);
-  --stat-bg-light: rgba(0,0,0,0.03);
-  --stat-border-light: rgba(0,0,0,0.12);
-  --stat-bg-dark: rgba(255,255,255,0.03);
-  --stat-border-dark: rgba(255,255,255,0.08);
-  --avatar-ring-light: rgba(0,0,0,0.18);
-  --avatar-ring-dark: rgba(255,255,255,0.28);
-  --accent: #0af;
-}
-
-/* base */
-#about { display:block; background: var(--bg); color: var(--text); }
-.about-inner { min-height: calc(100vh - var(--header-h)); padding-top: var(--header-h); display: flex; align-items: center; justify-content: center; }
-.about-container { width: 100%; max-width: 1350px; padding: 2rem; display: grid; grid-template-columns: 400px 1fr; gap: 2rem; align-items: start; }
-
-/* cards/glass */
-.themed-card {
-  border-radius: 20px;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(0,0,0,0.06);
-  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s ease, background 0.28s ease, color 0.28s ease;
-  display: flex; flex-direction: column; justify-content: center; background: transparent; color: inherit;
-}
-html[data-theme="light"] .themed-card { background: var(--glass-bg-light); color: #111; border: 1px solid var(--glass-border-light); }
-html[data-theme="dark"]  .themed-card { background: var(--glass-bg-dark); color: #fff; border: 1px solid var(--glass-border-dark); }
-.themed-card:hover, .themed-card:focus-within { transform: translateY(-6px); box-shadow: 0 18px 42px rgba(0,0,0,0.16); }
-
-/* left/profile */
-.profile-wrap { display:flex; flex-direction:column; align-items:center; gap:1rem; text-align:center; height:100%; }
-.avatar { width:160px; height:160px; border-radius:50%; overflow:hidden; display:grid; place-items:center; position: relative; box-shadow: 0 10px 28px rgba(0,0,0,0.08); }
-.avatar img { width:100%; height:100%; object-fit:cover; }
-.avatar::after { content:""; position:absolute; inset:-6px; border-radius:50%; border:4px solid var(--avatar-ring); animation: pulseBorder 2.6s infinite; }
-@keyframes pulseBorder { 0%,100%{ transform: scale(1); opacity:0.75 } 50%{ transform: scale(1.03); opacity:0.45 } }
-html[data-theme="light"] .avatar::after { --avatar-ring: var(--avatar-ring-light); }
-html[data-theme="dark"]  .avatar::after { --avatar-ring: var(--avatar-ring-dark); }
-
-.profile-name { font-family:'Playfair Display', serif; font-size:30px; font-weight:900; margin:0; }
-.profile-role { font-size:14px; font-weight:700; color: inherit; text-transform: uppercase; letter-spacing:0.5px; margin-bottom:1rem; }
-.degree-pill { border-radius:14px; padding:0.5rem 0.9rem; font-weight:800; background: linear-gradient(180deg, rgba(37,99,235,0.12), rgba(37,99,235,0.04)); color:var(--accent); margin-bottom:1rem; font-size:15px; }
-
-/* stats */
-.stat-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:0.8rem; margin-top:1rem; width:100%; }
-.stat { padding:0.9rem; border-radius:12px; background: var(--stat-bg); border:1px solid var(--stat-border); text-align:center; color: inherit; box-shadow: none; }
-html[data-theme="light"] .stat { --stat-bg: var(--stat-bg-light); --stat-border: var(--stat-border-light); }
-html[data-theme="dark"]  .stat { --stat-bg: var(--stat-bg-dark);  --stat-border: var(--stat-border-dark);  }
-.stat .k { font-size:11px; font-weight:700; text-transform: uppercase; letter-spacing:0.7px; color: inherit; opacity:0.9; }
-.stat .v { font-size:16px; font-weight:900; margin-top:0.2rem; }
-
-/* right column */
-.right-col { display:flex; flex-direction:column; gap:1.5rem; }
-.section-title { font-family:'Playfair Display', serif; font-size:20px; font-weight:800; margin-bottom:0.6rem; color: inherit; }
-
-/* education bars */
-.edu-bar-wrap { flex:1; height:100px; background: var(--edu-track); border-radius:999px; overflow:hidden; }
-.edu-bar { height:100%; width:0; border-radius:999px; background: linear-gradient(90deg,#0af,#0ff); transition: width 1s ease; }
-html[data-theme="light"] .edu-bar-wrap { --edu-track: rgba(0,0,0,0.03); }
-html[data-theme="dark"]  .edu-bar-wrap { --edu-track: rgba(255,255,255,0.03); }
-.edu-percent { font-size:13px; font-weight:700; color:var(--accent); min-width:50px; text-align:right; }
-
-/* skills grid */
-.skills-grid { display:grid; grid-template-columns: repeat(4,1fr); gap:0.8rem; margin-top:0.5rem; }
-.skill { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.6rem; padding:1rem; border-radius:12px; background: var(--skill-surface); border:1px solid var(--skill-border); transition: transform 0.2s ease; color: inherit; }
-.skill:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,0.06); }
-.skill .label { font-weight:700; font-size:13.5px; color:var(--accent); }
-
-/* theme surfaces for skill cards */
-html[data-theme="light"] .skill { --skill-surface: rgba(0,0,0,0.03); --skill-border: rgba(0,0,0,0.09); }
-html[data-theme="dark"]  .skill { --skill-surface: rgba(255,255,255,0.02); --skill-border: rgba(255,255,255,0.06); }
-
-/* ICON container - we'll use inline SVG inside */
-.skill .icon {
-  width:64px;
-  height:64px;
-  display:grid;
-  place-items:center;
-  border-radius:14px;
-  overflow:hidden;
-  background: transparent;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-  border: 1px solid rgba(255,255,255,0.04);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-}
-html[data-theme="light"] .skill .icon { border: 1px solid rgba(0,0,0,0.06); }
-html[data-theme="dark"]  .skill .icon  { border: 1px solid rgba(255,255,255,0.06); }
-
-/* make svg scale nicely */
-.skill .icon svg { width:48px; height:48px; display:block; }
-
-/* hover lift for the icon */
-.skill:hover .icon { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
-
-/* responsiveness */
-@media (max-width:980px){
-  .about-container { grid-template-columns: 1fr; }
-  .skills-grid { grid-template-columns: repeat(3,1fr); }
-  .stat-grid { grid-template-columns: repeat(3,1fr); }
-  .avatar { width:140px; height:140px; }
-}
-@media (max-width:720px){
-  .skills-grid { grid-template-columns: repeat(2,1fr); }
-  .stat-grid { grid-template-columns: repeat(2,1fr); }
-}
-  </style>
-
-  <h1 id="projectsTitle1" class="anim">ABOUT ME</h1>
-
-  <div class="about-inner">
-    <div class="about-container">
-      <!-- LEFT: PROFILE -->
-      <div class="profile-wrap themed-card">
-        <div class="avatar">
-          <img src="assets/your-profile.jpg" alt="Abhinand profile picture">
-        </div>
-        <div class="profile-name">Abhinand Babu</div>
-        <div class="degree-pill">Developer · B.Tech CSE</div>
-        <div class="stat-grid">
-          <div class="stat"><div class="k">AGE</div><div class="v">22</div></div>
-          <div class="stat"><div class="k">DOB</div><div class="v">25/02/2003</div></div>
-          <div class="stat"><div class="k">STATUS</div><div class="v">Student</div></div>
-          <div class="stat"><div class="k">EXP</div><div class="v">Fresher</div></div>
-          <div class="stat"><div class="k">COUNTRY</div><div class="v">India 🇮🇳</div></div>
-          <div class="stat"><div class="k">LOC</div><div class="v">Kerala</div></div>
-        </div>
-      </div>
-
-      <!-- RIGHT: EDUCATION + SKILLS -->
-      <div class="right-col">
-        <!-- EDUCATION -->
-        <div class="themed-card">
-          <h3 class="section-title">Education (Academic Journey)</h3>
-          <div class="edu-list">
-            <div class="edu-item">
-              <div class="edu-head">
-                <div class="edu-school">B.Tech in CSE — UCE, Thodupuzha</div>
-                <div class="edu-meta">2021 – 2025</div>
-              </div>
-              <div class="edu-row">
-                <div class="edu-bar-wrap"><div class="edu-bar" data-width="69.9"></div></div>
-                <div class="edu-percent">69.9 GPA</div>
-              </div>
-            </div>
-
-            <div class="edu-item">
-              <div class="edu-head">
-                <div class="edu-school">Higher Secondary — St. Sebastian's HSS, Vazhithala</div>
-                <div class="edu-meta">2019 – 2021</div>
-              </div>
-              <div class="edu-row">
-                <div class="edu-bar-wrap"><div class="edu-bar" data-width="94"></div></div>
-                <div class="edu-percent">94%</div>
-              </div>
-            </div>
-
-            <div class="edu-item">
-              <div class="edu-head">
-                <div class="edu-school">Secondary — Bappuji Public School, Vazhithala</div>
-                <div class="edu-meta">2018 – 2019</div>
-              </div>
-              <div class="edu-row">
-                <div class="edu-bar-wrap"><div class="edu-bar" data-width="80"></div></div>
-                <div class="edu-percent">80%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-  <script>
-    // Animate education bars
-    document.addEventListener("DOMContentLoaded", () => {
-      const bars = document.querySelectorAll('.edu-bar');
-      bars.forEach(bar => {
-        const w = bar.dataset.width || 0;
-        setTimeout(()=> { bar.style.width = w + '%'; }, 200);
-      });
-    });
-  </script>
-</section>
-
-
-<section id="skills-pro">
 <style>
 
-/* SECTION */
-#skills-pro{
-  padding: 80px 20px;
-  text-align:center;
+#about{
+    background:var(--bg);
+    color:var(--text);
+    padding:35px 2%;
 }
 
-/* TITLE */
-.skills-title{
-  font-size:18px;
-  margin-bottom:30px;
-  opacity:0.8;
+
+.about-box{
+    width:100%;
+    max-width:1500px;
+    margin:auto;
+    padding:35px 45px;
+    border-radius:30px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    backdrop-filter:blur(20px);
+    animation:fadeIn .8s ease;
 }
 
-/* FIX TEXT COLORS */
-html[data-theme="light"] #skills-pro{
-  color:#111;
-}
-html[data-theme="dark"] #skills-pro{
-  color:#fff;
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(30px)}
+to{opacity:1;transform:translateY(0)}
 }
 
-/* TABS */
-.skill-tabs{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
-  margin-bottom:50px;
+
+.profile{
+display:flex;
+align-items:center;
+gap:35px;
 }
 
-.skill-tab{
-  padding:10px 22px;
-  border-radius:30px;
-  cursor:pointer;
-  font-size:14px;
-  transition:all 0.3s ease;
+
+.profile img{
+width:130px;
+height:130px;
+border-radius:50%;
+object-fit:cover;
+border:none;
+box-shadow:none;
 }
 
-/* LIGHT MODE FIX */
-html[data-theme="light"] .skill-tab{
-  background:#eee;
-  color:#333;
+
+.profile h2{
+font-size:30px;
+margin:0 0 8px;
 }
 
-/* DARK MODE */
-html[data-theme="dark"] .skill-tab{
-  background:#111;
-  color:#aaa;
+
+.profile p{
+opacity:.8;
+line-height:1.6;
 }
 
-/* BASE TAB */
-.skill-tab{
-  padding:10px 24px;
-  border-radius:30px;
-  cursor:pointer;
-  font-size:14px;
-  transition:all 0.25s ease;
-  border:1px solid transparent;
+
+
+.tags{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
 }
 
-/* LIGHT MODE (inactive) */
-html[data-theme="light"] .skill-tab{
-  background:transparent;
-  color:#333;
-  border:1px solid #ccc;
+
+
+.tag{
+padding:8px 18px;
+border-radius:20px;
+background:var(--tag);
+border:1px solid var(--border);
 }
 
-/* DARK MODE (inactive) */
-html[data-theme="dark"] .skill-tab{
-  background:transparent;
-  color:#aaa;
-  border:1px solid rgba(255,255,255,0.15);
+
+
+
+
+.education{
+margin-top:35px;
 }
 
-/* 🔥 ACTIVE TAB (FULL BLUE - STRONG) */
-.skill-tab.active{
-  background:#0a66ff !important;   /* strong blue */
-  color:#ffffff !important;
-  border:1px solid #0a66ff !important;
-  box-shadow:none !important;
+
+.heading{
+font-size:25px;
+margin-bottom:20px;
 }
 
-/* GRID */
-.skills-grid-pro{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 200px));
-  justify-content:center;
-  gap:30px;
+
+
+.edu-root{
+display:flex;
+gap:25px;
+position:relative;
 }
 
-/* CARD */
-.skill-card{
-  height:200px;
-  padding:25px;
-  border-radius:25px;
-  transform: rotate(-8deg) scale(0.95);
-  transition: all 0.4s ease;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
+
+.edu-root:before{
+content:"";
+position:absolute;
+height:3px;
+background:#2563eb;
+left:0;
+right:0;
+top:20px;
 }
 
-/* SHOW ANIMATION */
-.skill-card.show{
-  opacity:1;
-  transform: rotate(-8deg) scale(1);
+
+
+.edu-item{
+flex:1;
+position:relative;
 }
 
-/* HOVER */
-.skill-card:hover{
-  transform: rotate(0deg) scale(1.08);
+
+
+.dot{
+width:42px;
+height:42px;
+border-radius:50%;
+background:#2563eb;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+z-index:2;
+margin-bottom:12px;
+box-shadow:0 0 20px #2563eb;
 }
 
-/* THEME */
-html[data-theme="light"] .skill-card{
-  background:rgba(0,0,0,0.05);
-  border:1px solid rgba(0,0,0,0.1);
-  color:#111;
-}
-html[data-theme="dark"] .skill-card{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.08);
-  color:#fff;
+
+
+.edu-card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:20px;
+padding:22px;
+transition:.3s;
 }
 
-/* ICON */
-.skill-icon{
-  font-size:40px;
-  margin-bottom:10px;
+
+.edu-card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 30px rgba(37,99,blue,.25);
 }
 
-/* NAME */
-.skill-name{
-  font-weight:700;
-  margin:8px 0;
+
+
+.edu-icon{
+width:55px;
+height:55px;
+margin-bottom:12px;
 }
 
-/* BAR */
-.skill-bar{
-  width:100%;
-  height:6px;
-  border-radius:10px;
-  overflow:hidden;
-  margin-top:10px;
+
+
+.edu-icon img{
+width:55px;
+height:55px;
+object-fit:contain;
 }
 
-html[data-theme="light"] .skill-bar{
-  background:#ddd;
-}
-html[data-theme="dark"] .skill-bar{
-  background:#222;
+
+/* ===== Education text layout only ===== */
+
+.edu-card{
+    text-align:left;
 }
 
-.skill-fill{
-  height:100%;
-  background:linear-gradient(90deg,#00d4ff,#007bff);
-  width:0;
-  transition: width 1s ease;
+
+.edu-card h3{
+    margin:5px 0 8px;
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:-0.3px;
 }
 
-/* HIDE */
-.hidden{
-  display:none;
+
+.edu-place{
+    color:#2a7cf1;
+    font-weight:800;
+    font-size:14px;
+    margin-bottom:14px;
 }
+
+
+/* date + score in same line */
+
+.edu-details{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    width:100%;
+
+    font-size:14px;
+    color:var(--projects-muted);
+}
+
+
+.edu-details b{
+    color:var(--projects-text);
+    font-weight:900;
+}
+
+
+/* hover only */
+
+.edu-card:hover h3{
+    color:#2a7cf1;
+    transition:.25s ease;
+}
+
+
+[data-theme="dark"] .edu-details b{
+    color:#fff;
+}
+
+
+
+
+.skills{
+margin-top:40px;
+}
+
+
+
+.skill-grid{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
+
+}
+
+
+
+
+.skill{
+
+height:78px;
+
+display:flex;
+align-items:center;
+gap:18px;
+
+padding:0 28px;
+
+background:#111;
+
+color:white;
+
+border-radius:18px;
+
+font-size:20px;
+font-weight:800;
+
+border:1px solid transparent;
+
+transition:.35s;
+
+position:relative;
+overflow:hidden;
+
+}
+
+
+
+
+html[data-theme="dark"] .skill{
+
+border:1px solid rgba(255,255,255,.65);
+
+}
+
+
+
+.skill:before{
+
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+120deg,
+transparent,
+rgba(0,200,255,.35),
+transparent
+);
+
+transform:translateX(-100%);
+transition:.5s;
+
+}
+
+
+
+.skill:hover:before{
+
+transform:translateX(100%);
+
+}
+
+
+
+.skill:hover{
+
+transform:translateY(-8px) scale(1.03);
+
+border-color:#00c8ff;
+
+}
+
+
+
+.icon{
+
+width:38px;
+height:38px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+
+
+.icon img{
+
+width:32px;
+height:32px;
+object-fit:contain;
+
+}
+
+
+
+
+
+html[data-theme="dark"] #about{
+
+--surface:rgba(255,255,255,.06);
+--card:rgba(255,255,255,.08);
+--tag:rgba(255,255,255,.08);
+--border:rgba(255,255,255,.18);
+
+}
+
+
+
+html[data-theme="light"] #about{
+
+--surface:rgba(0,0,0,.04);
+--card:rgba(0,0,0,.05);
+--tag:rgba(0,0,0,.07);
+--border:rgba(0,0,0,.18);
+
+}
+
+
+
+html[data-theme="light"] #about *{
+color:#000;
+}
+
+
+
+html[data-theme="light"] .skill,
+html[data-theme="light"] .skill *{
+color:white!important;
+}
+
+
+
+
+
+@media(max-width:850px){
+
+
+.profile{
+flex-direction:column;
+text-align:center;
+}
+
+
+.edu-root{
+flex-direction:column;
+}
+
+
+.edu-root:before{
+
+width:3px;
+height:100%;
+left:20px;
+
+}
+
+
+
+.edu-item{
+padding-left:40px;
+}
+
+
+
+.dot{
+
+position:absolute;
+left:0;
+
+}
+
+
+
+.skill-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+
+}
+
+
+
+@media(max-width:450px){
+
+.skill-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+
 
 </style>
 
-<!-- TABS -->
-<div class="skill-tabs">
-  <div class="skill-tab active" data-filter="all">ALL SKILLS</div>
-  <div class="skill-tab" data-filter="web">WEB DEVELOPMENT</div>
-  <div class="skill-tab" data-filter="data">DATA ANALYTICS</div>
-</div>
 
-<!-- SKILLS -->
-<div class="skills-grid-pro">
 
-  <div class="skill-card" data-cat="web data">
-    <div class="skill-icon">🐍</div>
-    <div class="skill-name">PYTHON</div>
-    <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
-    <small>70%</small>
-  </div>
 
-  <div class="skill-card" data-cat="web">
-    <div class="skill-icon">🌐</div>
-    <div class="skill-name">HTML</div>
-    <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
-    <small>80%</small>
-  </div>
 
-  <div class="skill-card" data-cat="web">
-    <div class="skill-icon">🧩</div>
-    <div class="skill-name">DJANGO</div>
-    <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
-    <small>80%</small>
-  </div>
+<div class="about-box">
 
-  <div class="skill-card" data-cat="web data">
-    <div class="skill-icon">🗄️</div>
-    <div class="skill-name">SQL</div>
-    <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
-    <small>80%</small>
-  </div>
 
-  <div class="skill-card" data-cat="data">
-    <div class="skill-icon">📊</div>
-    <div class="skill-name">POWER BI</div>
-    <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
-    <small>90%</small>
-  </div>
 
-  <div class="skill-card" data-cat="data">
-    <div class="skill-icon">📈</div>
-    <div class="skill-name">EXCEL</div>
-    <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
-    <small>90%</small>
-  </div>
+<div class="profile">
 
-  <div class="skill-card" data-cat="data">
-    <div class="skill-icon">🍃</div>
-    <div class="skill-name">MONGODB</div>
-    <div class="skill-bar"><div class="skill-fill" data-width="60%"></div></div>
-    <small>60%</small>
-  </div>
+
+<img src="assets/your-profile.jpg">
+
+
+<div>
+
+<h2>Developer · B.Tech CSE</h2>
+
+
+<p>
+Computer Science graduate passionate about creating
+modern applications, data solutions and clean digital experiences.
+</p>
+
+
+
 
 </div>
 
-<script>
+</div>
 
-const tabs = document.querySelectorAll('.skill-tab');
-const cards = document.querySelectorAll('.skill-card');
 
-function animateCards(){
-  document.querySelectorAll('.skill-fill').forEach(bar=>{
-    bar.style.width = bar.dataset.width;
-  });
 
-  cards.forEach((card,i)=>{
-    setTimeout(()=> card.classList.add('show'), i*100);
-  });
-}
 
-animateCards();
 
-tabs.forEach(tab=>{
-  tab.addEventListener('click',()=>{
 
-    tabs.forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
+<div class="education">
 
-    const filter = tab.dataset.filter;
 
-    cards.forEach(card=>{
-      card.classList.remove('show');
+<h2 class="heading">Academic Root</h2>
 
-      if(filter==="all" || card.dataset.cat.includes(filter)){
-        card.classList.remove('hidden');
 
-        setTimeout(()=> card.classList.add('show'),100);
-      } else {
-        card.classList.add('hidden');
-      }
-    });
+<div class="edu-root">
 
-    setTimeout(animateCards,200);
 
-  });
-});
 
-</script>
+<div class="edu-item">
+
+<div class="dot">1</div>
+
+<div class="edu-card">
+
+
+<div class="edu-icon">
+<img src="assets/icons8-man-student-48.png">
+</div>
+
+
+<h3>B.Tech Computer Science</h3>
+
+<p>
+UCE Thodupuzha<br>
+2021 - 2025<br>
+CGPA : 6.99
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="edu-item">
+
+<div class="dot">2</div>
+
+<div class="edu-card">
+
+
+<div class="edu-icon">
+<img src="assets/icons8-school-48.png">
+</div>
+
+
+<h3>Higher Secondary</h3>
+
+<p>
+St Sebastian's HSS<br>
+2019 - 2021<br>
+Score : 93%
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="edu-item">
+
+<div class="dot">3</div>
+
+<div class="edu-card">
+
+
+<div class="edu-icon">
+<img src="assets/icons8-books-emoji-48.png">
+</div>
+
+
+<h3>Secondary Education</h3>
+
+<p>
+Bappuji Public School<br>
+2018 - 2019<br>
+Score : 80%
+</p>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="skills">
+
+
+<h2 class="heading">Skills</h2>
+
+
+
+<div class="skill-grid">
+
+
+
+<div class="skill">
+<span class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"></span>
+Python
+</div>
+
+
+<div class="skill">
+<span class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"></span>
+SQL
+</div>
+
+
+<div class="skill">
+<span class="icon"><img src="assets/ex.png"></span>
+Excel
+</div>
+
+
+<div class="skill">
+<span class="icon"><img src="assets/pbi.png"></span>
+Power BI
+</div>
+
+
+<div class="skill">
+<span class="icon"><img src="assets/tb.png"></span>
+Tableau
+</div>
+
+
+<div class="skill">
+<span class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"></span>
+MongoDB
+</div>
+
+
+<div class="skill">
+<span class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"></span>
+HTML
+</div>
+
+
+<div class="skill">
+<span class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"></span>
+CSS
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
 </section>
 
+
+
  <hr class="section-divider">
-<!-- ===== PROJECTS: desktop modern small dots (hidden on mobile); rest unchanged ===== -->
+<!-- ===== PROJECTS: with filter bar, no title, DA projects added ===== -->
 <section id="projects" aria-labelledby="projectsTitle">
   <style>
-    /* Scoped styles for the projects section */
     :root{
       --projects-glass: rgba(0,0,0,0.08);
       --projects-primary:#2a7cf1;
@@ -1449,73 +1608,96 @@ tabs.forEach(tab=>{
     #projects > .section-inner { height:auto !important; min-height:0 !important; display:block !important; padding-top:0 !important; }
     #projects .box { width:100%; max-width:1400px; margin:0 auto; padding:18px 24px; box-sizing:border-box; }
 
-/* Title */
-#projectsTitle {
-  font-size: clamp(28px, 3.8vw, 40px);
-  font-weight: 900;
-  text-align: center;
-  letter-spacing: -0.02em;
-  color: var(--projects-text);
-  position: relative;
-  transform: translateY(1cm);
-   margin-top: -1cm; /* 👈 Moves title down without moving other elements */
-}
+    /* ── FILTER BAR ── */
+    .folio-filter-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .folio-filter-btn {
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13px;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      cursor: pointer;
+      transition: all .2s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      letter-spacing: 0.3px;
+    }
+    .folio-filter-btn:hover {
+      background: rgba(42,124,241,0.18);
+      border-color: rgba(42,124,241,0.45);
+      color: #fff;
+    }
+    .folio-filter-btn.active {
+      background: var(--projects-primary);
+      border-color: var(--projects-primary);
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(42,124,241,0.35);
+    }
 
-/* Blue-white gradient underline */
-#projectsTitle::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-  transform: translateX(-50%);
-  width: 140px; /* underline length */
-  height: 3px;
-  border-radius: 3px;
+    /* Light mode filter */
+    html.light .folio-filter-btn,
+    body.light .folio-filter-btn,
+    [data-theme="light"] .folio-filter-btn {
+      background: rgba(0,0,0,0.05);
+      border-color: rgba(0,0,0,0.15);
+      color: #111;
+    }
+    html.light .folio-filter-btn:hover,
+    body.light .folio-filter-btn:hover,
+    [data-theme="light"] .folio-filter-btn:hover {
+      background: rgba(42,124,241,0.12);
+      border-color: rgba(42,124,241,0.4);
+      color: var(--projects-primary);
+    }
+    html.light .folio-filter-btn.active,
+    body.light .folio-filter-btn.active,
+    [data-theme="light"] .folio-filter-btn.active {
+      background: var(--projects-primary);
+      border-color: var(--projects-primary);
+      color: #fff;
+    }
 
-  background: linear-gradient(90deg, #ffffff, #2a7cf1, #ffffff);
-  box-shadow: 0 0 8px rgba(42,124,241,0.6);
-}
+    /* Wrapper to contain grid and controls */
+    .folio-wrap {
+      position: relative;
+      margin-top: 0;
+    }
 
-/* Dark mode color */
-[data-theme="dark"] #projectsTitle {
-  color: #e8e8e8; /* white-grey mix */
-}
+    /* Horizontal slider container (desktop) */
+    .folio-grid {
+      display:flex;
+      gap:20px;
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      padding: 18px 6px;
+      align-items: stretch;
+      position:relative;
+      cursor: grab;
+      scroll-behavior: smooth;
+    }
 
+    /* Mobile */
+    @media (max-width: 600px) {
+      .folio-wrap {
+        margin-top: -2cm;
+      }
+    }
 
-
-/* Wrapper to contain grid and controls */
-.folio-wrap {
-  position: relative;
-  margin-top: -0.5cm; /* move up 0.5 cm on desktop */
-}
-
-/* Horizontal slider container (desktop) */
-.folio-grid {
-  display:flex;
-  gap:20px;
-  overflow-x:auto;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-  padding: 18px 6px;
-  align-items: stretch;
-  position:relative;
-  cursor: grab; /* hand hint */
-  scroll-behavior: smooth;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .folio-wrap {
-    margin-top: -2cm; /* move up 2cm on mobile */
-  }
-}
-
-    /* hide native scrollbar on desktop (visual 'remove/hide current slider') */
     .folio-grid::-webkit-scrollbar { height: 0; }
     .folio-grid { scrollbar-width: none; -ms-overflow-style: none; }
     .folio-grid:focus { outline: none; }
 
-    /* slide (project card) - desktop larger sizes */
+    /* slide (project card) */
     .folio-item {
       flex: 0 0 92%;
       max-width: 1200px;
@@ -1533,7 +1715,6 @@ tabs.forEach(tab=>{
     }
     .folio-item:focus, .folio-item:hover { transform: translateY(-6px); box-shadow: 0 28px 80px rgba(16,24,40,0.12); outline:none; }
 
-    /* Increase card presence at larger breakpoints */
     @media (min-width:760px) { .folio-item { flex: 0 0 78%; max-width: 1100px; } }
     @media (min-width:1100px) { .folio-item { flex: 0 0 64%; max-width: 1100px; } }
     @media (min-width:1400px) { .folio-item { flex: 0 0 54%; max-width: 1300px; } }
@@ -1546,7 +1727,31 @@ tabs.forEach(tab=>{
     .folio-caption .title { font-weight:900; letter-spacing:0.2px; color:#fff; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:15px; }
     .folio-caption .view { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:6px 10px; border-radius:10px; background: rgba(255,255,255,0.06); color:#fff; font-weight:700; font-size:13px; min-width:54px; height:36px; box-shadow: 0 6px 16px rgba(0,0,0,0.18); border: 1px solid rgba(255,255,255,0.06); }
 
-    /* LEFT / RIGHT ARROWS (large & visible at two ends) */
+    /* Category badge on card */
+    .folio-cat-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 12;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .folio-cat-badge.badge-da {
+      background: rgba(250, 140, 0, 0.82);
+      color: #fff;
+    }
+    .folio-cat-badge.badge-web {
+      background: rgba(42, 124, 241, 0.82);
+      color: #fff;
+    }
+
+    /* LEFT / RIGHT ARROWS */
     .folio-arrow {
       position:absolute;
       top:50%;
@@ -1570,108 +1775,112 @@ tabs.forEach(tab=>{
     .folio-arrow.left { left: 6px; }
     .folio-arrow.right { right: 6px; }
 
-/* DOTS BELOW — modern small desktop style */
-.folio-dots-wrap {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-  margin-top:12px;
-  padding-bottom:2px;
-  pointer-events:auto;
-  z-index: 70; /* ensure visible above background content */
-}
+    /* DOTS */
+    .folio-dots-wrap {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:8px;
+      margin-top:12px;
+      padding-bottom:2px;
+      pointer-events:auto;
+      z-index: 70;
+    }
+    .folio-dot {
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 6px 18px rgba(2,6,23,0.06), inset 0 1px 0 rgba(255,255,255,0.03);
+      cursor:pointer;
+      transition: transform .18s cubic-bezier(.2,.9,.2,1), box-shadow .18s ease, background .18s ease, border-color .18s ease;
+      opacity:0.98;
+      padding:0;
+    }
+    .folio-dot:hover { transform: scale(1.25); box-shadow: 0 10px 26px rgba(2,6,23,0.1); }
+    .folio-dot.active {
+      width:10px;
+      height:10px;
+      background: var(--projects-primary);
+      box-shadow: 0 12px 28px rgba(42,124,241,0.18), 0 2px 6px rgba(0,0,0,0.12);
+      transform: scale(1.35);
+      border-color: rgba(0,0,0,0.08);
+    }
 
-/* modern small dot (original style preserved) */
-.folio-dot {
-  width:8px;
-  height:8px;
-  border-radius:999px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 6px 18px rgba(2,6,23,0.06), inset 0 1px 0 rgba(255,255,255,0.03);
-  cursor:pointer;
-  transition: transform .18s cubic-bezier(.2,.9,.2,1), box-shadow .18s ease, background .18s ease, border-color .18s ease;
-  opacity:0.98;
-  padding:0;
-}
-.folio-dot:hover { transform: scale(1.25); box-shadow: 0 10px 26px rgba(2,6,23,0.1); }
-.folio-dot.active {
-  width:10px;
-  height:10px;
-  background: var(--projects-primary);
-  box-shadow: 0 12px 28px rgba(42,124,241,0.18), 0 2px 6px rgba(0,0,0,0.12);
-  transform: scale(1.35);
-  border-color: rgba(0,0,0,0.08);
-}
+    html.light .folio-dot,
+    body.light .folio-dot,
+    [data-theme="light"] .folio-dot {
+      background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+      border: 1px solid rgba(0,0,0,0.14);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+    html.light .folio-dot.active,
+    body.light .folio-dot.active,
+    [data-theme="light"] .folio-dot.active {
+      background: var(--projects-primary);
+      border-color: rgba(0,0,0,0.08);
+      box-shadow: 0 12px 28px rgba(42,124,241,0.20), 0 2px 6px rgba(0,0,0,0.12);
+    }
+    html.dark .folio-dot,
+    body.dark .folio-dot,
+    [data-theme="dark"] .folio-dot {
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 22px rgba(2,6,23,0.45), inset 0 1px 0 rgba(255,255,255,0.03);
+      opacity: 1;
+    }
+    html.dark .folio-dot.active,
+    body.dark .folio-dot.active,
+    [data-theme="dark"] .folio-dot.active {
+      background: var(--projects-primary);
+      border-color: rgba(255,255,255,0.08);
+      box-shadow: 0 14px 30px rgba(42,124,241,0.26), 0 4px 10px rgba(0,0,0,0.6);
+      transform: scale(1.35);
+    }
+    html.dark .folio-dot:hover,
+    body.dark .folio-dot:hover,
+    [data-theme="dark"] .folio-dot:hover {
+      transform: scale(1.28);
+      box-shadow: 0 14px 30px rgba(2,6,23,0.5);
+    }
+    @media (prefers-color-scheme: dark) {
+      .folio-dot {
+        background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
+        border: 1px solid rgba(255,255,255,0.10);
+        box-shadow: 0 8px 18px rgba(2,6,23,0.42), inset 0 1px 0 rgba(255,255,255,0.02);
+        opacity: 1;
+      }
+      .folio-dot.active {
+        box-shadow: 0 12px 28px rgba(42,124,241,0.24), 0 3px 8px rgba(0,0,0,0.55);
+      }
+    }
 
-/* ---------- Light-mode fixes (keep same look, but visible on white) ---------- */
-/* covers html.light, body.light, and common data-theme attribute patterns */
-html.light .folio-dot,
-body.light .folio-dot,
-[data-theme="light"] .folio-dot {
-  /* subtle dark gradient so dots are visible on white backgrounds */
-  background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
-  border: 1px solid rgba(0,0,0,0.14);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.02);
-}
-
-/* active in light mode keeps your primary color and a stronger glow */
-html.light .folio-dot.active,
-body.light .folio-dot.active,
-[data-theme="light"] .folio-dot.active {
-  background: var(--projects-primary);
-  border-color: rgba(0,0,0,0.08);
-  box-shadow: 0 12px 28px rgba(42,124,241,0.20), 0 2px 6px rgba(0,0,0,0.12);
-}
-/* ---------- Dark-mode fixes (visible on dark backgrounds) ---------- */
-html.dark .folio-dot,
-body.dark .folio-dot,
-[data-theme="dark"] .folio-dot {
-  /* brighter, warmer highlight so dots contrast on dark backgrounds */
-  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 8px 22px rgba(2,6,23,0.45), inset 0 1px 0 rgba(255,255,255,0.03);
-  opacity: 1;
-}
-
-/* Active state in dark mode keeps your primary color but with stronger glow */
-html.dark .folio-dot.active,
-body.dark .folio-dot.active,
-[data-theme="dark"] .folio-dot.active {
-  background: var(--projects-primary);
-  border-color: rgba(255,255,255,0.08);
-  box-shadow: 0 14px 30px rgba(42,124,241,0.26), 0 4px 10px rgba(0,0,0,0.6);
-  transform: scale(1.35);
-}
-
-/* Hover tweaks for dark mode (slightly stronger lift) */
-html.dark .folio-dot:hover,
-body.dark .folio-dot:hover,
-[data-theme="dark"] .folio-dot:hover {
-  transform: scale(1.28);
-  box-shadow: 0 14px 30px rgba(2,6,23,0.5);
-}
-
-/* Fallback for users who rely on OS color scheme rather than theme classes */
-@media (prefers-color-scheme: dark) {
-  .folio-dot {
-    background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
-    border: 1px solid rgba(255,255,255,0.10);
-    box-shadow: 0 8px 18px rgba(2,6,23,0.42), inset 0 1px 0 rgba(255,255,255,0.02);
-    opacity: 1;
-  }
-  .folio-dot.active {
-    box-shadow: 0 12px 28px rgba(42,124,241,0.24), 0 3px 8px rgba(0,0,0,0.55);
-  }
-}
-
-
-    /* dragging state visuals */
     .folio-grid.dragging { cursor: grabbing; user-select: none; -webkit-user-select:none; -ms-user-select:none; }
-    .folio-grid.dragging .folio-item { pointer-events: none; } /* avoid accidental clicks while dragging */
+    .folio-grid.dragging .folio-item { pointer-events: none; }
 
-    /* Lightbox (unchanged) */
+
+    .folio-filter-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+.folio-filter-btn i{
+    font-size:14px;
+    transition:.3s;
+}
+
+.folio-filter-btn:hover i{
+    transform:scale(1.1);
+}
+
+.folio-filter-btn.active i{
+    color:inherit;
+}
+
+    /* Lightbox */
     .lightbox {
       position:fixed;
       inset:0;
@@ -1706,118 +1915,159 @@ body.dark .folio-dot:hover,
     .btn { padding:8px 12px; border-radius:10px; font-weight:800; border:1px solid var(--projects-glass); background:transparent; cursor:pointer; font-size:13px; text-decoration:none; display:inline-block; color:var(--projects-text); }
     .btn.primary { background:var(--projects-primary); color:#fff; border-color:var(--projects-primary); }
 
-    /* ensure black text inside lightbox meta regardless of site theme */
     .lightbox .lb-meta, .lightbox .lb-meta * { color: #111 !important; }
     .lightbox .tech-badge { color:#111 !important; border-color: rgba(0,0,0,0.06) !important; }
 
     .sr-only { position:absolute !important; width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0 }
 
-    /* ------------------------
-       MOBILE: stacked vertical list + Show more button
-       ------------------------ */
+    /* Empty state */
+    .folio-empty {
+      display: none;
+      width: 100%;
+      padding: 48px 24px;
+      text-align: center;
+      color: var(--projects-muted);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    /* MOBILE */
     @media (max-width:760px) {
       .folio-grid {
         display:flex;
         flex-direction:column;
         gap:12px;
-        overflow:auto; /* vertical scrolling */
+        overflow:auto;
         scroll-snap-type: none;
         padding: 12px 6px;
-        cursor: auto; /* no drag hint on mobile */
+        cursor: auto;
       }
       .folio-grid::-webkit-scrollbar { height: auto; width:8px; }
       .folio-item { flex: none; width:100%; max-width:100%; border-radius:12px; }
-      .thumb-wrap { aspect-ratio: 14/9; } /* slightly taller on mobile */
+      .thumb-wrap { aspect-ratio: 14/9; }
       .folio-caption { padding:8px 10px; bottom:8px; left:8px; right:8px; }
       .folio-caption .title { font-size:14px; }
       .folio-caption .view { padding:6px 8px; min-width:44px; height:32px; font-size:12px; }
-
-      /* A class applied to hide additional mobile items */
       .folio-item.hidden-mobile { display:none !important; }
 
-   /* Show More / Show Less button */
-#showMoreProjects {
-  display: block;
-  margin: 18px auto 0 auto;
-  padding: 12px 18px;
-  min-width: 170px;
-  border-radius: 14px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: all .25s cubic-bezier(.25,.8,.25,1);
-  text-align: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
+      #showMoreProjects {
+        display: block;
+        margin: 18px auto 0 auto;
+        padding: 12px 18px;
+        min-width: 170px;
+        border-radius: 14px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all .25s cubic-bezier(.25,.8,.25,1);
+        text-align: center;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.18);
+        color: #fff;
+        box-shadow: 0 4px 14px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,0.12);
+      }
+      #showMoreProjects:hover {
+        transform: translateY(-2px);
+        background: var(--projects-primary);
+        box-shadow: 0 8px 20px rgba(42,124,241,0.35);
+        border-color: rgba(42,124,241,0.45);
+        color: #fff;
+      }
+      #showMoreProjects:active { transform: translateY(1px) scale(.97); }
 
-/* Default button style uses neutral glass */
-#showMoreProjects {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.18);
-  color: #fff;
-  box-shadow: 0 4px 14px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,0.12);
-}
+      html.light #showMoreProjects,
+      body.light #showMoreProjects,
+      [data-theme="light"] #showMoreProjects {
+        background: rgba(0,0,0,0.06);
+        border: 1px solid rgba(0,0,0,0.18);
+        color: #111;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      }
+      html.light #showMoreProjects:hover,
+      body.light #showMoreProjects:hover,
+      [data-theme="light"] #showMoreProjects:hover {
+        background: var(--projects-primary);
+        border-color: rgba(42,124,241,0.55);
+        color: #fff;
+        box-shadow: 0 10px 26px rgba(42,124,241,0.35);
+      }
 
-/* Hover */
-#showMoreProjects:hover {
-  transform: translateY(-2px);
-  background: var(--projects-primary);
-  box-shadow: 0 8px 20px rgba(42,124,241,0.35);
-  border-color: rgba(42,124,241,0.45);
-  color: #fff;
-}
-
-/* Active / Press */
-#showMoreProjects:active {
-  transform: translateY(1px) scale(.97);
-}
-
-/* Light mode visibility fix */
-html.light #showMoreProjects,
-body.light #showMoreProjects,
-[data-theme="light"] #showMoreProjects {
-  background: rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.18);
-  color: #111;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-}
-
-/* Light mode hover */
-html.light #showMoreProjects:hover,
-body.light #showMoreProjects:hover,
-[data-theme="light"] #showMoreProjects:hover {
-  background: var(--projects-primary);
-  border-color: rgba(42,124,241,0.55);
-  color: #fff;
-  box-shadow: 0 10px 26px rgba(42,124,241,0.35);
-}
-
-
-      /* hide desktop-only arrows on mobile */
       .folio-arrow { display:none !important; }
-      /* HIDE DOTS ON MOBILE */
       .folio-dots-wrap { display: none !important; }
     }
 
     @media (max-width: 768px) {
-  .lb-actions {
-    margin-top: 2cm; /* pushes it down exactly 2 cm */
-  }
-}
-
+      .lb-actions { margin-top: 2cm; }
+    }
   </style>
 
   <div class="section-inner">
     <div class="box">
-      <h1 id="projectsTitle" class="anim">MY PROJECTS</h1>
 
-      <!-- Horizontal slider (all projects visible in the scroll) -->
+      <!-- ── FILTER BAR ── -->
+      <!-- ── FILTER BAR ── -->
+<div class="folio-filter-bar" id="folioFilterBar" role="group" aria-label="Filter projects by category">
+
+  <button class="folio-filter-btn active" data-filter="all">
+    <i class="fa-solid fa-layer-group"></i>
+    <span>All</span>
+  </button>
+
+  <button class="folio-filter-btn" data-filter="da">
+    <i class="fa-solid fa-chart-line"></i>
+    <span>Data Analytics</span>
+  </button>
+
+  <button class="folio-filter-btn" data-filter="web">
+    <i class="fa-solid fa-code"></i>
+    <span>Web</span>
+  </button>
+
+</div>
+
+      <!-- Horizontal slider -->
       <div class="folio-wrap">
         <div class="folio-grid anim" id="folioGrid" aria-live="polite" tabindex="0">
 
-          <!-- --- Project cards (kept exactly as your original content) --- -->
+          <!-- ── DATA ANALYTICS PROJECTS (at front) ── -->
+
+          <!-- data-category="da" → Data Analytics -->
           <button class="folio-item"
+            data-category="da"
+            data-images="assets/ipl_Dashboard.png"
+            data-lightbox="assets/ipl_Dashboard.png"
+            data-link="https://github.com/Abhinand2502/IPL-Analysis-2008-2025-"
+            data-title="IPL Analysis 2008-2025"
+            data-desc="🏏 IPL Analysis Dashboard (2008–2025) is an interactive Power BI project that provides insights into team performances, points table standings, player achievements, and season statistics across IPL history. Built using Power BI, DAX, and Power Query, it transforms raw cricket data into meaningful and visually engaging analytics. 📊"
+            data-tech="⭐Python,⭐Excel,⭐Power BI,⭐Jupyter Notebook"
+            aria-label="Open IPL Analysis project details">
+            <span class="thumb-wrap" aria-hidden="true"></span>
+            <span class="folio-cat-badge badge-da">Data Analytics</span>
+            <div class="folio-caption"><span class="title">IPL Analysis 2008-2025</span><span class="view">View details</span></div>
+          </button>
+
+          <!-- data-category="da" → Data Analytics -->
+          <button class="folio-item"
+            data-category="da"
+            data-images="assets/Dashboard.png"
+            data-lightbox="assets/Dashboard.png"
+            data-link="https://github.com/Abhinand2502/Customer_Behavior_Analysis"
+            data-title="Customer_Behavior_Analysis"
+            data-desc="Customer Shopping Behavior Analysis is a data analytics project using Python, PostgreSQL, and Power BI to analyze customer purchasing patterns, product trends, discounts, subscriptions, and revenue insights through data cleaning, SQL analysis, and interactive dashboards."
+            data-tech="⭐Python,⭐Pandas,⭐Scikit-learn,⭐Matplotlib,⭐Seaborn,⭐Jupyter Notebook"
+            aria-label="Open Customer Analysis project details">
+            <span class="thumb-wrap" aria-hidden="true"></span>
+            <span class="folio-cat-badge badge-da">Data Analytics</span>
+            <div class="folio-caption"><span class="title">Customer_Behavior_Analysis</span><span class="view">View details</span></div>
+          </button>
+
+          <!-- ── WEB PROJECTS ── -->
+
+          <!-- data-category="web" → Web -->
+          <button class="folio-item"
+            data-category="web"
             data-images="assets/THOME.png,assets/TRESULT.png,assets/TRESULT1.png"
             data-lightbox="assets/TLOGIN (1).png,assets/THOME.png,assets/TPROF.png,assets/TUPLOAD.png,assets/TRESULT.png,assets/TRESULT1.png,assets/THIST.png,assets/THIST2.png,assets/TCOM.png,assets/ALOG.png,assets/AHOME.png,assets/AUSER.png,assets/AHIST.png,assets/ACOMP.png"
             data-link="https://github.com/Abhinand2502/DetexAI"
@@ -1826,10 +2076,13 @@ body.light #showMoreProjects:hover,
             data-tech="⭐Python,⭐Django,⭐HTML,⭐CSS,⭐JavaScript,⭐YOLOv8,⭐SQLite"
             aria-label="Open DetexAI project details">
             <span class="thumb-wrap" aria-hidden="true"></span>
+            <span class="folio-cat-badge badge-web">Web</span>
             <div class="folio-caption"><span class="title">DetexAI – AI Trash Detection</span><span class="view">View details</span></div>
           </button>
 
+          <!-- data-category="web" → Web -->
           <button class="folio-item"
+            data-category="web"
             data-images="assets/face.jpg,assets/face1.png,assets/face2.png"
             data-lightbox="assets/face.jpg,assets/face1.png,assets/face2.png,assets/face3.png,assets/face4.png,assets/face5.png,assets/face6.png"
             data-link="https://github.com/Abhinand2502/Face-recognition"
@@ -1838,10 +2091,29 @@ body.light #showMoreProjects:hover,
             data-tech="⭐Python,⭐Django,⭐HTML,⭐CSS,⭐JavaScript"
             aria-label="Open Face recognition project details">
             <span class="thumb-wrap" aria-hidden="true"></span>
+            <span class="folio-cat-badge badge-web">Web</span>
             <div class="folio-caption"><span class="title">Face recognition - Attendance Register</span><span class="view">View details</span></div>
           </button>
 
+
+           <!-- data-category="web" → Web -->
           <button class="folio-item"
+            data-category="web"
+            data-images="assets/S.jpeg,assets/S1.jpeg,assets/S2.jpeg"
+            data-lightbox="assets/s3.jpeg,assets/S.jpeg,assets/S1.jpeg,assets/S2.jpeg,assets/s4.jpeg,assets/s5.jpeg,assets/s6.jpeg"
+            data-link="none"
+            data-title="Scrapsy"
+            data-desc="Scrapsy is an AI-powered system using YOLOv8 to detect and classify trash in both land and aquatic environments, enabling real-time identification for smarter, faster cleanup."
+            data-tech="⭐Python,⭐Django,⭐HTML,⭐CSS,⭐JavaScript,⭐YOLOv8,⭐SQLite"
+            aria-label="Open DetexAI project details">
+            <span class="thumb-wrap" aria-hidden="true"></span>
+            <span class="folio-cat-badge badge-web">Web</span>
+            <div class="folio-caption"><span class="title">Scrapsy</span><span class="view">View details</span></div>
+          </button>
+
+          <!-- data-category="web" → Web -->
+          <button class="folio-item"
+            data-category="web"
             data-images="assets/login.png,assets/signup.png,assets/home.png"
             data-lightbox="assets/login.png,assets/signup.png,assets/home.png,assets/cash.png,assets/admin.png,assets/product.png,assets/orders.png"
             data-link="https://github.com/Abhinand2502/Ai-Assist-Cart"
@@ -1850,10 +2122,13 @@ body.light #showMoreProjects:hover,
             data-tech="⭐Python,⭐Django,⭐HTML,⭐CSS,⭐JavaScript,⭐AJAX,⭐SQLite"
             aria-label="Open AI-AssistCart project details">
             <span class="thumb-wrap" aria-hidden="true"></span>
+            <span class="folio-cat-badge badge-web">Web</span>
             <div class="folio-caption"><span class="title">AI-AssistCart - AI Shopping Site</span><span class="view">View details</span></div>
           </button>
 
+          <!-- data-category="web" → Web -->
           <button class="folio-item"
+            data-category="web"
             data-images="assets/chat1 (1).png,assets/chat1 (2).png"
             data-lightbox="assets/chat1 (1).png,assets/chat1 (2).png"
             data-link="https://github.com/Abhinand2502/AiChatbot"
@@ -1862,10 +2137,13 @@ body.light #showMoreProjects:hover,
             data-tech="⭐Python,⭐Django,⭐HTML,⭐CSS,⭐JavaScript,⭐Cohere API"
             aria-label="Open AI-Chatbot project details">
             <span class="thumb-wrap" aria-hidden="true"></span>
+            <span class="folio-cat-badge badge-web">Web</span>
             <div class="folio-caption"><span class="title">AI-Chatbot</span><span class="view">View details</span></div>
           </button>
 
+          <!-- data-category="web" → Web -->
           <button class="folio-item"
+            data-category="web"
             data-images="assets/tic (2).png,assets/tic (3).png,assets/tic (1).png"
             data-lightbox="assets/tic (2).png,assets/tic (3).png,assets/tic (1).png"
             data-link="https://github.com/Abhinand2502/tic_tac_toe"
@@ -1874,22 +2152,28 @@ body.light #showMoreProjects:hover,
             data-tech="⭐Python,⭐Django,⭐HTML,⭐CSS,⭐JavaScript,⭐WebSockets"
             aria-label="Open Tic-Tac-Toe project details">
             <span class="thumb-wrap" aria-hidden="true"></span>
+            <span class="folio-cat-badge badge-web">Web</span>
             <div class="folio-caption"><span class="title">Tic-Tac-Toe</span><span class="view">View details</span></div>
           </button>
 
+          <!-- data-category="web" → Web -->
           <button class="folio-item"
+            data-category="web"
             data-images="assets/porto.png,assets/portfolio.jpg"
             data-lightbox="assets/porto.png,assets/portfolio.jpg"
-            data-link="https://github.com/Abhinand2502/portofolio"
+            data-link="https://github.com/Abhinand2502/Portfolio"
             data-title="Portfolio"
             data-desc="My personal portfolio website."
             data-tech="⭐HTML,⭐CSS,⭐JavaScript"
             aria-label="Open Portfolio project details">
             <span class="thumb-wrap" aria-hidden="true"></span>
+            <span class="folio-cat-badge badge-web">Web</span>
             <div class="folio-caption"><span class="title">Portfolio</span><span class="view">View details</span></div>
           </button>
 
+          <!-- data-category="web" → Web -->
           <button class="folio-item"
+            data-category="web"
             data-images="assets/todo.png,assets/todo.png,assets/todo.png"
             data-lightbox="assets/todo.png,assets/todo.png,assets/todo.png"
             data-link="https://github.com/Abhinand2502/to_do_app"
@@ -1898,18 +2182,21 @@ body.light #showMoreProjects:hover,
             data-tech="⭐Python,⭐Django,⭐HTML,⭐CSS,⭐JavaScript"
             aria-label="Open To-Do List app project details">
             <span class="thumb-wrap" aria-hidden="true"></span>
+            <span class="folio-cat-badge badge-web">Web</span>
             <div class="folio-caption"><span class="title">To-Do List app</span><span class="view">View details</span></div>
           </button>
 
         </div> <!-- .folio-grid -->
 
-        <!-- visible arrows at the two ends (desktop) -->
+        <!-- Empty state message -->
+        <div class="folio-empty" id="folioEmpty">No projects in this category yet.</div>
+
         <button class="folio-arrow left" id="folioPrev" aria-label="Previous project">‹</button>
         <button class="folio-arrow right" id="folioNext" aria-label="Next project">›</button>
 
-        <!-- dots BELOW the container -->
         <div class="folio-dots-wrap" id="folioDotsWrap" role="tablist" aria-label="Project navigation dots"></div>
       </div>
+
       <!-- show more (mobile only) -->
       <button id="showMoreProjects" class="anim sr-only" aria-expanded="false" aria-controls="folioGrid">Show more projects</button>
     </div>
@@ -1920,18 +2207,14 @@ body.light #showMoreProjects:hover,
     <div class="lb-shell" role="document" aria-live="polite">
       <div class="lb-view" id="lbView" aria-hidden="false">
         <div id="lbSlides" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-
         <button class="lb-prev" id="lbPrev" aria-label="Previous (Left arrow)">◀</button>
         <button class="lb-next" id="lbNext" aria-label="Next (Right arrow)">▶</button>
         <button class="lb-close" id="lbClose" aria-label="Close (Esc)">✕</button>
       </div>
-
       <div class="lb-meta" id="lbMeta">
         <h3 id="lbTitle" class="lb-title">Title</h3>
         <p id="lbDesc" class="lb-desc">Full description here.</p>
-
         <div class="lb-tech" id="lbTech" aria-hidden="false"></div>
-
         <div class="lb-actions">
           <a id="lbLink" class="btn primary" href="#" target="_blank" rel="noopener">Open Project</a>
         </div>
@@ -1943,7 +2226,6 @@ body.light #showMoreProjects:hover,
     (function(){
       const grid = document.getElementById('folioGrid');
       if(!grid) return;
-      let items = Array.from(grid.querySelectorAll('.folio-item'));
       const lightbox = document.getElementById('lightbox');
       const lbSlides = document.getElementById('lbSlides');
       const lbTitle = document.getElementById('lbTitle');
@@ -1953,13 +2235,26 @@ body.light #showMoreProjects:hover,
       const lbClose = document.getElementById('lbClose');
       const lbPrev = document.getElementById('lbPrev');
       const lbNext = document.getElementById('lbNext');
-
       const showMoreBtn = document.getElementById('showMoreProjects');
+      const dotsContainer = document.getElementById('folioDotsWrap');
+      const prevBtn = document.getElementById('folioPrev');
+      const nextBtn = document.getElementById('folioNext');
+      const filterBar = document.getElementById('folioFilterBar');
+      const folioEmpty = document.getElementById('folioEmpty');
 
       const THUMB_INTERVAL = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--projects-thumb-interval')) || 1800;
+      const MOBILE_BREAK = 760;
+      const defaultVisible = 5;
+      const batchSize = 2;
 
-      // Build thumbnail images per card and autoplay them (unchanged)
-      items.forEach((it) => {
+      // All items (ALL cards, never changes)
+      const allItems = Array.from(grid.querySelectorAll('.folio-item'));
+      // Active (filtered) items
+      let items = [...allItems];
+      let activeFilter = 'all';
+
+      /* ── THUMBNAIL SETUP ── */
+      allItems.forEach((it) => {
         const wrap = it.querySelector('.thumb-wrap');
         const images = (it.dataset.images || '').split(',').map(s => s.trim()).filter(Boolean);
         const imgs = images.length ? images : ['assets/bg.jpg'];
@@ -1994,7 +2289,55 @@ body.light #showMoreProjects:hover,
       }
       let thumbTimer = setInterval(thumbTick, THUMB_INTERVAL);
 
-      // --- Lightbox functionality (unchanged) ---
+      document.addEventListener('visibilitychange', () => {
+        if(document.hidden){
+          if(thumbTimer){ clearInterval(thumbTimer); thumbTimer = null; }
+        } else {
+          if(!thumbTimer) thumbTimer = setInterval(thumbTick, THUMB_INTERVAL);
+        }
+      });
+
+      /* ── FILTER ── */
+      function applyFilter(filter) {
+        activeFilter = filter;
+
+        // Update button states
+        Array.from(filterBar.querySelectorAll('.folio-filter-btn')).forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.filter === filter);
+        });
+
+        // Show/hide cards
+        allItems.forEach(it => {
+          const cat = (it.dataset.category || '').toLowerCase().trim();
+          const match = filter === 'all' || cat === filter;
+          it.style.display = match ? '' : 'none';
+        });
+
+        // Rebuild items list (only visible ones)
+        items = allItems.filter(it => it.style.display !== 'none');
+
+        // Show empty state if needed
+        folioEmpty.style.display = items.length === 0 ? 'block' : 'none';
+
+        // Scroll back to start
+        grid.scrollTo({ left: 0, behavior: 'smooth' });
+
+        // Re-apply mobile visibility
+        applyMobileVisibility();
+
+        // Rebuild dots
+        buildDots();
+        attachItemOpenHandlers();
+        setTimeout(updateActiveDot, 120);
+      }
+
+      filterBar.addEventListener('click', (e) => {
+        const btn = e.target.closest('.folio-filter-btn');
+        if(!btn) return;
+        applyFilter(btn.dataset.filter);
+      });
+
+      /* ── LIGHTBOX ── */
       let lbTrack = null;
       let lbSlidesArr = [];
       let lbCurrent = 0;
@@ -2045,6 +2388,7 @@ body.light #showMoreProjects:hover,
       function lbPrevFn(){ showLbSlide(lbCurrent - 1); }
 
       function openAt(index){
+        // index is relative to visible items[]
         const item = items[index]; if(!item) return;
         lastFocused = document.activeElement;
 
@@ -2055,7 +2399,6 @@ body.light #showMoreProjects:hover,
         lbTitle.textContent = item.dataset.title || '';
         lbDesc.textContent = item.dataset.desc || '';
         lbLink.href = item.dataset.link || '#';
-
         renderTechBadgesFromData(item.dataset.tech || '');
 
         lbSlides.innerHTML = '';
@@ -2071,7 +2414,6 @@ body.light #showMoreProjects:hover,
         lbSlides.appendChild(lbTrack);
 
         showLbSlide(0, true);
-
         lightbox.classList.add('open'); lightbox.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden';
         if(lbClose && typeof lbClose.focus === 'function') lbClose.focus();
       }
@@ -2085,9 +2427,7 @@ body.light #showMoreProjects:hover,
       if(lbClose) lbClose.addEventListener('click', closeLB);
       if(lbPrev) lbPrev.addEventListener('click', () => { lbPrevFn(); });
       if(lbNext) lbNext.addEventListener('click', () => { lbNextFn(); });
-
       lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLB(); });
-
       document.addEventListener('keydown', (e) => {
         if(lightbox.classList.contains('open')){
           if(e.key === 'Escape') closeLB();
@@ -2096,43 +2436,12 @@ body.light #showMoreProjects:hover,
         }
       });
 
-      // preload first image for each card to reduce flicker (unchanged)
-      items.forEach(it => {
-        const first = (it.dataset.images || '').split(',').map(s=>s.trim()).filter(Boolean)[0];
-        if(first){ const img = new Image(); img.src = first; }
-      });
-
-      // pause thumbnails when page hidden
-      document.addEventListener('visibilitychange', () => {
-        if(document.hidden){
-          if(thumbTimer){ clearInterval(thumbTimer); thumbTimer = null; }
-        } else {
-          if(!thumbTimer) thumbTimer = setInterval(thumbTick, THUMB_INTERVAL);
-        }
-      });
-
-      // allow left/right keys to scroll slider when not in lightbox (desktop)
-      grid.addEventListener('keydown', (e) => {
-        if(e.key === 'ArrowRight'){ e.preventDefault(); grid.scrollBy({ left: window.innerWidth * 0.6, behavior: 'smooth' }); }
-        if(e.key === 'ArrowLeft'){ e.preventDefault(); grid.scrollBy({ left: -window.innerWidth * 0.6, behavior: 'smooth' }); }
-      });
-
-      // small accessibility improvement: make each button focusable by keyboard and show pointer
-      items.forEach(it => { it.setAttribute('tabindex', '0'); it.style.userSelect = 'none'; });
-
-      /* ---------------------
-         MOBILE: Show more logic
-      */
-      const MOBILE_BREAK = 760;
-      const defaultVisible = 5;
-      const batchSize = 2;
+      /* ── MOBILE: Show more ── */
       let mobileMode = window.innerWidth <= MOBILE_BREAK;
       let currentlyVisible = items.length;
 
       function applyMobileVisibility() {
-        items = Array.from(grid.querySelectorAll('.folio-item')); // refresh list
         if(!mobileMode){
-          // ensure all visible on desktop
           items.forEach(it => it.classList.remove('hidden-mobile'));
           if(showMoreBtn){
             showMoreBtn.classList.add('sr-only');
@@ -2141,18 +2450,11 @@ body.light #showMoreProjects:hover,
           currentlyVisible = items.length;
           return;
         }
-
-        // mobile: hide items beyond defaultVisible
         items.forEach((it, idx) => {
-          if(idx < defaultVisible) {
-            it.classList.remove('hidden-mobile');
-          } else {
-            it.classList.add('hidden-mobile');
-          }
+          if(idx < defaultVisible) it.classList.remove('hidden-mobile');
+          else it.classList.add('hidden-mobile');
         });
         currentlyVisible = Math.min(defaultVisible, items.length);
-
-        // configure button
         if(showMoreBtn){
           showMoreBtn.classList.remove('sr-only');
           showMoreBtn.style.display = 'block';
@@ -2165,29 +2467,24 @@ body.light #showMoreProjects:hover,
         }
       }
 
-      // reveal next batch on click
       if(showMoreBtn){
         showMoreBtn.addEventListener('click', () => {
-          const hiddenItems = Array.from(grid.querySelectorAll('.folio-item.hidden-mobile'));
+          const hiddenItems = items.filter(it => it.classList.contains('hidden-mobile'));
           if(hiddenItems.length === 0){
-            // all shown -> collapse
             items.forEach((it, idx) => {
               if(idx >= defaultVisible) it.classList.add('hidden-mobile');
             });
             currentlyVisible = Math.min(defaultVisible, items.length);
             showMoreBtn.textContent = 'Show more projects';
             showMoreBtn.setAttribute('aria-expanded','false');
-            // scroll to the grid top so user sees collapsed start
             grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
             return;
           }
-          // reveal next batchSize items
           for(let i=0; i<batchSize && hiddenItems[i]; i++){
             hiddenItems[i].classList.remove('hidden-mobile');
             currentlyVisible++;
           }
-          // update button state
-          const remaining = Array.from(grid.querySelectorAll('.folio-item.hidden-mobile')).length;
+          const remaining = items.filter(it => it.classList.contains('hidden-mobile')).length;
           if(remaining === 0){
             showMoreBtn.textContent = 'Show less';
             showMoreBtn.setAttribute('aria-expanded','true');
@@ -2198,33 +2495,7 @@ body.light #showMoreProjects:hover,
         });
       }
 
-      // initial apply
-      applyMobileVisibility();
-
-      // handle resize toggling mobile/desktop behavior
-      let resizeTimer = null;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          const nowMobile = window.innerWidth <= MOBILE_BREAK;
-          if(nowMobile !== mobileMode){
-            mobileMode = nowMobile;
-            applyMobileVisibility();
-            // rebuild dots when mode changes
-            buildDots();
-            updateActiveDot();
-          }
-        }, 120);
-      });
-
-      /* ---------------------
-         NEW: Dot slider below + drag-to-scroll + arrows at two ends
-         + click-vs-drag handling so lightbox still opens on click
-      */
-      const dotsContainer = document.getElementById('folioDotsWrap');
-      const prevBtn = document.getElementById('folioPrev');
-      const nextBtn = document.getElementById('folioNext');
-
+      /* ── DOTS ── */
       function buildDots(){
         dotsContainer.innerHTML = '';
         items.forEach((it, idx) => {
@@ -2260,12 +2531,10 @@ body.light #showMoreProjects:hover,
       function scrollToItem(i){
         const target = items[i];
         if(!target) return;
-        // center the item in view
         const offset = target.offsetLeft - (grid.clientWidth / 2) + (target.offsetWidth / 2);
         grid.scrollTo({ left: offset, behavior: 'smooth' });
       }
 
-      // attach prev/next
       if(prevBtn) prevBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         const cur = getCenterIndex();
@@ -2277,12 +2546,12 @@ body.light #showMoreProjects:hover,
         scrollToItem(Math.min(items.length - 1, cur + 1));
       });
 
-      // drag to scroll (desktop only) with drag threshold
+      /* ── DRAG TO SCROLL ── */
       let isDown = false;
       let dragMoved = false;
       let startX = 0;
       let scrollLeftStart = 0;
-      const DRAG_THRESHOLD = 6; // small threshold to distinguish click vs drag
+      const DRAG_THRESHOLD = 6;
 
       grid.addEventListener('mousedown', (e) => {
         if(window.innerWidth <= MOBILE_BREAK) return;
@@ -2299,14 +2568,13 @@ body.light #showMoreProjects:hover,
           dragMoved = true;
           grid.classList.add('dragging');
         }
-        const walk = (x - startX) * 1.1; // sensitivity
+        const walk = (x - startX) * 1.1;
         grid.scrollLeft = scrollLeftStart - walk;
         updateActiveDot();
       });
       grid.addEventListener('mouseup', () => {
         isDown = false;
         grid.classList.remove('dragging');
-        // small timeout ensure clicks right after drag are ignored
         setTimeout(()=>{ dragMoved = false; }, 50);
       });
       grid.addEventListener('mouseleave', () => {
@@ -2314,7 +2582,6 @@ body.light #showMoreProjects:hover,
         grid.classList.remove('dragging');
       });
 
-      // also enable touch swipe for tablets (do not break mobile stacked behavior)
       let tStartX = null;
       grid.addEventListener('touchstart', (e) => {
         if(e.touches && e.touches[0]) tStartX = e.touches[0].pageX;
@@ -2323,7 +2590,6 @@ body.light #showMoreProjects:hover,
         if(tStartX === null) return;
         if(e.touches && e.touches[0]){
           const diff = tStartX - e.touches[0].pageX;
-          // don't override normal mobile vertical scroll when in stacked mode
           if(window.innerWidth > MOBILE_BREAK){
             if(Math.abs(diff) > DRAG_THRESHOLD) dragMoved = true;
             grid.scrollLeft += diff;
@@ -2335,43 +2601,58 @@ body.light #showMoreProjects:hover,
       }, {passive:false});
       grid.addEventListener('touchend', () => { tStartX = null; setTimeout(()=>{ dragMoved = false; }, 60); });
 
-      // update dots on scroll (throttle)
       let scrollTick = null;
       grid.addEventListener('scroll', () => {
         if(scrollTick) clearTimeout(scrollTick);
-        scrollTick = setTimeout(() => {
-          updateActiveDot();
-        }, 80);
+        scrollTick = setTimeout(() => { updateActiveDot(); }, 80);
       });
 
-      // attach click handlers to items but ignore clicks that were part of drag
+      grid.addEventListener('keydown', (e) => {
+        if(e.key === 'ArrowRight'){ e.preventDefault(); grid.scrollBy({ left: window.innerWidth * 0.6, behavior: 'smooth' }); }
+        if(e.key === 'ArrowLeft'){ e.preventDefault(); grid.scrollBy({ left: -window.innerWidth * 0.6, behavior: 'smooth' }); }
+      });
+
+      /* ── ITEM CLICK HANDLERS ── */
       function attachItemOpenHandlers(){
         items.forEach((it, idx) => {
-          // remove previous to avoid duplicate handlers
           it.onclick = null;
           it.addEventListener('click', function onItemClick(ev){
-            // if this click was a drag -> ignore so it doesn't open lightbox
             if(dragMoved) { ev.stopPropagation(); ev.preventDefault(); return; }
             ev.preventDefault();
             openAt(idx);
           });
           it.addEventListener('keydown', (ev) => { if(ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openAt(idx); }});
+          it.setAttribute('tabindex', '0');
+          it.style.userSelect = 'none';
         });
       }
 
-      // build initial dots and handlers
+      /* ── RESIZE ── */
+      let resizeTimer = null;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          const nowMobile = window.innerWidth <= MOBILE_BREAK;
+          if(nowMobile !== mobileMode){
+            mobileMode = nowMobile;
+            applyMobileVisibility();
+            buildDots();
+            updateActiveDot();
+          }
+        }, 120);
+      });
+
+      /* ── INIT ── */
+      applyMobileVisibility();
       buildDots();
       attachItemOpenHandlers();
       setTimeout(updateActiveDot, 120);
 
-      // Recompute items, dots and handlers if DOM changes (in case you dynamically add/remove projects)
-      const obs = new MutationObserver(() => {
-        items = Array.from(grid.querySelectorAll('.folio-item'));
-        buildDots();
-        attachItemOpenHandlers();
-        updateActiveDot();
+      // Preload first thumb per card
+      allItems.forEach(it => {
+        const first = (it.dataset.images || '').split(',').map(s=>s.trim()).filter(Boolean)[0];
+        if(first){ const img = new Image(); img.src = first; }
       });
-      obs.observe(grid, { childList:true, subtree:false });
 
     })();
   </script>
@@ -2380,6 +2661,8 @@ body.light #showMoreProjects:hover,
 
 
 <hr class="section-divider">
+
+
 <!-- ===== MODERN GLASS CONTACT SECTION (Full Code) ===== -->
 <section id="contact" aria-label="Contact">
   <h1 id="projectsTitle2" class="anim">CONTACT</h1>
@@ -2455,7 +2738,8 @@ body.light #showMoreProjects:hover,
     }
 /* contact box (glass panel) */
 #contact .contact-box{
-  width: min(1280px, 96%);
+  width: 95%;
+  min-height: 550px;
   margin: 0 auto;
   text-align: center;
   padding: clamp(36px, 4vw, 60px);
@@ -2967,3 +3251,4 @@ body.light #showMoreProjects:hover,
   </script>
 </body>
 </html>
+
