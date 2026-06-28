@@ -941,273 +941,423 @@ function openEmail() {
 #about{
     background:var(--bg);
     color:var(--text);
-    padding:35px 2%;
+    padding:50px 5%;
 }
 
+
+/* MAIN ABOUT - NO CONTAINER */
 
 .about-box{
     width:100%;
     max-width:1500px;
     margin:auto;
-    padding:35px 45px;
-    border-radius:30px;
-    background:var(--surface);
-    border:1px solid var(--border);
-    backdrop-filter:blur(20px);
+    padding:20px 0;
+    background:transparent;
+    border:none;
+    backdrop-filter:none;
     animation:fadeIn .8s ease;
 }
 
 
 @keyframes fadeIn{
-from{opacity:0;transform:translateY(30px)}
-to{opacity:1;transform:translateY(0)}
+from{
+    opacity:0;
+    transform:translateY(30px)
+}
+to{
+    opacity:1;
+    transform:translateY(0)
+}
 }
 
+
+/* PROFILE */
 
 .profile{
-display:flex;
-align-items:center;
-gap:35px;
+
+    display:grid;
+
+    grid-template-columns:240px 1fr;
+
+    gap:45px;
+
+    align-items:stretch;
+
 }
 
 
-.profile img{
-width:130px;
-height:130px;
-border-radius:50%;
-object-fit:cover;
-border:none;
-box-shadow:none;
+/* IMAGE */
+
+.profile-image{
+
+    display:flex;
+
+    align-items:center;
+
 }
 
 
-.profile h2{
-font-size:30px;
-margin:0 0 8px;
+
+.profile-image img{
+
+    width:240px;
+
+    height:100%;
+
+    min-height:420px;
+
+    object-fit:cover;
+
+    border-radius:30px;
+
+    border:1px solid var(--border);
+
 }
 
 
-.profile p{
-opacity:.8;
-line-height:1.6;
+
+/* RIGHT CONTENT */
+
+.profile-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
 }
 
 
+.profile-content h2{
+
+    margin-top:0;
+
+}
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+
+
+.info-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px 20px;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    background:transparent;
+
+    transition:.3s;
+
+}
+
+
+
+.info-box span{
+
+    font-size:28px;
+
+}
+
+
+
+.info-box small{
+
+    opacity:.6;
+
+    font-size:13px;
+
+}
+
+
+
+.info-box h4{
+
+    margin:4px 0 0;
+
+    font-size:15px;
+
+}
+
+
+
+.info-box:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#2563eb;
+
+}
+
+
+
+@media(max-width:800px){
+
+    .profile-image{
+        display:none;
+    }
+
+
+    .profile{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .profile-content{
+
+        text-align:center;
+
+    }
+
+
+    .info-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+
+/* TAGS */
 
 .tags{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
 }
-
 
 
 .tag{
-padding:8px 18px;
-border-radius:20px;
-background:var(--tag);
-border:1px solid var(--border);
+    padding:8px 18px;
+    border-radius:20px;
+    background:var(--tag);
+    border:1px solid var(--border);
 }
 
 
 
-
+/* EDUCATION */
 
 .education{
-margin-top:35px;
+    margin-top:45px;
 }
 
 
 .heading{
-font-size:25px;
-margin-bottom:20px;
+    font-size:26px;
+    margin-bottom:25px;
 }
 
 
 
 .edu-root{
-display:flex;
-gap:25px;
-position:relative;
+    display:flex;
+    gap:25px;
+    position:relative;
 }
 
 
 .edu-root:before{
-content:"";
-position:absolute;
-height:3px;
-background:#2563eb;
-left:0;
-right:0;
-top:20px;
+    content:"";
+    position:absolute;
+    height:3px;
+    background:#2563eb;
+    left:0;
+    right:0;
+    top:20px;
 }
 
 
 
 .edu-item{
-flex:1;
-position:relative;
+    flex:1;
+    position:relative;
 }
 
 
 
 .dot{
-width:42px;
-height:42px;
-border-radius:50%;
-background:#2563eb;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-z-index:2;
-margin-bottom:12px;
-box-shadow:0 0 20px #2563eb;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    z-index:2;
+    margin-bottom:15px;
+    box-shadow:0 0 20px #2563eb;
 }
 
 
 
 .edu-card{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:20px;
-padding:22px;
-transition:.3s;
+
+    background:transparent;
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:22px;
+
+    transition:.3s;
+
 }
+
 
 
 .edu-card:hover{
-transform:translateY(-8px);
-box-shadow:0 15px 30px rgba(37,99,blue,.25);
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 30px rgba(37,99,235,.25);
+
 }
+
 
 
 
 .edu-icon{
-width:55px;
-height:55px;
-margin-bottom:12px;
+
+    width:55px;
+    height:55px;
+    margin-bottom:12px;
+
 }
 
 
 
 .edu-icon img{
-width:55px;
-height:55px;
-object-fit:contain;
+
+    width:55px;
+    height:55px;
+    object-fit:contain;
+
 }
 
-
-/* ===== Education text layout only ===== */
-
-.edu-card{
-    text-align:left;
-}
 
 
 .edu-card h3{
+
     margin:5px 0 8px;
+
     font-size:18px;
+
     font-weight:900;
-    letter-spacing:-0.3px;
+
 }
+
+
+
+.edu-card p{
+
+    line-height:1.7;
+
+}
+
 
 
 .edu-place{
+
     color:#2a7cf1;
+
     font-weight:800;
-    font-size:14px;
-    margin-bottom:14px;
+
 }
 
 
-/* date + score in same line */
 
 .edu-details{
+
     display:flex;
+
     justify-content:space-between;
-    align-items:center;
 
-    width:100%;
-
-    font-size:14px;
-    color:var(--projects-muted);
 }
+
 
 
 .edu-details b{
-    color:var(--projects-text);
+
     font-weight:900;
+
 }
-
-
-/* hover only */
-
-.edu-card:hover h3{
-    color:#2a7cf1;
-    transition:.25s ease;
-}
-
-
-[data-theme="dark"] .edu-details b{
-    color:#fff;
-}
-
-
+/* ================= SKILLS ================= */
 
 
 .skills{
-margin-top:40px;
+
+    margin-top:50px;
+
 }
 
 
 
 .skill-grid{
 
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:22px;
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
 
 }
-
 
 
 
 .skill{
 
-height:78px;
+    height:78px;
 
-display:flex;
-align-items:center;
-gap:18px;
+    display:flex;
 
-padding:0 28px;
+    align-items:center;
 
-background:#111;
+    gap:18px;
 
-color:white;
+    padding:0 28px;
 
-border-radius:18px;
+    background:transparent;
 
-font-size:20px;
-font-weight:800;
+    color:var(--text);
 
-border:1px solid transparent;
+    border-radius:18px;
 
-transition:.35s;
+    font-size:20px;
 
-position:relative;
-overflow:hidden;
+    font-weight:800;
 
-}
+    border:1px solid var(--border);
 
+    transition:.35s;
 
+    position:relative;
 
-
-html[data-theme="dark"] .skill{
-
-border:1px solid rgba(255,255,255,.65);
+    overflow:hidden;
 
 }
 
@@ -1215,18 +1365,22 @@ border:1px solid rgba(255,255,255,.65);
 
 .skill:before{
 
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(
-120deg,
-transparent,
-rgba(0,200,255,.35),
-transparent
-);
+    content:"";
 
-transform:translateX(-100%);
-transition:.5s;
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(0,200,255,.25),
+        transparent
+    );
+
+    transform:translateX(-100%);
+
+    transition:.5s;
 
 }
 
@@ -1234,7 +1388,7 @@ transition:.5s;
 
 .skill:hover:before{
 
-transform:translateX(100%);
+    transform:translateX(100%);
 
 }
 
@@ -1242,22 +1396,26 @@ transform:translateX(100%);
 
 .skill:hover{
 
-transform:translateY(-8px) scale(1.03);
+    transform:translateY(-8px) scale(1.03);
 
-border-color:#00c8ff;
+    border-color:#00c8ff;
 
 }
 
 
 
+
 .icon{
 
-width:38px;
-height:38px;
+    width:38px;
 
-display:flex;
-align-items:center;
-justify-content:center;
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
 }
 
@@ -1265,22 +1423,24 @@ justify-content:center;
 
 .icon img{
 
-width:32px;
-height:32px;
-object-fit:contain;
+    width:32px;
+
+    height:32px;
+
+    object-fit:contain;
 
 }
 
 
 
+/* ================= THEME ================= */
 
 
 html[data-theme="dark"] #about{
 
---surface:rgba(255,255,255,.06);
---card:rgba(255,255,255,.08);
---tag:rgba(255,255,255,.08);
---border:rgba(255,255,255,.18);
+    --border:rgba(255,255,255,.2);
+
+    --tag:rgba(255,255,255,.08);
 
 }
 
@@ -1288,64 +1448,78 @@ html[data-theme="dark"] #about{
 
 html[data-theme="light"] #about{
 
---surface:rgba(0,0,0,.04);
---card:rgba(0,0,0,.05);
---tag:rgba(0,0,0,.07);
---border:rgba(0,0,0,.18);
+    --border:rgba(0,0,0,.18);
+
+    --tag:rgba(0,0,0,.05);
 
 }
 
 
 
 html[data-theme="light"] #about *{
-color:#000;
+
+    color:#000;
+
+}
+
+
+html[data-theme="light"] .skill{
+
+    color:#000;
+
 }
 
 
 
-html[data-theme="light"] .skill,
-html[data-theme="light"] .skill *{
-color:white!important;
-}
-
-
-
+/* ================= RESPONSIVE ================= */
 
 
 @media(max-width:850px){
 
 
 .profile{
-flex-direction:column;
-text-align:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
 }
+
 
 
 .edu-root{
-flex-direction:column;
+
+    flex-direction:column;
+
 }
+
 
 
 .edu-root:before{
 
-width:3px;
-height:100%;
-left:20px;
+    width:3px;
+
+    height:100%;
+
+    left:20px;
 
 }
 
 
 
 .edu-item{
-padding-left:40px;
+
+    padding-left:40px;
+
 }
 
 
 
 .dot{
 
-position:absolute;
-left:0;
+    position:absolute;
+
+    left:0;
 
 }
 
@@ -1353,9 +1527,10 @@ left:0;
 
 .skill-grid{
 
-grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 
 }
+
 
 
 }
@@ -1364,47 +1539,121 @@ grid-template-columns:repeat(2,1fr);
 
 @media(max-width:450px){
 
+
 .skill-grid{
-grid-template-columns:1fr;
-}
+
+    grid-template-columns:1fr;
 
 }
 
+
+}
 
 
 </style>
 
 
 
-
-
 <div class="about-box">
-
 
 
 <div class="profile">
 
 
-<img src="assets/your-profile.jpg">
+    <!-- IMAGE -->
+
+    <div class="profile-image">
+
+        <img src="assets/your-profile.jpg">
+
+    </div>
 
 
-<div>
 
-<h2>Developer · B.Tech CSE</h2>
+    <!-- CONTENT -->
 
-
-<p>
-Computer Science graduate passionate about creating
-modern applications, data solutions and clean digital experiences.
-</p>
+    <div class="profile-content">
 
 
+        <h2>
+            Data Analyst · B.Tech CSE
+        </h2>
+
+
+        <p>
+            Computer Science graduate passionate about data analytics,
+            transforming raw data into meaningful insights, and developing
+            data-driven solutions. Interested in exploring patterns,
+            creating impactful visualizations, and using analytical
+            approaches to solve real-world problems.
+        </p>
+
+
+
+        <div class="info-grid">
+
+
+            <div class="info-box">
+
+                <span>📍</span>
+
+                <div>
+                    <small>Location</small>
+                    <h4>Kerala, India</h4>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="info-box">
+
+                <span>🎓</span>
+
+                <div>
+                    <small>Education</small>
+                    <h4>B.Tech Computer Science</h4>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="info-box">
+
+                <span>💼</span>
+
+                <div>
+                    <small>Career Focus</small>
+                    <h4>Data Analytics</h4>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="info-box">
+
+                <span>🚀</span>
+
+                <div>
+                    <small>Goal</small>
+                    <h4>Data Driven Solutions</h4>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
 
 
 </div>
-
-</div>
-
 
 
 
@@ -1413,7 +1662,10 @@ modern applications, data solutions and clean digital experiences.
 <div class="education">
 
 
-<h2 class="heading">Academic Root</h2>
+<h2 class="heading">
+Academic Root
+</h2>
+
 
 
 <div class="edu-root">
@@ -1422,17 +1674,28 @@ modern applications, data solutions and clean digital experiences.
 
 <div class="edu-item">
 
-<div class="dot">1</div>
+
+<div class="dot">
+1
+</div>
+
+
 
 <div class="edu-card">
 
 
 <div class="edu-icon">
+
 <img src="assets/icons8-man-student-48.png">
+
 </div>
 
 
-<h3>B.Tech Computer Science</h3>
+
+<h3>
+B.Tech Computer Science
+</h3>
+
 
 <p>
 UCE Thodupuzha<br>
@@ -1440,7 +1703,9 @@ UCE Thodupuzha<br>
 CGPA : 6.99
 </p>
 
+
 </div>
+
 
 </div>
 
@@ -1450,17 +1715,28 @@ CGPA : 6.99
 
 <div class="edu-item">
 
-<div class="dot">2</div>
+
+<div class="dot">
+2
+</div>
+
+
 
 <div class="edu-card">
 
 
 <div class="edu-icon">
+
 <img src="assets/icons8-school-48.png">
+
 </div>
 
 
-<h3>Higher Secondary</h3>
+
+<h3>
+Higher Secondary
+</h3>
+
 
 <p>
 St Sebastian's HSS<br>
@@ -1468,10 +1744,11 @@ St Sebastian's HSS<br>
 Score : 93%
 </p>
 
-</div>
 
 </div>
 
+
+</div>
 
 
 
@@ -1479,17 +1756,28 @@ Score : 93%
 
 <div class="edu-item">
 
-<div class="dot">3</div>
+
+<div class="dot">
+3
+</div>
+
+
 
 <div class="edu-card">
 
 
 <div class="edu-icon">
+
 <img src="assets/icons8-books-emoji-48.png">
+
 </div>
 
 
-<h3>Secondary Education</h3>
+
+<h3>
+Secondary Education
+</h3>
+
 
 <p>
 Bappuji Public School<br>
@@ -1497,7 +1785,9 @@ Bappuji Public School<br>
 Score : 80%
 </p>
 
+
 </div>
+
 
 </div>
 
@@ -1518,7 +1808,9 @@ Score : 80%
 <div class="skills">
 
 
-<h2 class="heading">Skills</h2>
+<h2 class="heading">
+Skills
+</h2>
 
 
 
@@ -1527,65 +1819,136 @@ Score : 80%
 
 
 <div class="skill">
-<span class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"></span>
+
+<span class="icon">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+
+</span>
+
 Python
+
 </div>
 
 
+
+
 <div class="skill">
-<span class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"></span>
+
+<span class="icon">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+
+</span>
+
 SQL
+
 </div>
 
 
+
+
 <div class="skill">
-<span class="icon"><img src="assets/ex.png"></span>
+
+<span class="icon">
+
+<img src="assets/ex.png">
+
+</span>
+
 Excel
+
 </div>
 
 
+
+
 <div class="skill">
-<span class="icon"><img src="assets/pbi.png"></span>
+
+<span class="icon">
+
+<img src="assets/pbi.png">
+
+</span>
+
 Power BI
+
 </div>
 
 
+
+
 <div class="skill">
-<span class="icon"><img src="assets/tb.png"></span>
+
+<span class="icon">
+
+<img src="assets/tb.png">
+
+</span>
+
 Tableau
+
 </div>
 
 
+
+
 <div class="skill">
-<span class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"></span>
+
+<span class="icon">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg">
+
+</span>
+
 MongoDB
+
 </div>
 
 
+
+
 <div class="skill">
-<span class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"></span>
+
+<span class="icon">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+
+</span>
+
 HTML
+
 </div>
+
+
 
 
 <div class="skill">
-<span class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"></span>
+
+<span class="icon">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+
+</span>
+
 CSS
-</div>
-
-
-
-</div>
-
 
 </div>
 
 
 
+</div>
+
 
 </div>
+
+
+</div>
+
 
 </section>
+
+
 
 
 
