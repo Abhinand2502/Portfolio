@@ -1718,7 +1718,292 @@ html[data-theme="light"] .skill{
 
 </div>
 
+<!-- EXPERIENCE -->
 
+<div class="experience">
+
+<h2 class="heading">
+Experience
+</h2>
+
+
+<div class="experience-item">
+
+    <div>
+        <h3>
+            Data Analyst Student Intern
+        </h3>
+
+        <p>
+            Quest Innovative Solutions Pvt Ltd
+        </p>
+    </div>
+
+
+    <button onclick="openExperience()">
+        View Details
+    </button>
+
+</div>
+
+
+</div>
+
+
+
+
+<!-- EXPERIENCE LIGHTBOX -->
+
+<div class="experience-modal" id="experienceModal">
+
+
+<div class="modal-box">
+
+
+<span class="close-btn" onclick="closeExperience()">
+×
+</span>
+
+
+<h2>
+Data Analyst Student Intern
+</h2>
+
+
+<h4>
+    <a href="https://www.qisacademy.com/course/data-analytics-course-in-kerala" target="_blank">
+        Quest Innovative Solutions Pvt Ltd
+    </a>
+</h4>
+
+
+<p>
+Duration : 2026 - Present
+</p>
+
+
+<p>
+Worked on data cleaning, data analysis and dashboard
+creation. Used Python, SQL, Excel and Power BI to analyze
+datasets and generate meaningful insights.
+</p>
+
+
+<div class="modal-tags">
+
+<span>Python</span>
+<span>SQL</span>
+<span>Power BI</span>
+<span>Excel</span>
+<span>Tableau</span>
+</div>
+
+
+</div>
+
+
+</div>
+
+<style>/* EXPERIENCE */
+
+.experience{
+
+    margin-top:50px;
+
+}
+
+
+
+.experience-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px;
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+}
+
+
+
+.experience-item h3{
+
+    margin:0;
+
+    font-size:20px;
+
+}
+
+
+
+.experience-item p{
+
+    margin:5px 0 0;
+
+    opacity:.7;
+
+}
+
+
+
+.experience-item button{
+
+    padding:10px 22px;
+
+    border-radius:25px;
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+
+
+.experience-item button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+
+/* LIGHTBOX */
+
+
+.experience-modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    backdrop-filter:blur(8px);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+
+
+.modal-box{
+
+    width:90%;
+
+    max-width:600px;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:var(--bg);
+
+    border:1px solid var(--border);
+
+    animation:popup .3s ease;
+
+}
+
+
+
+@keyframes popup{
+
+from{
+
+transform:scale(.8);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+
+
+.close-btn{
+
+    float:right;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+}
+
+
+
+.modal-box h4{
+
+    color:#2563eb;
+
+}
+
+
+
+.modal-tags{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.modal-tags span{
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    border:1px solid var(--border);
+
+    font-size:13px;
+
+}</style>
+
+<script>function openExperience(){
+
+    document.getElementById("experienceModal").style.display="flex";
+
+}
+
+
+
+function closeExperience(){
+
+    document.getElementById("experienceModal").style.display="none";
+
+}</script>
 
 
 
