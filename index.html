@@ -4288,106 +4288,41 @@ Send Message →
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
 
-
 emailjs.init("VA7DtM9ZrweSCuvuf");
 
+const form = document.getElementById("contactForm");
 
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-document
-.getElementById("contactForm")
-.addEventListener("submit", function(e){
+    const params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value
+    };
 
+    emailjs.send("service_1o2zy6h", "template_z2y4rvi", params)
+        .then(() => {
 
-e.preventDefault();
+            alert("Message sent successfully!");
 
+            form.reset();
 
+        })
+        .catch((error) => {
 
-let params = {
+            console.log("EMAILJS ERROR:", error);
 
+            alert("Failed to send message");
 
-name:
-document.getElementById("name").value,
-
-
-email:
-document.getElementById("email").value,
-
-
-subject:
-document.getElementById("subject").value,
-
-
-message:
-document.getElementById("message").value
-
-
-};
-
-
-
-
-
-emailjs.send(
-
-"service_1o2zy6h",
-
-"template_z2y4rvi",
-
-params
-
-)
-
-
-
-.then(function(response){
-
-
-alert("Message sent successfully!");
-
-
-
-document
-.getElementById("contactForm")
-.reset();
-
-
-
-console.log(
-"SUCCESS",
-response
-);
-
-
-
-})
-
-
-
-.catch(function(error){
-
-
-console.log(
-"EMAILJS ERROR:",
-error
-);
-
-
-
-alert(
-"Failed to send message. Please try again."
-);
-
-
+        });
 
 });
-
-
-
-});
-
 
 </script>
 
