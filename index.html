@@ -1850,34 +1850,30 @@ datasets and generate meaningful insights.
 
 }
 
-
-
 .experience-item button{
-
-    padding:10px 22px;
-
-    border-radius:25px;
-
-    border:none;
-
-    background:#2563eb;
-
-    color:white;
-
+    padding:12px 24px;
+    border-radius:12px;
+    border:2px solid #ffffff;
+    background:#050607;
+    color:#ffffff !important;
     font-weight:700;
-
     cursor:pointer;
-
+    transition:0.3s ease;
 }
-
-
 
 .experience-item button:hover{
-
-    transform:translateY(-3px);
-
+    background:#ffffff;
+    color:#050607 !important;
+    border-color:#050607;
 }
 
+/* Light mode fix */
+body.light .experience-item button,
+.light-mode .experience-item button{
+    background:#050607;
+    color:#ffffff !important;
+    border-color:#ffffff;
+}
 
 
 /* LIGHTBOX */
@@ -2747,7 +2743,7 @@ CSS
           <!-- data-category="da" → Data Analytics -->
           <button class="folio-item"
             data-category="da"
-            data-images="assets/ipl_Dashboard.png"
+            data-images="assets/ipl_Dashboard.png,assets/ipl_Dashboard.png"
             data-lightbox="assets/ipl_Dashboard.png"
             data-link="https://github.com/Abhinand2502/IPL-Analysis-2008-2025-"
             data-title="IPL Analysis 2008-2025"
@@ -2762,7 +2758,7 @@ CSS
           <!-- data-category="da" → Data Analytics -->
           <button class="folio-item"
             data-category="da"
-            data-images="assets/Dashboard.png"
+            data-images="assets/Dashboard.png,assets/Dashboard.png"
             data-lightbox="assets/Dashboard.png"
             data-link="https://github.com/Abhinand2502/Customer_Behavior_Analysis"
             data-title="Customer_Behavior_Analysis"
@@ -3374,361 +3370,1110 @@ CSS
 <hr class="section-divider">
 
 
-<!-- ===== MODERN GLASS CONTACT SECTION (Full Code) ===== -->
 <section id="contact" aria-label="Contact">
-  <h1 id="projectsTitle2" class="anim">CONTACT</h1>
-<style>/* Title */
-#projectsTitle2 {
-  font-size: clamp(28px, 3.8vw, 40px);
-  font-weight: 900;
-  text-align: center;
-  letter-spacing: -0.02em;
-  color: var(--projects-text);
-  position: relative;
-  transform: translateY(-1cm); /* 👈 Moves title down without moving other elements */
-}
-/* 📱 Mobile override */
-@media (max-width: 600px) {
-  #projectsTitle2 {
-    transform: translateY(0.1cm); /* Move DOWN 1cm on small screens */
-  }
-}
-/* Blue-white gradient underline */
-#projectsTitle2::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-  transform: translateX(-50%);
-  width: 140px; /* underline length */
-  height: 3px;
-  border-radius: 3px;
 
-  background: linear-gradient(90deg, #ffffff, #2a7cf1, #ffffff);
-  box-shadow: 0 0 8px rgba(42,124,241,0.6);
+
+
+
+<style>
+
+/* TITLE */
+
+#projectsTitle2{
+
+font-size:clamp(28px,3.8vw,40px);
+font-weight:900;
+text-align:center;
+letter-spacing:-0.02em;
+
+color:var(--projects-text);
+
+position:relative;
+
+margin-bottom:60px;
+
 }
 
-/* Dark mode color */
-[data-theme="dark"] #projectsTitle2 {
-  color: #e8e8e8; /* white-grey mix */
+
+
+#projectsTitle2::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+bottom:-8px;
+
+transform:translateX(-50%);
+
+width:120px;
+
+height:3px;
+
+border-radius:5px;
+
+background:
+linear-gradient(
+90deg,
+white,
+#287cff,
+white
+);
+
 }
+
+
+
+/* CONTACT SECTION */
+
+
+#contact{
+
+--contact-bg:#000;
+--contact-text:#fff;
+--contact-muted:rgba(255,255,255,.65);
+--contact-card:rgba(255,255,255,.05);
+--contact-border:rgba(255,255,255,.14);
+
+
+background:var(--contact-bg);
+
+color:var(--contact-text);
+
+padding:80px 7%;
+
+transition:.3s;
+
+}
+
+
+
+
+/* LIGHT MODE */
+
+
+html[data-theme="light"] #contact{
+
+
+--contact-bg:#fff;
+
+--contact-text:#111827;
+
+--contact-muted:#555;
+
+--contact-card:#f7f7f7;
+
+--contact-border:rgba(0,0,0,.12);
+
+
+}
+
+
+
+
+/* MAIN CONTACT CONTAINER */
+
+#contact .contact-container{
+
+max-width:1200px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+align-items:center;
+
+}
+
+
+
+/* CONTACT SECTION HEIGHT REDUCE */
+
+#contact{
+
+padding:50px 7%;
+
+}
+
+
+
+/* LEFT CONTENT */
+
+
+#contact .contact-heading{
+
+font-size:clamp(38px,5vw,55px);
+
+line-height:1.05;
+
+margin:10px 0;
+
+font-weight:900;
+
+}
+
+
+
+#contact .contact-desc{
+
+font-size:17px;
+
+line-height:1.6;
+
+max-width:430px;
+
+margin-bottom:20px;
+
+}
+
+
+
+/* CONTACT DETAILS */
+
+
+#contact .contact-list{
+
+margin-top:20px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+
+
+#contact .contact-item{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+
+
+#contact .contact-icon{
+
+width:48px;
+
+height:48px;
+
+font-size:18px;
+
+}
+
+
+
+
+
+/* SOCIAL ICONS */
+
+
+#contact .socials{
+
+margin-top:22px;
+
+gap:12px;
+
+}
+
+
+
+#contact .socials a{
+
+width:46px;
+
+height:46px;
+
+font-size:20px;
+
+}
+
+
+
+
+
+/* FORM CARD */
+
+
+#contact .contact-card{
+
+padding:25px;
+
+border-radius:20px;
+
+}
+
+
+
+
+
+/* INPUTS */
+
+
+#contact .input-group{
+
+margin-bottom:14px;
+
+}
+
+
+
+#contact input,
+#contact textarea{
+
+padding:12px 14px;
+
+border-radius:12px;
+
+}
+
+
+
+/* MESSAGE BOX SMALLER */
+
+
+#contact textarea{
+
+height:90px;
+
+resize:none;
+
+}
+
+
+
+/* BUTTON */
+
+
+#contact button{
+
+padding:14px;
+
+border-radius:12px;
+
+}
+
+
+
+
+
+/* FOOTER */
+
+
+#contact .contact-footer{
+
+margin-top:35px;
+
+padding-top:15px;
+
+}
+
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:850px){
+
+
+#contact{
+
+padding:45px 20px;
+
+}
+
+
+
+#contact .contact-container{
+
+grid-template-columns:1fr;
+
+gap:35px;
+
+}
+
+
+
+#contact .contact-heading{
+
+font-size:40px;
+
+}
+
+
+
+#contact .contact-card{
+
+padding:22px;
+
+}
+
+
+
+#contact textarea{
+
+height:100px;
+
+}
+
+
+
+#contact .socials{
+
+justify-content:center;
+
+}
+
+
+}
+
+
+/* LEFT */
+
+
+#contact .contact-label{
+
+
+color:#6d7cff;
+
+font-size:14px;
+
+letter-spacing:2px;
+
+font-weight:700;
+
+}
+
+
+
+#contact .contact-heading{
+
+
+font-size:clamp(38px,5vw,60px);
+
+line-height:1;
+
+margin:20px 0;
+
+
+font-weight:900;
+
+
+}
+
+
+
+#contact .contact-heading span{
+
+
+background:
+
+linear-gradient(
+90deg,
+#6b5cff,
+#267cff
+);
+
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+
+}
+
+
+
+#contact .contact-desc{
+
+
+font-size:18px;
+
+line-height:1.7;
+
+color:var(--contact-muted);
+
+max-width:450px;
+
+
+}
+
+
+
+/* INFO */
+
+
+#contact .contact-list{
+
+
+margin-top:35px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+
+}
+
+
+
+#contact .contact-item{
+
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+
+}
+
+
+
+#contact .contact-icon{
+
+
+width:50px;
+
+height:50px;
+
+display:grid;
+
+place-items:center;
+
+
+border-radius:50%;
+
+
+background:var(--contact-card);
+
+border:1px solid var(--contact-border);
+
+
+font-size:20px;
+
+
+}
+
+
+
+#contact .contact-item small{
+
+
+display:block;
+
+color:#888;
+
+font-size:12px;
+
+}
+
+
+
+#contact .contact-item a{
+
+
+color:var(--contact-text);
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+
+
+
+/* RIGHT CARD */
+
+
+#contact .contact-card{
+
+
+background:var(--contact-card);
+
+
+border:1px solid var(--contact-border);
+
+
+padding:35px;
+
+
+border-radius:22px;
+
+
+}
+
+
+
+#contact .input-group{
+
+
+margin-bottom:20px;
+
+
+}
+
+
+
+#contact label{
+
+
+display:block;
+
+font-size:13px;
+
+margin-bottom:8px;
+
+color:#888;
+
+
+}
+
+
+
+#contact input,
+#contact textarea{
+
+
+width:100%;
+
+padding:15px;
+
+
+border-radius:12px;
+
+
+border:1px solid var(--contact-border);
+
+
+background:transparent;
+
+
+color:var(--contact-text);
+
+
+outline:none;
+
+
+font-size:15px;
+
+
+}
+
+
+
+#contact textarea{
+
+
+height:130px;
+
+resize:none;
+
+
+}
+
+
+
+#contact button{
+
+
+width:100%;
+
+
+padding:16px;
+
+
+border:none;
+
+
+border-radius:12px;
+
+
+cursor:pointer;
+
+
+font-size:16px;
+
+font-weight:800;
+
+
+color:white;
+
+
+background:
+
+linear-gradient(
+90deg,
+#695cff,
+#287cff
+);
+
+
+transition:.3s;
+
+
+}
+
+
+
+#contact button:hover{
+
+
+transform:translateY(-3px);
+
+
+}
+
+
+
+/* MOBILE */
+
+
+@media(max-width:850px){
+
+
+#contact{
+
+padding:60px 20px;
+
+}
+
+
+
+#contact .contact-container{
+
+
+grid-template-columns:1fr;
+
+
+gap:40px;
+
+
+}
+
+
+
+#contact .contact-card{
+
+
+padding:25px;
+
+
+}
+
+
+
+}
+
+
 
 </style>
-  <style>
-    /* scoped variables: only apply inside #contact (do NOT use :root here) */
-    #contact{
-      --bg-dark: #000000;               /* pure black fallback for dark */
-      --bg-light: #ffffff;             /* pure white fallback for light */
-      --text: #ffffff;
-      --muted: rgba(255,255,255,0.62);
-      --link-color: #7aa2ff;
 
-      --glass-dark: rgba(255,255,255,0.05);
-      --glass-border-dark: rgba(255,255,255,0.12);
-      --glass-light: rgba(11,16,32,0.05);
-      --glass-border-light: rgba(11,16,32,0.10);
 
-      --icon-color: #ffffff;
-      --icon-bg-dark: rgba(255,255,255,0.08);
-      --icon-bg-light: rgba(0,0,0,0.08);
 
-      padding: clamp(70px, 10vh, 140px) 18px;
+<div class="contact-container">
 
-      /* default: dark-mode background (pure black) */
-      background: var(--bg-dark);
-      color: var(--text);
-    }
 
-    /* force pure white background for the contact SECTION in light theme */
-    html[data-theme="light"] #contact{
-      background: var(--bg-light); /* pure white */
-      --text: #0b1020;
-      --muted: rgba(11,16,32,0.6);
-      --link-color: #0b61ff;
-      --icon-color: #0b1020;
-    }
-/* contact box (glass panel) */
-#contact .contact-box{
-  width: 95%;
-  min-height: 550px;
-  margin: 0 auto;
-  text-align: center;
-  padding: clamp(36px, 4vw, 60px);
-  border-radius: 24px;
-  background: var(--glass-dark);
-  backdrop-filter: blur(20px) saturate(120%);
-  -webkit-backdrop-filter: blur(20px) saturate(120%);
-  border: 1px solid var(--glass-border-dark);
-  box-shadow: 0 10px 50px rgba(2,6,23,0.45);
-  transition: .25s ease;
+<!-- CONTACT LEFT SECTION -->
 
-  /* 🔥 Add this */
-  margin-top: -2cm;
-}
+<div class="contact-left">
 
-    /* in light theme, the glass panel becomes lighter (still sits on pure white background) */
-    html[data-theme="light"] #contact .contact-box{
-      background: var(--glass-light);
-      border: 1px solid var(--glass-border-light);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.10);
-    }
+    <div class="contact-label">
+        LET'S CONNECT
+    </div>
 
-    #contact .contact-box:hover{
-      transform: translateY(-5px);
-      box-shadow: 0 18px 60px rgba(2,6,23,0.28);
-    }
 
-    #contact .contact-text{
-      font-size: clamp(15px, 2vw, 20px);
-      color: var(--muted);
-      margin-bottom: 30px;
-      max-width: 70ch;
-      margin-inline: auto;
-      line-height: 1.6;
-    }
+    <h2 class="contact-heading">
+        Get In
+        <span>Touch</span>
+    </h2>
 
-    /* social row */
-    #contact .contact-social{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap: 22px;
-      margin-bottom: 30px;
-      /* allow a bit of horizontal snap/scroll on very small screens */
-      scroll-snap-type: x proximity;
-    }
 
-    /* each icon button */
-    #contact .icon-btn{
-      width: 82px;
-      height: 82px;
-      display:grid;
-      place-items:center;
-      border-radius:18px;
-      background: var(--icon-bg-dark);
-      border:1px solid rgba(255,255,255,0.12);
-      transition:.25s ease;
-      scroll-snap-align: center;
-      flex: 0 0 auto; /* prevent shrinking so we can control wrapping on mobile */
-    }
-    html[data-theme="light"] #contact .icon-btn{
-      background: var(--icon-bg-light);
-      border: 1px solid rgba(0,0,0,0.10);
-    }
-
-    #contact .icon-btn:hover{
-      transform: translateY(-6px) scale(1.05);
-      border-color: var(--link-color);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
-    }
-
-    #contact .icon-btn img{
-      width: 36px;
-      height: 36px;
-      filter: brightness(0) invert(1);
-      transition:.25s;
-    }
-    html[data-theme="light"] #contact .icon-btn img{
-      filter:none;
-    }
-
-    #contact .contact-details{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:18px;
-      margin-top: 20px;
-    }
-
-    /* details (address/phone) */
-    #contact .detail{
-      min-width:280px;
-      padding:18px 22px;
-      display:flex;
-      align-items:center;
-      gap:14px;
-      background: transparent;
-      border-radius:18px;
-      backdrop-filter: blur(8px);
-      border:1px solid rgba(255,255,255,0.12);
-    }
-    html[data-theme="light"] #contact .detail{
-      border:1px solid rgba(0,0,0,0.12);
-    }
-
-    /* big crisp svg icons */
-    #contact .detail-icon{
-      width: 36px;
-      height: 36px;
-      display:grid;
-      place-items:center;
-      color: var(--icon-color);
-      flex-shrink:0;
-    }
-    #contact .detail-icon svg{
-      width:100%;
-      height:100%;
-      fill: currentColor;
-      display:block;
-    }
-
-    /* keep small label on top */
-    #contact .small{ font-size:13px; color: var(--muted); display:block; margin-bottom:4px; }
-    #contact .detail a{ color: var(--link-color); font-weight:700; text-decoration:none; }
-    #contact .detail a:hover{ text-decoration:underline; }
-
-    #contact footer.contact-footer{
-      text-align:center;
-      margin-top:40px;
-      padding: 18px;
-      color: var(--muted);
-      border-top:1px solid rgba(255,255,255,0.16);
-      font-size:14px;
-      background:transparent;
-    }
-    html[data-theme="light"] #contact footer.contact-footer{
-      border-top:1px solid rgba(0,0,0,0.12);
-    }
-
-    /* small screens */
-    @media(max-width:560px){
-      /* make social icons sit in a single horizontal row, scale with screen */
-      #contact .contact-social{
-        flex-wrap: nowrap;             /* single line */
-        gap: 14px;
-        padding-bottom: 6px;
-        margin-bottom: 18px;
-        overflow-x: auto;              /* allow horizontal scroll on tiny screens */
-        -webkit-overflow-scrolling: touch;
-        justify-content: center;
-      }
-
-      /* scale icons responsively */
-      #contact .icon-btn{
-        width: clamp(56px, 16vw, 72px);
-        height: clamp(56px, 16vw, 72px);
-        border-radius: 14px;
-      }
-      #contact .icon-btn img{
-        width: clamp(22px, 8vw, 34px);
-        height: clamp(22px, 8vw, 34px);
-      }
-
-      /* text & layout tweaks for mobile */
-      #contact .contact-text{
-        font-size: clamp(14px, 3.6vw, 18px);
-        margin-bottom: 20px;
-      }
-
-      /* ensure details stack nicely and center on small screen */
-      #contact .detail{
-        min-width: 100%;
-        justify-content: center;
-        text-align: center;
-        flex-direction: column;      /* stack icon + text vertically */
-        gap: 8px;
-        padding: 14px;
-      }
-      #contact .detail-icon{ width:36px; height:36px; }
-
-      /* reduce top overlap for smaller screens so title/box don't collide */
-      #contact .contact-box{
-        margin-top: -1cm;
-        padding: clamp(22px, 6vw, 36px);
-      }
-    }
-  </style>
-
-  <div class="contact-box">
-    <p class="contact-text">
-     Let's connect! Feel free to reach out through any platform below.
+    <p class="contact-desc">
+        Have a project idea, collaboration opportunity, or just want to say hello?
+        I would love to hear from you. Let's create something amazing together.
     </p>
 
-    <div class="contact-social">
-      <!-- Gmail web link remains as default (browser). Mobile JavaScript below replaces href with mailto: on mobile devices so the email app opens -->
-      <a class="icon-btn"
-         href="https://mail.google.com/mail/?view=cm&fs=1&to=abhinandbabu2502@gmail.com&su=Opportunity%20Inquiry%20from%20Portfolio&body=Hello%20Abhinand%20Babu,%0D%0A%0D%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20a%20potential%20opportunity.%20I%20would%20appreciate%20the%20chance%20to%20discuss%20more%20about%20your%20skills%20and%20experience.%0D%0A%0D%0AThanks%20and%20Regards,%0D%0A%5BYour%20Name%5D%0D%0A%5BCompany%2FOrganization%5D%0D%0A%5BContact%20Number%5D"
-         aria-label="Send email">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail">
-      </a>
 
-      <a class="icon-btn" href="https://github.com/Abhinand2502" target="_blank" rel="noopener">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-      </a>
-      <a class="icon-btn" href="https://www.linkedin.com/in/abhinand-babu-153b66324/" target="_blank" rel="noopener">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
-      </a>
-      <a class="icon-btn" href="https://www.instagram.com/_abhinand_babu/" target="_blank" rel="noopener">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
-      </a>
+
+    <div class="contact-list">
+
+
+        <!-- EMAIL -->
+        <div class="contact-item">
+
+            <div class="contact-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+
+            <div class="contact-info">
+
+                <small>EMAIL</small>
+
+                <a href="mailto:abhinandbabu2502@gmail.com">
+                    abhinandbabu2502@gmail.com
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PHONE -->
+        <div class="contact-item">
+
+            <div class="contact-icon">
+                <i class="fa-solid fa-phone"></i>
+            </div>
+
+
+            <div class="contact-info">
+
+                <small>PHONE</small>
+
+                <a href="tel:+917306522316">
+                    +91 7306522316
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- LOCATION -->
+        <div class="contact-item">
+
+            <div class="contact-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+
+            <div class="contact-info">
+
+                <small>LOCATION</small>
+
+                <p>
+                    Kerala, India
+                </p>
+
+            </div>
+
+        </div>
+
+
     </div>
 
-    <div class="contact-details">
-      <div class="detail">
-        <span class="detail-icon" aria-hidden="true">
-          <!-- map pin modern SVG -->
-          <svg viewBox="0 0 24 24"><path d="M12 2c-3.9 0-7 3.13-7 7 0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.1-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
-        </span>
-        <div><span class="small">Address</span>Thodupuzha, Idukki District, Kerala, India – 685583</div>
-      </div>
 
-      <div class="detail">
-        <span class="detail-icon" aria-hidden="true">
-          <!-- phone modern SVG -->
-          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15 15 0 006.59 6.59l2.2-2.2c.3-.3.7-.4 1.06-.2a12 12 0 003.57.7c.5 0 .96.46.96.96V20c0 .55-.45 1-1 1C9.16 21 3 14.84 3 7c0-.55.45-1 1-1h3.5c.5 0 .96.46.96.96 0 1.25.24 2.47.7 3.6.1.36 0 .75-.2 1.05l-2.36 2.18z"/></svg>
-        </span>
-        <div><span class="small">Phone</span><a href="tel:+917306522316">+91 7306522316</a></div>
-      </div>
-    </div>
-  </div>
+</div>
 
-  <footer class="contact-footer">
-    © <span id="year"></span> Abhinand Babu — All rights reserved
-  </footer>
 
-  <script>
-    // Set year
-    document.getElementById("year").textContent = new Date().getFullYear();
+<!-- RIGHT CONTACT FORM -->
 
-    // Switch mail link behavior: mobile -> mailto: (open app), desktop -> keep Gmail web
-    (function(){
-      try {
-        const mailAnchor = document.querySelector('.contact-social .icon-btn img[alt="Gmail"]')?.closest('a');
-        if(!mailAnchor) return;
+<div class="contact-card">
 
-        // mailto version (URL-encoded)
-        const mailto = "mailto:abhinandbabu2502@gmail.com"
-          + "?subject=Opportunity%20Inquiry%20from%20Portfolio"
-          + "&body=Hello%20Abhinand%20Babu,%0D%0A%0D%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20a%20potential%20opportunity.%20I%20would%20appreciate%20the%20chance%20to%20discuss%20more%20about%20your%20skills%20and%20experience.%0D%0A%0D%0AThanks%20and%20Regards,%0D%0A%5BYour%20Name%5D%0D%0A%5BCompany%2FOrganization%5D%0D%0A%5BContact%20Number%5D";
 
-        // default (existing href) is Gmail web (keeps whatever href you already have)
-        const webHref = mailAnchor.getAttribute('href');
+<form id="contactForm">
 
-        // simple mobile detection
-        const isMobile = /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent)
-                       || (navigator.maxTouchPoints && navigator.maxTouchPoints > 1 && /Mac|Windows|Linux/i.test(navigator.platform) === false);
 
-        if(isMobile){
-          // On mobile prefer mailto: which opens the email app
-          mailAnchor.setAttribute('href', mailto);
-        } else {
-          // On desktop keep Gmail web (or existing href) so it opens in browser
-          mailAnchor.setAttribute('href', webHref || mailto);
-        }
+<div class="input-group">
 
-        // Optional: ensure link uses target _blank on web (safer to open new tab)
-        if(!isMobile){
-          mailAnchor.setAttribute('target','_blank');
-          mailAnchor.setAttribute('rel','noopener');
-        }
-      } catch (e) {
-        // fail silently if something goes wrong; link remains usable
-        console.error(e);
-      }
-    })();
-  </script>
+<label>
+NAME
+</label>
+
+<input 
+type="text"
+id="name"
+placeholder="Your name"
+required>
+
+</div>
+
+
+
+
+<div class="input-group">
+
+<label>
+EMAIL
+</label>
+
+<input 
+type="email"
+id="email"
+placeholder="Your email"
+required>
+
+</div>
+
+
+
+
+
+<div class="input-group">
+
+<label>
+SUBJECT
+</label>
+
+<input 
+type="text"
+id="subject"
+placeholder="Subject"
+required>
+
+</div>
+
+
+
+
+
+<div class="input-group">
+
+<label>
+MESSAGE
+</label>
+
+<textarea
+id="message"
+placeholder="Write your message..."
+required></textarea>
+
+</div>
+
+
+
+
+
+<button type="submit">
+
+Send Message →
+
+</button>
+
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+document
+.getElementById("contactForm")
+.addEventListener("submit",function(e){
+
+
+e.preventDefault();
+
+
+
+let name =
+document.getElementById("name").value;
+
+
+let email =
+document.getElementById("email").value;
+
+
+let subject =
+document.getElementById("subject").value;
+
+
+let message =
+document.getElementById("message").value;
+
+
+
+let mailBody =
+
+"Hello Abhinand Babu,%0A%0A"
+
++
+
+"Name: "
++name
+
++
+
+"%0AEmail: "
++email
+
++
+
+"%0A%0AMessage:%0A"
+
++
+
+message;
+
+
+
+
+let gmailURL =
+
+"mailto:abhinandbabu2502@gmail.com"
+
++
+
+"?subject="
+
++
+
+encodeURIComponent(subject)
+
++
+
+"&body="
+
++
+
+encodeURIComponent(mailBody);
+
+
+
+window.location.href=gmailURL;
+
+
+
+});
+
+
+</script>
+
+
+
+
+<footer class="contact-footer">
+
+
+<style>
+
+.contact-footer{
+
+margin-top:50px;
+
+padding-top:20px;
+
+text-align:center;
+
+font-size:14px;
+
+color:var(--contact-muted);
+
+border-top:1px solid var(--contact-border);
+
+}
+
+
+</style>
+
+
+© <span id="year"></span> Abhinand Babu — All rights reserved
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+
+emailjs.init("VA7DtM9ZrweSCuvuf");
+
+
+document
+.getElementById("contactForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+
+    let params = {
+
+        name: document.getElementById("name").value,
+
+        email: document.getElementById("email").value,
+
+        subject: document.getElementById("subject").value,
+
+        message: document.getElementById("message").value
+
+    };
+
+
+    emailjs.send(
+        "service_1o2zy6h",
+        "template_z2y4rvi",
+        params
+    )
+
+    .then(function(response){
+
+        alert("Message sent successfully!");
+
+        document
+        .getElementById("contactForm")
+        .reset();
+
+        console.log("SUCCESS", response);
+
+    })
+
+
+    .catch(function(error){
+
+        console.log("EMAILJS ERROR:", error);
+
+        alert(
+          "Failed to send message. Check console."
+        );
+
+    });
+
+
+});
+
+</script>
+</footer>
+
+
+
+<script>
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+</script>
+
+
+
 </section>
-
 
   <script>
     // Initialize year
